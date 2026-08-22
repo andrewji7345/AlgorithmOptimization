@@ -1,0 +1,13 @@
+19-Aug-2026 23:10:53 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root
+
+
+A fatal system signal has occurred: segmentation violation
+The following is the call stack containing the origin of the signal.
+
+
+Current Modules:
+
+Module: none (crashed)
+
+A fatal system signal has occurred: segmentation violation
+/srv/run_ntuplizer_scan_pt_ak_ca_th.sh: line 66:   624 Segmentation fault      (core dumped) cmsRun "${cfg_path}" inputRootFiles="${input_list}" jetPtCut="${pt}" akRadius="${ak}" caRadius="${ca}" cosThrust="${th}" outputRootFile="${output_name}"

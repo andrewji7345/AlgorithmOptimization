@@ -1,0 +1,10 @@
+20-Aug-2026 02:08:21 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-6200_MChi-1950_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/110000/07168F44-A985-BE47-9534-1AEC32F2DC40.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 02:08:22 UTC pre-events
+Opened a file at URL root://cmsstor372.fnal.gov:25039//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-6200_MChi-1950_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/110000/07168F44-A985-BE47-9534-1AEC32F2DC40.root?org.dcache.uuid=0b2b232c-c6ae-4c81-af0b-bbdcb84975e4&org.dcache.xrootd.client=aji.625@cmswn2213.fnal.gov&xrd.logintoken=org.dcache.door=2620:6a:0:8420:0:0:0:101:1095&xrdcl.requuid=060b2de5-8ca8-4a20-aa07-28c1af9e9f4d
+%MSG
+20-Aug-2026 02:08:24 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-6200_MChi-1950_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/110000/07168F44-A985-BE47-9534-1AEC32F2DC40.root
+Begin processing the 1st record. Run 1, Event 9007, LumiSection 10 on stream 0 at 20-Aug-2026 02:08:25.059 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 02:08:57 UTC pre-events
+Opened a file at URL root://cmsstor423.fnal.gov:23106//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-6200_MChi-1950_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/110000/07168F44-A985-BE47-9534-1AEC32F2DC40.root?org.dcache.uuid=9fc493aa-27c6-473e-b818-8a2abb6cee9f&org.dcache.xrootd.client=aji.625@cmswn2213.fnal.gov&tried=cmsxrootd-site1.fnal.gov&triedrc=resel&xrd.logintoken=org.dcache.door=2620:6a:0:8420:0:0:0:101:1095&xrdcl.requuid=6c8cfb05-6a15-420a-89ef-55a6bd7a2d8f
+%MSG
+20-Aug-2026 02:09:42 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-6200_MChi-1950_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/110000/07168F44-A985-BE47-9534-1AEC32F2DC40.root

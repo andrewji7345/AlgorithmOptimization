@@ -1,0 +1,10 @@
+19-Aug-2026 22:44:32 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/12336D4E-4C57-BB49-A8DF-620717523595.root
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 22:44:34 UTC pre-events
+Opened a file at URL root://cmsstor411.fnal.gov:32110//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/12336D4E-4C57-BB49-A8DF-620717523595.root?org.dcache.uuid=87529b29-ddc6-4b8e-9cd2-dba15a33752f&org.dcache.xrootd.client=aji.625@cmswn2228.fnal.gov&xrd.logintoken=org.dcache.door=2620:6a:0:8420:0:0:0:101:1095&xrdcl.requuid=ad31de04-149c-4b73-98e0-f25f39294634
+%MSG
+19-Aug-2026 22:44:35 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/12336D4E-4C57-BB49-A8DF-620717523595.root
+Begin processing the 1st record. Run 1, Event 48014, LumiSection 49 on stream 0 at 19-Aug-2026 22:44:36.635 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:45:07 UTC pre-events
+Opened a file at URL root://cmsstor345.fnal.gov:17623//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/12336D4E-4C57-BB49-A8DF-620717523595.root?org.dcache.uuid=b3e49f5b-c4b5-4177-acc5-8a4e211f32ad&org.dcache.xrootd.client=aji.625@cmswn2228.fnal.gov&tried=cmsxrootd-site1.fnal.gov&triedrc=resel&xrd.logintoken=org.dcache.door=2620:6a:0:8420:0:0:0:101:1095&xrdcl.requuid=a777f1a5-6150-40b1-abfa-babddf311dbc
+%MSG
+19-Aug-2026 22:45:50 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/12336D4E-4C57-BB49-A8DF-620717523595.root

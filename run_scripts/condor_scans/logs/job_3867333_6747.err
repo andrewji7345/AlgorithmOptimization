@@ -1,0 +1,10 @@
+20-Aug-2026 01:23:10 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/5734DEE6-8D26-704A-BFA9-E8976034C7F0.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 01:23:11 UTC pre-events
+Opened a file at URL root://cmsstor917.fnal.gov:32738//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/5734DEE6-8D26-704A-BFA9-E8976034C7F0.root?org.dcache.uuid=4def00d4-bce9-40f3-a885-113aad22a8fb&org.dcache.xrootd.client=aji.625@cmswn2252.fnal.gov&xrd.logintoken=org.dcache.door=2620:6a:0:8420:0:0:0:101:1095&xrdcl.requuid=4b49f566-4fd9-40f5-bbac-7d3a92a3da4b
+%MSG
+20-Aug-2026 01:23:13 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/5734DEE6-8D26-704A-BFA9-E8976034C7F0.root
+Begin processing the 1st record. Run 1, Event 56013, LumiSection 57 on stream 0 at 20-Aug-2026 01:23:13.713 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 01:23:45 UTC pre-events
+Opened a file at URL root://cmsstor101.fnal.gov:28638//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/5734DEE6-8D26-704A-BFA9-E8976034C7F0.root?org.dcache.uuid=bd28b7e4-0be1-4105-9873-e95ed9c563d7&org.dcache.xrootd.client=aji.625@cmswn2252.fnal.gov&tried=cmsxrootd-site2.fnal.gov&triedrc=resel&xrd.logintoken=org.dcache.door=2620:6a:0:8420:0:0:0:101:1095&xrdcl.requuid=ae568eb5-2a3d-4ee4-a021-bdad3cd7d726
+%MSG
+20-Aug-2026 01:24:18 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/5734DEE6-8D26-704A-BFA9-E8976034C7F0.root

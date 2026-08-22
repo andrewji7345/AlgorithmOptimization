@@ -1,0 +1,16 @@
+20-Aug-2026 00:38:30 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 00:38:38 UTC pre-events
+Opened a file at URL root://dc066.pic.es:21128//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root?org.dcache.uuid=7c481012-0396-42ad-91a8-6d127441ff3c&org.dcache.xrootd.client=aji.625@cmswn2220.fnal.gov&tried=+1213cmsxrootd2.fnal.gov&xrd.logintoken=org.dcache.door=2001:67c:1148:201:0:0:0:13:1094&xrdcl.requuid=97f7f124-935b-4bb7-8f15-d8ca537fbab4
+%MSG
+20-Aug-2026 00:38:40 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 00:38:45 UTC pre-events
+Opened a file at URL root://dc066.pic.es:21128//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root?org.dcache.uuid=5e6f6dda-3088-4ad0-b1be-2509dbf11de2&org.dcache.xrootd.client=aji.625@cmswn2220.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,xrootd01-cmst1.pic.es&triedrc=resel&xrd.logintoken=org.dcache.door=2001:67c:1148:201:0:0:0:13:1094&xrdcl.requuid=d3360629-9e2f-4f7a-b38e-3f099f19846e
+%MSG
+Begin processing the 1st record. Run 1, Event 6005, LumiSection 7 on stream 0 at 20-Aug-2026 00:38:45.230 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 00:39:17 UTC pre-events
+Opened a file at URL root://dc066.pic.es:21128//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root?org.dcache.uuid=3e6f9cb8-f2e9-48a1-9d3e-51161a5c38e7&org.dcache.xrootd.client=aji.625@cmswn2220.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,xrootd01-cmst1.pic.es&triedrc=resel&xrd.logintoken=org.dcache.door=2001:67c:1148:201:0:0:0:13:1094&xrdcl.requuid=ed8504f3-3b2f-4147-9920-14896a0faed2
+%MSG
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 00:39:53 UTC pre-events
+Opened a file at URL root://dc066.pic.es:21128//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root?org.dcache.uuid=0ad05d46-3290-48b6-a2fa-791ac727de24&org.dcache.xrootd.client=aji.625@cmswn2220.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,xrootd01-cmst1.pic.es&triedrc=resel&xrd.logintoken=org.dcache.door=2001:67c:1148:201:0:0:0:13:1094&xrdcl.requuid=7f5dc68d-253c-4763-a8a1-b672a3320ccd
+%MSG
+20-Aug-2026 00:39:54 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root

@@ -1,0 +1,16 @@
+20-Aug-2026 00:06:48 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/1450B034-334D-4249-95BD-5DE7DA29679A.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 00:06:50 UTC pre-events
+Opened a file at URL root://g34n06.hep.wisc.edu:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/1450B034-334D-4249-95BD-5DE7DA29679A.root?xrdcl.requuid=2e16e584-41de-463e-ae69-f81d3ffe42db
+%MSG
+20-Aug-2026 00:06:52 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/1450B034-334D-4249-95BD-5DE7DA29679A.root
+Begin processing the 1st record. Run 1, Event 22011, LumiSection 23 on stream 0 at 20-Aug-2026 00:06:54.608 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 00:07:25 UTC pre-events
+Opened a file at URL root://g39n06.hep.wisc.edu:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/1450B034-334D-4249-95BD-5DE7DA29679A.root?tried=g34n06.hep.wisc.edu&triedrc=resel&xrdcl.requuid=f0550022-e552-42e2-9758-aca5a0457755
+%MSG
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 20-Aug-2026 00:07:30 UTC  Run: 1 Event: 22020
+Deactivating g39n06.hep.wisc.edu from active sources because its quality (800) is higher than 260 and 4 times larger than the other active server g34n06.hep.wisc.edu (176) 
+%MSG
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 00:07:31 UTC pre-events
+Opened a file at URL root://g41n06.hep.wisc.edu:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/1450B034-334D-4249-95BD-5DE7DA29679A.root?tried=g34n06.hep.wisc.edu,g39n06.hep.wisc.edu&triedrc=resel&xrdcl.requuid=dc5c6b07-1bd5-4372-8c2a-81049da2378b
+%MSG
+20-Aug-2026 00:08:12 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/1450B034-334D-4249-95BD-5DE7DA29679A.root

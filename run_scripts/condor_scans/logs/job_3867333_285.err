@@ -1,0 +1,10 @@
+19-Aug-2026 21:50:58 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/70000/8A20D274-79E8-9744-BF1E-692746267B49.root
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 21:51:00 UTC pre-events
+Opened a file at URL root://cmsstor374.fnal.gov:25789//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/70000/8A20D274-79E8-9744-BF1E-692746267B49.root?org.dcache.uuid=2aaf9ae5-fba7-42a4-9528-0b94124c2389&org.dcache.xrootd.client=aji.624@cmswn2271.fnal.gov&xrd.logintoken=org.dcache.door=2620:6a:0:8420:0:0:0:101:1095&xrdcl.requuid=8a493c9c-5a97-43c0-8092-a398ed98b3ec
+%MSG
+19-Aug-2026 21:51:02 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/70000/8A20D274-79E8-9744-BF1E-692746267B49.root
+Begin processing the 1st record. Run 1, Event 42009, LumiSection 43 on stream 0 at 19-Aug-2026 21:51:02.544 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 21:51:36 UTC pre-events
+Opened a file at URL root://cmsstor353.fnal.gov:27926//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/70000/8A20D274-79E8-9744-BF1E-692746267B49.root?org.dcache.uuid=ee2a0e8f-3805-4fc5-94fc-13f67efa96ff&org.dcache.xrootd.client=aji.624@cmswn2271.fnal.gov&tried=cmsxrootd-site2.fnal.gov&triedrc=resel&xrd.logintoken=org.dcache.door=2620:6a:0:8420:0:0:0:101:1095&xrdcl.requuid=801fefd5-39d7-4651-a619-f02b68ea9527
+%MSG
+19-Aug-2026 21:52:11 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/70000/8A20D274-79E8-9744-BF1E-692746267B49.root

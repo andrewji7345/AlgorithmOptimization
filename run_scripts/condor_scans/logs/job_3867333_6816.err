@@ -1,0 +1,13 @@
+20-Aug-2026 01:28:15 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/5734DEE6-8D26-704A-BFA9-E8976034C7F0.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 01:28:16 UTC pre-events
+Opened a file at URL root://cmsstor404.fnal.gov:27153//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/5734DEE6-8D26-704A-BFA9-E8976034C7F0.root?org.dcache.uuid=279e5824-8653-4e65-adc4-651b90253cc9&org.dcache.xrootd.client=aji.625@cmswn2260.fnal.gov&xrd.logintoken=org.dcache.door=2620:6a:0:8420:0:0:0:101:1095&xrdcl.requuid=a750f66f-23a4-410b-b28d-4c8a889c3b94
+%MSG
+20-Aug-2026 01:28:18 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/5734DEE6-8D26-704A-BFA9-E8976034C7F0.root
+Begin processing the 1st record. Run 1, Event 56013, LumiSection 57 on stream 0 at 20-Aug-2026 01:28:18.930 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 01:28:51 UTC pre-events
+Opened a file at URL root://cmsstor404.fnal.gov:27153//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/5734DEE6-8D26-704A-BFA9-E8976034C7F0.root?org.dcache.uuid=88c69aac-9070-47a2-8330-96488715b9c8&org.dcache.xrootd.client=aji.625@cmswn2260.fnal.gov&tried=cmsxrootd-site3.fnal.gov&triedrc=resel&xrd.logintoken=org.dcache.door=2620:6a:0:8420:0:0:0:101:1095&xrdcl.requuid=9cf1094c-3952-4a87-8eb5-ee5f8cf4a8f1
+%MSG
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 01:29:20 UTC pre-events
+Opened a file at URL root://cmsstor404.fnal.gov:27153//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/5734DEE6-8D26-704A-BFA9-E8976034C7F0.root?org.dcache.uuid=57f21cb7-c621-4d0b-ac71-1d7646569958&org.dcache.xrootd.client=aji.625@cmswn2260.fnal.gov&tried=cmsxrootd-site3.fnal.gov&triedrc=resel&xrd.logintoken=org.dcache.door=2620:6a:0:8420:0:0:0:101:1095&xrdcl.requuid=20b31b94-7ce4-4cce-bdba-5acec094ced6
+%MSG
+20-Aug-2026 01:29:23 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/5734DEE6-8D26-704A-BFA9-E8976034C7F0.root

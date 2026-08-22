@@ -1,0 +1,16 @@
+20-Aug-2026 01:13:12 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/34FF48EF-E4F5-CC41-9B1C-7A17B2B5AFFE.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 01:13:14 UTC pre-events
+Opened a file at URL root://dtn-02.t2.ucsd.edu:1095//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/34FF48EF-E4F5-CC41-9B1C-7A17B2B5AFFE.root?xrdcl.requuid=bef5c729-7f1c-4c2b-b9d2-4cb6ca7b1290
+%MSG
+20-Aug-2026 01:13:16 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/34FF48EF-E4F5-CC41-9B1C-7A17B2B5AFFE.root
+Begin processing the 1st record. Run 1, Event 29754, LumiSection 51 on stream 0 at 20-Aug-2026 01:13:18.676 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 01:13:50 UTC pre-events
+Opened a file at URL root://dtn-02.t2.ucsd.edu:1095//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/34FF48EF-E4F5-CC41-9B1C-7A17B2B5AFFE.root?tried=dtn-02.t2.ucsd.edu&triedrc=resel&xrdcl.requuid=5569e7de-cdae-48bc-a2ae-68bebd6b2ab5
+%MSG
+20-Aug-2026 01:14:01 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/34FF48EF-E4F5-CC41-9B1C-7A17B2B5AFFE.root
+20-Aug-2026 01:14:01 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/446120FF-86EB-F047-BF51-7D8D067AE647.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 01:14:03 UTC PostProcessEvent
+Opened a file at URL root://xrd-14.t2.ucsd.edu:1095//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/446120FF-86EB-F047-BF51-7D8D067AE647.root?xrdcl.requuid=1393f35f-7e1a-4676-ad58-5feb0d21ce26
+%MSG
+20-Aug-2026 01:14:05 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/446120FF-86EB-F047-BF51-7D8D067AE647.root
+20-Aug-2026 01:14:39 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/446120FF-86EB-F047-BF51-7D8D067AE647.root

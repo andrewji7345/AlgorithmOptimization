@@ -1,0 +1,10 @@
+20-Aug-2026 02:17:27 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 02:17:29 UTC pre-events
+Opened a file at URL root://k8s-transfer-14.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?xrdcl.requuid=5c0d9c6b-68fc-4b60-aff8-2a919485e0b1
+%MSG
+20-Aug-2026 02:17:31 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+Begin processing the 1st record. Run 1, Event 1150, LumiSection 4 on stream 0 at 20-Aug-2026 02:17:33.722 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 02:18:10 UTC pre-events
+Opened a file at URL root://k8s-transfer-17.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?tried=k8s-transfer-14.ultralight.org&triedrc=resel&xrdcl.requuid=2c8bfb3e-31e6-4048-8fbb-ff21b87c3929
+%MSG
+20-Aug-2026 02:19:00 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root

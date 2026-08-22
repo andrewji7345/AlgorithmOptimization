@@ -1,0 +1,22 @@
+20-Aug-2026 01:18:38 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/0DBCC9BE-F462-E14E-88E5-B41158CCAE98.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 01:18:40 UTC pre-events
+Opened a file at URL root://cmsio2.rc.ufl.edu:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/0DBCC9BE-F462-E14E-88E5-B41158CCAE98.root?xrdcl.requuid=c0e8aa9a-2848-42c0-9998-76c80f1ad2bf
+%MSG
+20-Aug-2026 01:18:43 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/0DBCC9BE-F462-E14E-88E5-B41158CCAE98.root
+Begin processing the 1st record. Run 1, Event 22073, LumiSection 63 on stream 0 at 20-Aug-2026 01:18:44.820 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 01:19:13 UTC pre-events
+Opened a file at URL root://cmsio5.rc.ufl.edu:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/0DBCC9BE-F462-E14E-88E5-B41158CCAE98.root?tried=cmsio2.rc.ufl.edu&triedrc=resel&xrdcl.requuid=ed32762d-2d88-43ff-aa7c-1ddd11b69428
+%MSG
+20-Aug-2026 01:19:25 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/0DBCC9BE-F462-E14E-88E5-B41158CCAE98.root
+20-Aug-2026 01:19:25 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/11EF46D1-79B6-3140-B88C-E0D523C9AE94.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 01:19:27 UTC PostProcessEvent
+Opened a file at URL root://cmsio10.rc.ufl.edu:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/11EF46D1-79B6-3140-B88C-E0D523C9AE94.root?xrdcl.requuid=d6e68e7a-c8bc-4711-930c-8f565e864e4c
+%MSG
+20-Aug-2026 01:19:28 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/11EF46D1-79B6-3140-B88C-E0D523C9AE94.root
+20-Aug-2026 01:19:40 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/11EF46D1-79B6-3140-B88C-E0D523C9AE94.root
+20-Aug-2026 01:19:40 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/164538D1-3988-1045-9CB9-DF05AF09AA54.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 01:19:42 UTC PostProcessEvent
+Opened a file at URL root://cmsio4.rc.ufl.edu:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/164538D1-3988-1045-9CB9-DF05AF09AA54.root?xrdcl.requuid=d04a44eb-21be-451e-9283-ddd4fb0f8997
+%MSG
+20-Aug-2026 01:19:43 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/164538D1-3988-1045-9CB9-DF05AF09AA54.root
+20-Aug-2026 01:20:38 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/164538D1-3988-1045-9CB9-DF05AF09AA54.root

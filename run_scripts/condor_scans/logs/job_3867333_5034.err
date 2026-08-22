@@ -1,0 +1,10 @@
+20-Aug-2026 00:51:31 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/02F5A7F2-BE6B-8545-981B-E77F435324EF.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 00:51:33 UTC pre-events
+Opened a file at URL root://cmsstor212.fnal.gov:16141//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/02F5A7F2-BE6B-8545-981B-E77F435324EF.root?org.dcache.uuid=58e70321-7557-4af8-9517-377bb56818c4&org.dcache.xrootd.client=aji.625@cmswn2186.fnal.gov&xrd.logintoken=org.dcache.door=2620:6a:0:8420:0:0:0:101:1095&xrdcl.requuid=04edd1fa-de6b-469f-9149-3c5218aeb2fe
+%MSG
+20-Aug-2026 00:51:34 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/02F5A7F2-BE6B-8545-981B-E77F435324EF.root
+Begin processing the 1st record. Run 1, Event 19014, LumiSection 20 on stream 0 at 20-Aug-2026 00:51:35.372 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 00:52:08 UTC pre-events
+Opened a file at URL root://cmsstor204.fnal.gov:30865//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/02F5A7F2-BE6B-8545-981B-E77F435324EF.root?org.dcache.uuid=6d8d0f1a-8211-447a-82e8-c995789fa8ac&org.dcache.xrootd.client=aji.625@cmswn2186.fnal.gov&tried=cmsxrootd-site2.fnal.gov&triedrc=resel&xrd.logintoken=org.dcache.door=2620:6a:0:8420:0:0:0:101:1095&xrdcl.requuid=23423ac0-7c2f-4347-92a4-f1ecd4f84514
+%MSG
+20-Aug-2026 00:52:41 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/02F5A7F2-BE6B-8545-981B-E77F435324EF.root

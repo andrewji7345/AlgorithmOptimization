@@ -1,0 +1,10 @@
+19-Aug-2026 22:34:13 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 22:34:19 UTC pre-events
+Opened a file at URL root://t2-sepool-50.lnl.infn.it:33127//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root?org.dcache.uuid=dff1a61f-cca0-443b-9afc-09153e2e6d7d&org.dcache.xrootd.client=aji.625@cmswn2176.fnal.gov&tried=+1213cmsxrootd2.fnal.gov&xrd.logintoken=org.dcache.door=2001:760:4229:0:0:0:0:37:1094&xrdcl.requuid=b2d15f9a-bcd3-4a36-8666-5ee863630ead
+%MSG
+19-Aug-2026 22:34:21 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root
+Begin processing the 1st record. Run 1, Event 16006, LumiSection 17 on stream 0 at 19-Aug-2026 22:34:25.766 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:34:26 UTC pre-events
+Opened a file at URL root://grid-se053.physik.rwth-aachen.de:33120//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root?org.dcache.uuid=62e8019b-21ce-4455-9374-82ada05cb22b&org.dcache.xrootd.client=aji.625@cmswn2176.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,t2-xrdcms.lnl.infn.it&triedrc=resel&xrd.logintoken=org.dcache.door=2a00:8a60:1030:a00:0:0:863d:1855:1094&xrdcl.requuid=44d24dd9-c39b-49f1-b816-9d0e5d122de1
+%MSG
+19-Aug-2026 22:36:25 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root

@@ -1,0 +1,31 @@
+20-Aug-2026 00:35:24 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 00:35:30 UTC pre-events
+Opened a file at URL root://dm-s11-14-31.cr.cnaf.infn.it:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root?tried=+1213cmsxrootd2.fnal.gov&xrdcl.requuid=f53d57d0-f89b-496e-b51a-cc4ed2dcfa60
+%MSG
+20-Aug-2026 00:35:34 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 00:35:37 UTC pre-events
+Opened a file at URL root://dm-s11-14-29.cr.cnaf.infn.it:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root?tried=+1213cmsxrootd2.fnal.gov,dm-s11-14-31.cr.cnaf.infn.it&triedrc=resel&xrdcl.requuid=a40544a6-5285-46aa-bc92-fe7fe6a741f2
+%MSG
+%MSG-f XrdAdaptorLvl3:  source 20-Aug-2026 00:35:57 UTC PreSource
+Deactivating dm-s11-14-29.cr.cnaf.infn.it from active sources because its quality (2104) is higher than 260 and 4 times larger than the other active server dm-s11-14-31.cr.cnaf.infn.it (517) 
+%MSG
+Begin processing the 1st record. Run 1, Event 6005, LumiSection 7 on stream 0 at 20-Aug-2026 00:36:04.439 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 00:38:21 UTC pre-events
+Opened a file at URL root://dc066.pic.es:21128//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root?org.dcache.uuid=363ea717-1317-4c2f-929f-d25c74246b7d&org.dcache.xrootd.client=aji.624@cmswn2269.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,dm-s11-14-31.cr.cnaf.infn.it,dm-s11-14-29.cr.cnaf.infn.it,xrootd-cms-02.cr.cnaf.infn.it,xrootd-cms.infn.it&triedrc=resel,enoent&xrd.logintoken=org.dcache.door=2001:67c:1148:201:0:0:0:13:1094&xrdcl.requuid=eede903b-e634-4d9a-ab80-e57f1cc4da5c
+%MSG
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 20-Aug-2026 00:39:06 UTC  Run: 1 Event: 6018
+Deactivating dm-s11-14-31.cr.cnaf.infn.it from active sources because the quality (41468) is above 5130 and it is not the only active server
+%MSG
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 20-Aug-2026 00:39:06 UTC  Run: 1 Event: 6018
+Deactivating dm-s11-14-31.cr.cnaf.infn.it from active sources because its quality (41468) is higher than 260 and 4 times larger than the other active server dc066.pic.es (260) 
+%MSG
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 00:39:07 UTC pre-events
+Opened a file at URL root://dc066.pic.es:21128//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root?org.dcache.uuid=bac52661-1456-41f9-ae1b-c3032ce8994c&org.dcache.xrootd.client=aji.624@cmswn2269.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,dm-s11-14-31.cr.cnaf.infn.it,cms-xrd-global.cern.ch,dm-s11-14-29.cr.cnaf.infn.it,xrootd-cms-01.cr.cnaf.infn.it,xrootd-cms.infn.it&triedrc=resel,enoent&xrd.logintoken=org.dcache.door=2001:67c:1148:201:0:0:0:13:1094&xrdcl.requuid=dd5cdba7-32fc-4654-9843-dedd7b3d760b
+%MSG
+[2026-08-20 01:05:37.356951 +0000][Error  ][TlsMsg            ] [] TLS error rc=0 ec=6 (zero_return) errno=0.
+[2026-08-20 01:05:37.357018 +0000][Error  ][AsyncSock         ] [dm-s11-14-31.cr.cnaf.infn.it:1094.0] Socket error encountered: [ERROR] Socket error
+[2026-08-20 01:05:49.501552 +0000][Error  ][TlsMsg            ] [] TLS error rc=0 ec=6 (zero_return) errno=0.
+[2026-08-20 01:05:49.501590 +0000][Error  ][AsyncSock         ] [dm-s11-14-29.cr.cnaf.infn.it:1094.0] Socket error encountered: [ERROR] Socket error
+[2026-08-20 03:21:00.672766 +0000][Error  ][XRootD            ] [dm-s11-14-29.cr.cnaf.infn.it:1094] Unable to send the message kXR_close (handle: 0x00000000): [ERROR] Invalid session
+[2026-08-20 03:21:00.672905 +0000][Error  ][XRootD            ] [dm-s11-14-31.cr.cnaf.infn.it:1094] Unable to send the message kXR_close (handle: 0x00000000): [ERROR] Invalid session
+20-Aug-2026 03:21:00 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/20100574-5996-634F-8AF2-8AB221EE4261.root

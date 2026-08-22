@@ -1,0 +1,10 @@
+20-Aug-2026 01:44:23 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/2550000/03787624-B64A-334B-A53B-6F9899F73F83.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 01:44:25 UTC pre-events
+Opened a file at URL root://red-xfer1.unl.edu:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/2550000/03787624-B64A-334B-A53B-6F9899F73F83.root?xrdcl.requuid=2edc1868-084a-4dea-aac3-ef8a41b557d3
+%MSG
+20-Aug-2026 01:44:28 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/2550000/03787624-B64A-334B-A53B-6F9899F73F83.root
+Begin processing the 1st record. Run 1, Event 2573, LumiSection 5 on stream 0 at 20-Aug-2026 01:44:29.952 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 01:45:17 UTC pre-events
+Opened a file at URL root://red-xfer7.unl.edu:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/2550000/03787624-B64A-334B-A53B-6F9899F73F83.root?tried=red-xfer1.unl.edu&triedrc=resel&xrdcl.requuid=1a22b6ef-1195-49ec-8575-f170ac9195b0
+%MSG
+20-Aug-2026 01:46:14 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/2550000/03787624-B64A-334B-A53B-6F9899F73F83.root

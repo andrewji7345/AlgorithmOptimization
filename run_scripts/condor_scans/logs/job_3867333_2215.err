@@ -1,0 +1,16 @@
+19-Aug-2026 23:03:17 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 23:03:28 UTC pre-events
+Opened a file at URL root://gaeds016.ciemat.es:25000//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root?org.dcache.uuid=bd33c1ae-d0fc-4b96-a529-0b3b58822099&org.dcache.xrootd.client=aji.625@cmswn2276.fnal.gov&tried=+1213cmsxrootd2.fnal.gov&xrd.logintoken=org.dcache.door=2001:720:42c:aaee:0:0:c065:a1b7:1094&xrdcl.requuid=33dfa1ed-0970-48f0-8b51-f5ee3ed40447
+%MSG
+19-Aug-2026 23:03:30 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root
+Begin processing the 1st record. Run 1, Event 2, LumiSection 1 on stream 0 at 19-Aug-2026 23:03:35.341 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 23:03:37 UTC pre-events
+Opened a file at URL root://dm-s11-14-31.cr.cnaf.infn.it:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root?tried=+1213cmsxrootd2.fnal.gov,cms-xrd-global.cern.ch&triedrc=resel&xrdcl.requuid=eeb738e4-287b-4fa7-8991-852ad0829516
+%MSG
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 19-Aug-2026 23:04:29 UTC Run: 1 Event: 14
+Deactivating dm-s11-14-31.cr.cnaf.infn.it from active sources because the quality (11733) is above 5130 and it is not the only active server
+%MSG
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 19-Aug-2026 23:04:29 UTC Run: 1 Event: 14
+Deactivating dm-s11-14-31.cr.cnaf.infn.it from active sources because its quality (11733) is higher than 260 and 4 times larger than the other active server gaeds016.ciemat.es (242) 
+%MSG
+19-Aug-2026 23:05:06 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root

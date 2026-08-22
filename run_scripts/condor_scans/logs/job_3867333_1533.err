@@ -1,0 +1,13 @@
+19-Aug-2026 22:36:43 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 22:36:47 UTC pre-events
+Opened a file at URL root://grid-se053.physik.rwth-aachen.de:33120//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root?org.dcache.uuid=2137e97b-8d80-46d7-a3c8-6a0e5a6bf644&org.dcache.xrootd.client=aji.625@cmswn2196.fnal.gov&tried=+1213cmsxrootd2.fnal.gov&xrd.logintoken=org.dcache.door=2a00:8a60:1030:a00:0:0:863d:1855:1094&xrdcl.requuid=9ed4fe3b-6eeb-49ff-9703-a49c54cdf0fd
+%MSG
+19-Aug-2026 22:36:49 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root
+Begin processing the 1st record. Run 1, Event 16006, LumiSection 17 on stream 0 at 19-Aug-2026 22:36:53.341 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:37:01 UTC pre-events
+Opened a file at URL root://t2-sepool-50.lnl.infn.it:33127//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root?org.dcache.uuid=7c5979e1-7185-425e-842c-f5649d65bc21&org.dcache.xrootd.client=aji.625@cmswn2196.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,grid-dcache.physik.rwth-aachen.de&triedrc=resel&xrd.logintoken=org.dcache.door=2001:760:4229:0:0:0:0:37:1094&xrdcl.requuid=142d9ff1-7e52-48f5-9dd7-3d60e84a393f
+%MSG
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 19-Aug-2026 22:37:29 UTC  Run: 1 Event: 16022
+Deactivating t2-sepool-50.lnl.infn.it from active sources because its quality (926) is higher than 260 and 4 times larger than the other active server grid-se053.physik.rwth-aachen.de (214) 
+%MSG
+19-Aug-2026 22:38:04 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root

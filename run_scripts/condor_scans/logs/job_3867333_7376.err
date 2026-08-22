@@ -1,0 +1,13 @@
+20-Aug-2026 01:38:11 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/1B1BDAFD-BA27-3F4E-BA38-A4B6A6A68D39.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 01:38:19 UTC pre-events
+Opened a file at URL root://behar202.iihe.ac.be:20286//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/1B1BDAFD-BA27-3F4E-BA38-A4B6A6A68D39.root?org.dcache.uuid=e027b44d-d9c6-4eae-a266-c28c32488a0e&org.dcache.xrootd.client=aji.624@cmswn2246.fnal.gov&tried=+1213cmsxrootd2.fnal.gov&xrd.logintoken=org.dcache.door=2001:6a8:1080:0:0:0:0:14:1094&xrdcl.requuid=7c8f32d5-b37e-46e2-9ff2-9b9668fdf7d4
+%MSG
+20-Aug-2026 01:38:22 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/1B1BDAFD-BA27-3F4E-BA38-A4B6A6A68D39.root
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 01:38:27 UTC pre-events
+Opened a file at URL root://f01-152-139-e.gridka.de:22255//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/1B1BDAFD-BA27-3F4E-BA38-A4B6A6A68D39.root?org.dcache.uuid=385c0b94-15ba-44df-ab1f-6c5b5ab60e15&org.dcache.xrootd.client=aji.624@cmswn2246.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,maite.iihe.ac.be&triedrc=resel&xrd.logintoken=org.dcache.door=2a00:139c:8:0:483d:8a06:b6db:b43e:1094&xrdcl.requuid=d2f093e7-8fb4-4b77-8590-19a0200a184e
+%MSG
+Begin processing the 1st record. Run 1, Event 9007, LumiSection 10 on stream 0 at 20-Aug-2026 01:38:27.519 UTC
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 20-Aug-2026 01:39:19 UTC  Run: 1 Event: 9020
+Deactivating f01-152-139-e.gridka.de from active sources because its quality (2089) is higher than 260 and 4 times larger than the other active server behar202.iihe.ac.be (257) 
+%MSG
+20-Aug-2026 01:40:20 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/1B1BDAFD-BA27-3F4E-BA38-A4B6A6A68D39.root

@@ -1,0 +1,18 @@
+20-Aug-2026 02:15:37 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 02:15:39 UTC pre-events
+Opened a file at URL root://k8s-transfer-11.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?xrdcl.requuid=483445d3-d5f4-4e9c-a2a4-cef9479a6dcd
+%MSG
+20-Aug-2026 02:15:42 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+Begin processing the 1st record. Run 1, Event 1150, LumiSection 4 on stream 0 at 20-Aug-2026 02:15:44.191 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 02:16:15 UTC pre-events
+Opened a file at URL root://k8s-transfer-12.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?tried=k8s-transfer-11.ultralight.org&triedrc=resel&xrdcl.requuid=0f802aea-5f57-498a-8d94-05c7a2c0fb1a
+%MSG
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 20-Aug-2026 02:16:16 UTC  Run: 1 Event: 1168
+Deactivating k8s-transfer-12.ultralight.org from active sources because its quality (339) is higher than 260 and 4 times larger than the other active server k8s-transfer-11.ultralight.org (82) 
+%MSG
+[2026-08-20 02:17:01.944999 +0000][Error  ][AsyncSock         ] [k8s-transfer-16.ultralight.org:1094.0] Unable to connect: network is unreachable
+[2026-08-20 02:17:01.945187 +0000][Error  ][PostMaster        ] [k8s-transfer-16.ultralight.org:1094] elapsed = 0, pConnectionWindow = 31 seconds.
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 02:17:03 UTC pre-events
+Opened a file at URL root://k8s-transfer-16.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?tried=k8s-transfer-11.ultralight.org,k8s-transfer-12.ultralight.org&triedrc=resel&xrdcl.requuid=e979c92e-730e-491c-ae34-0ad9d5f61cb0
+%MSG
+20-Aug-2026 02:17:08 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root

@@ -1,0 +1,13 @@
+20-Aug-2026 02:19:13 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 02:19:15 UTC pre-events
+Opened a file at URL root://k8s-transfer-17.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?xrdcl.requuid=24393018-956f-40e5-bc15-3b63770fa4e8
+%MSG
+20-Aug-2026 02:19:19 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 02:19:21 UTC pre-events
+Opened a file at URL root://k8s-transfer-14.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?tried=k8s-transfer-17.ultralight.org&triedrc=resel&xrdcl.requuid=6df95d2d-393c-44eb-bcc3-1478081e75cc
+%MSG
+Begin processing the 1st record. Run 1, Event 1150, LumiSection 4 on stream 0 at 20-Aug-2026 02:19:21.631 UTC
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 20-Aug-2026 02:20:14 UTC  Run: 1 Event: 1168
+Deactivating k8s-transfer-14.ultralight.org from active sources because its quality (312) is higher than 260 and 4 times larger than the other active server k8s-transfer-17.ultralight.org (70) 
+%MSG
+20-Aug-2026 02:21:12 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root

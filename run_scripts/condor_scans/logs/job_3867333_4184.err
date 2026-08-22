@@ -1,0 +1,10 @@
+20-Aug-2026 00:12:29 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/1450B034-334D-4249-95BD-5DE7DA29679A.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 00:12:31 UTC pre-events
+Opened a file at URL root://g33n06.hep.wisc.edu:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/1450B034-334D-4249-95BD-5DE7DA29679A.root?xrdcl.requuid=d915afc9-e3d9-4039-96fb-bedeb1bf97de
+%MSG
+20-Aug-2026 00:12:34 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/1450B034-334D-4249-95BD-5DE7DA29679A.root
+Begin processing the 1st record. Run 1, Event 22011, LumiSection 23 on stream 0 at 20-Aug-2026 00:12:35.666 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 00:13:13 UTC pre-events
+Opened a file at URL root://g41n06.hep.wisc.edu:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/1450B034-334D-4249-95BD-5DE7DA29679A.root?tried=g33n06.hep.wisc.edu&triedrc=resel&xrdcl.requuid=fd76c7c2-3e6b-4a1d-bb8d-921f2d21f43e
+%MSG
+20-Aug-2026 00:13:49 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBHTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/80000/1450B034-334D-4249-95BD-5DE7DA29679A.root

@@ -1,0 +1,16 @@
+20-Aug-2026 02:24:19 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 02:24:21 UTC pre-events
+Opened a file at URL root://k8s-transfer-12.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?xrdcl.requuid=5d8a7cef-b290-4bb6-8af2-c7b083db78ba
+%MSG
+20-Aug-2026 02:24:24 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+Begin processing the 1st record. Run 1, Event 1150, LumiSection 4 on stream 0 at 20-Aug-2026 02:24:26.042 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 02:24:54 UTC pre-events
+Opened a file at URL root://k8s-transfer-16.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?tried=k8s-transfer-12.ultralight.org&triedrc=resel&xrdcl.requuid=5717653f-6758-447b-a296-601c779cc814
+%MSG
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 20-Aug-2026 02:24:58 UTC  Run: 1 Event: 1168
+Deactivating k8s-transfer-16.ultralight.org from active sources because its quality (2469) is higher than 260 and 4 times larger than the other active server k8s-transfer-12.ultralight.org (78) 
+%MSG
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 02:25:29 UTC pre-events
+Opened a file at URL root://k8s-transfer-14.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?tried=k8s-transfer-12.ultralight.org,k8s-transfer-16.ultralight.org&triedrc=resel&xrdcl.requuid=8eda4beb-136d-4105-ba1b-65d0fd8f7167
+%MSG
+20-Aug-2026 02:25:32 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root

@@ -1,0 +1,22 @@
+19-Aug-2026 22:28:28 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 22:28:35 UTC pre-events
+Opened a file at URL root://t2-sepool-50.lnl.infn.it:33127//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root?org.dcache.uuid=e2984517-ae3c-43e1-b27d-5ca3e6074c01&org.dcache.xrootd.client=aji.625@cmswn2280.fnal.gov&tried=+1213cmsxrootd2.fnal.gov1213xrootd.unl.edu&xrd.logintoken=org.dcache.door=2001:760:4229:0:0:0:0:37:1094&xrdcl.requuid=aed60947-e393-44ce-8d1b-6c5677d5ed30
+%MSG
+19-Aug-2026 22:28:37 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:28:41 UTC pre-events
+Opened a file at URL root://grid-se047.physik.rwth-aachen.de:33136//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root?org.dcache.uuid=28e8c74f-c0a5-44c4-b569-28a000bf6167&org.dcache.xrootd.client=aji.625@cmswn2280.fnal.gov&tried=+1213cmsxrootd2.fnal.gov1213xrootd.unl.edu,t2-xrdcms.lnl.infn.it&triedrc=resel&xrd.logintoken=org.dcache.door=2a00:8a60:1030:a00:0:0:863d:1855:1094&xrdcl.requuid=a883882f-beef-47f5-9637-94025d3a833f
+%MSG
+%MSG-f XrdAdaptorLvl3:  source 19-Aug-2026 22:28:42 UTC PreSource
+Deactivating grid-se047.physik.rwth-aachen.de from active sources because its quality (718) is higher than 260 and 4 times larger than the other active server t2-sepool-50.lnl.infn.it (162) 
+%MSG
+Begin processing the 1st record. Run 1, Event 16006, LumiSection 17 on stream 0 at 19-Aug-2026 22:28:43.014 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:29:15 UTC pre-events
+Opened a file at URL root://grid-se053.physik.rwth-aachen.de:33120//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root?org.dcache.uuid=7b093c6b-1175-4c6c-9512-00d22be09ccf&org.dcache.xrootd.client=aji.625@cmswn2280.fnal.gov&tried=+1213cmsxrootd2.fnal.gov1213xrootd.unl.edu,t2-xrdcms.lnl.infn.it,cms-xrd-global.cern.ch&triedrc=resel&xrd.logintoken=org.dcache.door=2a00:8a60:1030:a00:0:0:863d:1855:1094&xrdcl.requuid=b3d6e567-6ead-454c-8246-6563ebd2ab94
+%MSG
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 19-Aug-2026 22:29:18 UTC  Run: 1 Event: 16022
+Deactivating grid-se053.physik.rwth-aachen.de from active sources because its quality (1466) is higher than 260 and 4 times larger than the other active server t2-sepool-50.lnl.infn.it (233) 
+%MSG
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:29:20 UTC pre-events
+Opened a file at URL root://grid-se053.physik.rwth-aachen.de:33120//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root?org.dcache.uuid=deff7668-dbf9-4d21-8c4b-645ace90d271&org.dcache.xrootd.client=aji.625@cmswn2280.fnal.gov&tried=+1213cmsxrootd2.fnal.gov1213xrootd.unl.edu,t2-xrdcms.lnl.infn.it,cms-xrd-global.cern.ch,cms-xrd-global.cern.ch&triedrc=resel&xrd.logintoken=org.dcache.door=2a00:8a60:1030:a00:0:0:863d:1855:1094&xrdcl.requuid=4faf9360-442a-4ac3-b666-cd7ee345786b
+%MSG
+19-Aug-2026 22:30:01 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root

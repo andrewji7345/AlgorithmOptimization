@@ -1,0 +1,13 @@
+19-Aug-2026 23:06:48 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 23:10:14 UTC pre-events
+Opened a file at URL root://dm-s11-14-31.cr.cnaf.infn.it:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root?tried=+1313xrootd-es-pic.pic.es,+1213cmsxrootd2.fnal.gov1213xrootd.unl.edu,gaexroot01.ciemat.es,gaexroot01.ciemat.es,xrootd-es-cie.ciemat.es&xrdcl.requuid=cfa73cfa-0442-4d73-bdeb-c8169e0372ce
+%MSG
+19-Aug-2026 23:10:19 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 23:10:23 UTC pre-events
+Opened a file at URL root://gaeds016.ciemat.es:25000//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root?org.dcache.uuid=6d6dd4cc-fee7-45e1-a2b8-c5e4c3659b1d&org.dcache.xrootd.client=aji.624@cmswn2226.fnal.gov&tried=+1213cmsxrootd2.fnal.gov1213xrootd.unl.edu,dm-s11-14-31.cr.cnaf.infn.it&triedrc=resel&xrd.logintoken=org.dcache.door=2001:720:42c:aaee:0:0:c065:a1b8:1094&xrdcl.requuid=8771d558-ea3a-4396-a5e4-f11044720eb2
+%MSG
+%MSG-f XrdAdaptorLvl3:  source 19-Aug-2026 23:10:40 UTC PreSource
+Deactivating dm-s11-14-31.cr.cnaf.infn.it from active sources because its quality (1094) is higher than 260 and 4 times larger than the other active server gaeds016.ciemat.es (267) 
+%MSG
+Begin processing the 1st record. Run 1, Event 2, LumiSection 1 on stream 0 at 19-Aug-2026 23:10:42.399 UTC
+19-Aug-2026 23:12:45 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root

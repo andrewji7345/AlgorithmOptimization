@@ -1,0 +1,12 @@
+20-Aug-2026 02:24:09 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+[2026-08-20 02:24:10.753960 +0000][Error  ][AsyncSock         ] [k8s-transfer-15.ultralight.org:1094.0] Unable to connect: network is unreachable
+[2026-08-20 02:24:10.754080 +0000][Error  ][PostMaster        ] [k8s-transfer-15.ultralight.org:1094] elapsed = 0, pConnectionWindow = 31 seconds.
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 02:24:14 UTC pre-events
+Opened a file at URL root://k8s-transfer-15.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?xrdcl.requuid=283a835a-17ac-4a2b-b1d6-7026d1af2e49
+%MSG
+20-Aug-2026 02:24:16 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 02:24:19 UTC pre-events
+Opened a file at URL root://k8s-transfer-14.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?tried=k8s-transfer-15.ultralight.org&triedrc=resel&xrdcl.requuid=86956f7b-bb7b-4a7b-9222-746245f2d2d7
+%MSG
+Begin processing the 1st record. Run 1, Event 1150, LumiSection 4 on stream 0 at 20-Aug-2026 02:24:20.618 UTC
+20-Aug-2026 02:25:29 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root

@@ -1,0 +1,617 @@
+Opening file /eos/uscms/store/user/aji/rootfiles_particleTransformer/WbWb_4000_1000_dr_p1.root
+Loaded 1000 events, 328 branches
+
+================================================================================
+NTUPLIZER SUMMARY
+Number of events : 1000
+Average PF candidates/event : 2054.3
+Maximum PF candidates/event : 3741
+Minimum PF candidates/event : 687
+
+Branch names:
+    HT
+    MET_phi
+    MET_pt
+    PV_x
+    PV_y
+    PV_z
+    ak4_eta
+    ak4_jetArea
+    ak4_mass
+    ak4_phi
+    ak4_pt
+    ak8_eta
+    ak8_eta_corrected
+    ak8_mass
+    ak8_mass_corrected
+    ak8_phi
+    ak8_phi_corrected
+    ak8_pt
+    ak8_pt_corrected
+    ak8_softdropMass
+    ak8_tau1
+    ak8_tau2
+    ak8_tau3
+    ak8_tau4
+    event
+    gen_Suu_E
+    gen_Suu_eta
+    gen_Suu_mass
+    gen_Suu_phi
+    gen_Suu_pt
+    gen_Suu_px
+    gen_Suu_py
+    gen_Suu_pz
+    gen_W0_E
+    gen_W0_eta
+    gen_W0_mass
+    gen_W0_phi
+    gen_W0_pt
+    gen_W0_px
+    gen_W0_py
+    gen_W0_pz
+    gen_W0_q0_E
+    gen_W0_q0_eta
+    gen_W0_q0_mass
+    gen_W0_q0_phi
+    gen_W0_q0_pt
+    gen_W0_q0_px
+    gen_W0_q0_py
+    gen_W0_q0_pz
+    gen_W0_q1_E
+    gen_W0_q1_eta
+    gen_W0_q1_mass
+    gen_W0_q1_phi
+    gen_W0_q1_pt
+    gen_W0_q1_px
+    gen_W0_q1_py
+    gen_W0_q1_pz
+    gen_W1_E
+    gen_W1_eta
+    gen_W1_mass
+    gen_W1_phi
+    gen_W1_pt
+    gen_W1_px
+    gen_W1_py
+    gen_W1_pz
+    gen_W1_q0_E
+    gen_W1_q0_eta
+    gen_W1_q0_mass
+    gen_W1_q0_phi
+    gen_W1_q0_pt
+    gen_W1_q0_px
+    gen_W1_q0_py
+    gen_W1_q0_pz
+    gen_W1_q1_E
+    gen_W1_q1_eta
+    gen_W1_q1_mass
+    gen_W1_q1_phi
+    gen_W1_q1_pt
+    gen_W1_q1_px
+    gen_W1_q1_py
+    gen_W1_q1_pz
+    gen_Z0_E
+    gen_Z0_eta
+    gen_Z0_mass
+    gen_Z0_phi
+    gen_Z0_pt
+    gen_Z0_px
+    gen_Z0_py
+    gen_Z0_pz
+    gen_Z0_q0_E
+    gen_Z0_q0_eta
+    gen_Z0_q0_mass
+    gen_Z0_q0_phi
+    gen_Z0_q0_pt
+    gen_Z0_q0_px
+    gen_Z0_q0_py
+    gen_Z0_q0_pz
+    gen_Z0_q1_E
+    gen_Z0_q1_eta
+    gen_Z0_q1_mass
+    gen_Z0_q1_phi
+    gen_Z0_q1_pt
+    gen_Z0_q1_px
+    gen_Z0_q1_py
+    gen_Z0_q1_pz
+    gen_Z1_E
+    gen_Z1_eta
+    gen_Z1_mass
+    gen_Z1_phi
+    gen_Z1_pt
+    gen_Z1_px
+    gen_Z1_py
+    gen_Z1_pz
+    gen_Z1_q0_E
+    gen_Z1_q0_eta
+    gen_Z1_q0_mass
+    gen_Z1_q0_phi
+    gen_Z1_q0_pt
+    gen_Z1_q0_px
+    gen_Z1_q0_py
+    gen_Z1_q0_pz
+    gen_Z1_q1_E
+    gen_Z1_q1_eta
+    gen_Z1_q1_mass
+    gen_Z1_q1_phi
+    gen_Z1_q1_pt
+    gen_Z1_q1_px
+    gen_Z1_q1_py
+    gen_Z1_q1_pz
+    gen_b0_E
+    gen_b0_eta
+    gen_b0_mass
+    gen_b0_phi
+    gen_b0_pt
+    gen_b0_px
+    gen_b0_py
+    gen_b0_pz
+    gen_b1_E
+    gen_b1_eta
+    gen_b1_mass
+    gen_b1_phi
+    gen_b1_pt
+    gen_b1_px
+    gen_b1_py
+    gen_b1_pz
+    gen_chi0_E
+    gen_chi0_eta
+    gen_chi0_mass
+    gen_chi0_phi
+    gen_chi0_pt
+    gen_chi0_px
+    gen_chi0_py
+    gen_chi0_pz
+    gen_chi1_E
+    gen_chi1_eta
+    gen_chi1_mass
+    gen_chi1_phi
+    gen_chi1_pt
+    gen_chi1_px
+    gen_chi1_py
+    gen_chi1_pz
+    gen_h0_E
+    gen_h0_eta
+    gen_h0_mass
+    gen_h0_phi
+    gen_h0_pt
+    gen_h0_px
+    gen_h0_py
+    gen_h0_pz
+    gen_h0_q0_E
+    gen_h0_q0_eta
+    gen_h0_q0_mass
+    gen_h0_q0_phi
+    gen_h0_q0_pt
+    gen_h0_q0_px
+    gen_h0_q0_py
+    gen_h0_q0_pz
+    gen_h0_q1_E
+    gen_h0_q1_eta
+    gen_h0_q1_mass
+    gen_h0_q1_phi
+    gen_h0_q1_pt
+    gen_h0_q1_px
+    gen_h0_q1_py
+    gen_h0_q1_pz
+    gen_h1_E
+    gen_h1_eta
+    gen_h1_mass
+    gen_h1_phi
+    gen_h1_pt
+    gen_h1_px
+    gen_h1_py
+    gen_h1_pz
+    gen_h1_q0_E
+    gen_h1_q0_eta
+    gen_h1_q0_mass
+    gen_h1_q0_phi
+    gen_h1_q0_pt
+    gen_h1_q0_px
+    gen_h1_q0_py
+    gen_h1_q0_pz
+    gen_h1_q1_E
+    gen_h1_q1_eta
+    gen_h1_q1_mass
+    gen_h1_q1_phi
+    gen_h1_q1_pt
+    gen_h1_q1_px
+    gen_h1_q1_py
+    gen_h1_q1_pz
+    gen_t0_E
+    gen_t0_W_E
+    gen_t0_W_eta
+    gen_t0_W_mass
+    gen_t0_W_phi
+    gen_t0_W_pt
+    gen_t0_W_px
+    gen_t0_W_py
+    gen_t0_W_pz
+    gen_t0_W_q0_E
+    gen_t0_W_q0_eta
+    gen_t0_W_q0_mass
+    gen_t0_W_q0_phi
+    gen_t0_W_q0_pt
+    gen_t0_W_q0_px
+    gen_t0_W_q0_py
+    gen_t0_W_q0_pz
+    gen_t0_W_q1_E
+    gen_t0_W_q1_eta
+    gen_t0_W_q1_mass
+    gen_t0_W_q1_phi
+    gen_t0_W_q1_pt
+    gen_t0_W_q1_px
+    gen_t0_W_q1_py
+    gen_t0_W_q1_pz
+    gen_t0_b_E
+    gen_t0_b_eta
+    gen_t0_b_mass
+    gen_t0_b_phi
+    gen_t0_b_pt
+    gen_t0_b_px
+    gen_t0_b_py
+    gen_t0_b_pz
+    gen_t0_eta
+    gen_t0_mass
+    gen_t0_phi
+    gen_t0_pt
+    gen_t0_px
+    gen_t0_py
+    gen_t0_pz
+    gen_t1_E
+    gen_t1_W_E
+    gen_t1_W_eta
+    gen_t1_W_mass
+    gen_t1_W_phi
+    gen_t1_W_pt
+    gen_t1_W_px
+    gen_t1_W_py
+    gen_t1_W_pz
+    gen_t1_W_q0_E
+    gen_t1_W_q0_eta
+    gen_t1_W_q0_mass
+    gen_t1_W_q0_phi
+    gen_t1_W_q0_pt
+    gen_t1_W_q0_px
+    gen_t1_W_q0_py
+    gen_t1_W_q0_pz
+    gen_t1_W_q1_E
+    gen_t1_W_q1_eta
+    gen_t1_W_q1_mass
+    gen_t1_W_q1_phi
+    gen_t1_W_q1_pt
+    gen_t1_W_q1_px
+    gen_t1_W_q1_py
+    gen_t1_W_q1_pz
+    gen_t1_b_E
+    gen_t1_b_eta
+    gen_t1_b_mass
+    gen_t1_b_phi
+    gen_t1_b_pt
+    gen_t1_b_px
+    gen_t1_b_py
+    gen_t1_b_pz
+    gen_t1_eta
+    gen_t1_mass
+    gen_t1_phi
+    gen_t1_pt
+    gen_t1_px
+    gen_t1_py
+    gen_t1_pz
+    isMC
+    lumi
+    nPV
+    nParticles
+    particle_ak4Index
+    particle_ak8Index
+    particle_algorithmCA8Label
+    particle_algorithmLabel
+    particle_charge
+    particle_dxy
+    particle_dz
+    particle_energy
+    particle_energy_corrected
+    particle_eta
+    particle_eta_corrected
+    particle_fromPV
+    particle_mass
+    particle_mass_corrected
+    particle_match_dr2
+    particle_match_pdgid
+    particle_pdgId
+    particle_phi
+    particle_phi_corrected
+    particle_pt
+    particle_pt_corrected
+    particle_puppiWeight
+    particle_pvAssociationQuality
+    particle_px
+    particle_px_corrected
+    particle_py
+    particle_py_corrected
+    particle_pz
+    particle_pz_corrected
+    particle_truthLabel
+    particle_vx
+    particle_vy
+    particle_vz
+    rho
+    run
+================================================================================
+
+Reconstructing events...
+    1000 / 1000
+
+Finished reconstruction.
+
+================================================================================
+SIX-STEP SJ KINEMATICS
+================================================================================
+Low-mass SJs  (m < 300 GeV): 525
+High-mass SJs (m > 700 GeV): 1404
+================================================================================
+================================================================================
+EVENT STATISTICS
+================================================================================
+Events:                  1000
+
+Average PF candidates:    2054.28
+Minimum PF candidates:        687
+Maximum PF candidates:       3741
+
+Truth labels
+---------------------------
+Average chi0 particles :     44.50
+Average chi1 particles :     44.39
+Average ISR particles  :   1965.39
+
+Algorithm labels
+---------------------------
+Average chi0 particles :     80.04
+Average chi1 particles :     79.47
+Average ISR particles  :   1894.77
+
+Mass reconstruction
+---------------------------
+Average total PF mass      :   24909.60 GeV
+Average truth Suu mass     :    3021.58 GeV
+Average algorithm Suu mass :    3356.89 GeV
+
+Average truth chi0 mass    :     817.11 GeV
+Average truth chi1 mass    :     788.67 GeV
+Average algo chi0 mass     :     852.74 GeV
+Average algo chi1 mass     :     835.40 GeV
+================================================================================
+
+================================================================================
+LABEL SANITY CHECKS
+================================================================================
+Events missing truth chi0 : 28
+Events missing truth chi1 : 28
+
+Events missing algo chi0  : 0
+Events missing algo chi1  : 0
+
+Truth particle-count mismatches : 0
+Algo particle-count mismatches  : 0
+================================================================================
+
+================================================================================
+ENERGY ACCOUNTING
+================================================================================
+
+================================================================================
+VISIBLE PF VS GENERATOR
+================================================================================
+Visible PF energy / generator energy
+    mean = 0.791
+    std  = 0.110
+
+Visible PF mass / generator mass
+    mean = 0.786
+    std  = 0.120
+Truth χ0 average energy fraction : 0.508
+Truth χ1 average energy fraction : 0.492
+
+Algo  χ0 average energy fraction : 0.550
+Algo  χ1 average energy fraction : 0.543
+
+Suspicious events identified : 450
+================================================================================
+
+First suspicious events:
+------------------------------------------------------------
+Event 0
+Reasons: low algo chi0
+Truth Suu : 3551.6
+Algo  Suu : 3343.9
+Truth χ0  : 939.6
+Truth χ1  : 893.0
+Algo  χ0  : 99.8
+Algo  χ1  : 913.9
+------------------------------------------------------------
+Event 1
+Reasons: low truth Suu
+Truth Suu : 2447.0
+Algo  Suu : 3469.2
+Truth χ0  : 692.5
+Truth χ1  : 577.3
+Algo  χ0  : 780.6
+Algo  χ1  : 932.6
+------------------------------------------------------------
+Event 2
+Reasons: low algo chi0
+Truth Suu : 3686.7
+Algo  Suu : 3699.2
+Truth χ0  : 588.7
+Truth χ1  : 961.1
+Algo  χ0  : 119.5
+Algo  χ1  : 1014.8
+------------------------------------------------------------
+Event 3
+Reasons: low algo chi0
+Truth Suu : 3544.5
+Algo  Suu : 2828.8
+Truth χ0  : 838.8
+Truth χ1  : 833.8
+Algo  χ0  : 107.1
+Algo  χ1  : 901.3
+------------------------------------------------------------
+Event 4
+Reasons: low algo chi0, low algo chi1
+Truth Suu : 3747.2
+Algo  Suu : 3223.6
+Truth χ0  : 873.1
+Truth χ1  : 822.7
+Algo  χ0  : 85.3
+Algo  χ1  : 103.9
+------------------------------------------------------------
+Event 5
+Reasons: low algo chi1
+Truth Suu : 3603.6
+Algo  Suu : 3486.8
+Truth χ0  : 857.7
+Truth χ1  : 904.8
+Algo  χ0  : 1005.1
+Algo  χ1  : 102.6
+------------------------------------------------------------
+Event 7
+Reasons: low algo chi0
+Truth Suu : 2862.4
+Algo  Suu : 2885.3
+Truth χ0  : 606.9
+Truth χ1  : 753.6
+Algo  χ0  : 109.5
+Algo  χ1  : 717.0
+------------------------------------------------------------
+Event 8
+Reasons: low algo chi0
+Truth Suu : 3181.5
+Algo  Suu : 3280.5
+Truth χ0  : 690.4
+Truth χ1  : 830.2
+Algo  χ0  : 108.2
+Algo  χ1  : 960.2
+------------------------------------------------------------
+Event 10
+Reasons: low truth Suu
+Truth Suu : 2434.9
+Algo  Suu : 3833.2
+Truth χ0  : 532.0
+Truth χ1  : 853.8
+Algo  χ0  : 995.4
+Algo  χ1  : 1057.7
+------------------------------------------------------------
+Event 12
+Reasons: low algo chi0
+Truth Suu : 3129.5
+Algo  Suu : 3301.6
+Truth χ0  : 504.8
+Truth χ1  : 928.6
+Algo  χ0  : 117.8
+Algo  χ1  : 1113.9
+------------------------------------------------------------
+Event 14
+Reasons: low algo chi1
+Truth Suu : 3594.5
+Algo  Suu : 3400.3
+Truth χ0  : 801.6
+Truth χ1  : 925.3
+Algo  χ0  : 982.0
+Algo  χ1  : 127.4
+------------------------------------------------------------
+Event 15
+Reasons: low algo chi0
+Truth Suu : 3241.6
+Algo  Suu : 3196.3
+Truth χ0  : 760.1
+Truth χ1  : 776.3
+Algo  χ0  : 127.7
+Algo  χ1  : 798.6
+------------------------------------------------------------
+Event 17
+Reasons: low truth Suu, low algo Suu, low algo chi0
+Truth Suu : 2309.7
+Algo  Suu : 2099.6
+Truth χ0  : 735.9
+Truth χ1  : 858.3
+Algo  χ0  : 83.6
+Algo  χ1  : 997.3
+------------------------------------------------------------
+Event 18
+Reasons: low algo chi1
+Truth Suu : 2642.1
+Algo  Suu : 3307.9
+Truth χ0  : 460.9
+Truth χ1  : 858.8
+Algo  χ0  : 756.6
+Algo  χ1  : 117.4
+------------------------------------------------------------
+Event 20
+Reasons: low truth Suu, low algo chi1
+Truth Suu : 2321.0
+Algo  Suu : 3119.5
+Truth χ0  : 810.9
+Truth χ1  : 464.4
+Algo  χ0  : 898.8
+Algo  χ1  : 89.6
+------------------------------------------------------------
+Event 23
+Reasons: low algo chi1
+Truth Suu : 3278.6
+Algo  Suu : 3206.2
+Truth χ0  : 897.6
+Truth χ1  : 746.9
+Algo  χ0  : 934.6
+Algo  χ1  : 115.3
+------------------------------------------------------------
+Event 27
+Reasons: low truth Suu
+Truth Suu : 2353.3
+Algo  Suu : 2990.6
+Truth χ0  : 770.4
+Truth χ1  : 469.7
+Algo  χ0  : 1102.2
+Algo  χ1  : 1177.4
+------------------------------------------------------------
+Event 28
+Reasons: low truth Suu, low algo Suu, low truth chi0, low algo chi1
+Truth Suu : 2138.9
+Algo  Suu : 2314.8
+Truth χ0  : 32.7
+Truth χ1  : 838.6
+Algo  χ0  : 1451.6
+Algo  χ1  : 92.4
+------------------------------------------------------------
+Event 32
+Reasons: low truth Suu, low algo Suu, low algo chi1
+Truth Suu : 1473.3
+Algo  Suu : 2240.4
+Truth χ0  : 716.9
+Truth χ1  : 420.3
+Algo  χ0  : 855.7
+Algo  χ1  : 145.4
+------------------------------------------------------------
+Event 37
+Reasons: low algo chi0, low algo chi1
+Truth Suu : 3014.9
+Algo  Suu : 2850.0
+Truth χ0  : 814.4
+Truth χ1  : 863.5
+Algo  χ0  : 112.1
+Algo  χ1  : 122.3
+
+
+Truth χ system energy fraction :
+    mean = 1.000
+    std  = 0.000
+    min  = 1.000
+    max  = 1.000
+
+Algorithm χ system energy fraction :
+    mean = 1.093
+    std  = 0.191
+    min  = 0.418
+    max  = 2.049
+
+Saved plots to evaluate_ntuplizer_dr_p1/

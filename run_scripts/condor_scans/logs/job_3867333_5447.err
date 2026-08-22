@@ -1,0 +1,25 @@
+20-Aug-2026 00:58:00 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/34FF48EF-E4F5-CC41-9B1C-7A17B2B5AFFE.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 00:58:02 UTC pre-events
+Opened a file at URL root://xrd-11.t2.ucsd.edu:1095//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/34FF48EF-E4F5-CC41-9B1C-7A17B2B5AFFE.root?xrdcl.requuid=7ecc0998-2797-40ca-ba76-b132e2e5543b
+%MSG
+20-Aug-2026 00:58:05 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/34FF48EF-E4F5-CC41-9B1C-7A17B2B5AFFE.root
+Begin processing the 1st record. Run 1, Event 29754, LumiSection 51 on stream 0 at 20-Aug-2026 00:58:09.167 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 00:58:09 UTC pre-events
+Opened a file at URL root://xrd-10.t2.ucsd.edu:1095//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/34FF48EF-E4F5-CC41-9B1C-7A17B2B5AFFE.root?tried=xrd-11.t2.ucsd.edu&triedrc=resel&xrdcl.requuid=1b7476a2-27ff-4221-a0b3-5e9238454d8c
+%MSG
+20-Aug-2026 01:02:18 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/34FF48EF-E4F5-CC41-9B1C-7A17B2B5AFFE.root
+20-Aug-2026 01:02:18 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/446120FF-86EB-F047-BF51-7D8D067AE647.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 01:02:20 UTC PostProcessEvent
+Opened a file at URL root://xrd-12.t2.ucsd.edu:1095//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/446120FF-86EB-F047-BF51-7D8D067AE647.root?xrdcl.requuid=8125ea96-e4a9-407b-8cce-be9149af81fd
+%MSG
+20-Aug-2026 01:02:21 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/446120FF-86EB-F047-BF51-7D8D067AE647.root
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 01:02:26 UTC pre-events
+Opened a file at URL root://dtn-03.t2.ucsd.edu:1095//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/446120FF-86EB-F047-BF51-7D8D067AE647.root?tried=xrd-12.t2.ucsd.edu&triedrc=resel&xrdcl.requuid=2e98faf2-1fca-46af-9aa3-4c3546772569
+%MSG
+[2026-08-20 01:30:19.261753 +0000][Error  ][TlsMsg            ] [] TLS error rc=0 ec=6 (zero_return) errno=0.
+[2026-08-20 01:30:19.261818 +0000][Error  ][AsyncSock         ] [dtn-03.t2.ucsd.edu:1095.0] Socket error encountered: [ERROR] Socket error
+[2026-08-20 01:58:10.011954 +0000][Error  ][TlsMsg            ] [] TLS error rc=0 ec=6 (zero_return) errno=0.
+[2026-08-20 01:58:10.011995 +0000][Error  ][AsyncSock         ] [xrd-12.t2.ucsd.edu:1095.0] Socket error encountered: [ERROR] Socket error
+[2026-08-20 02:13:27.613462 +0000][Error  ][XRootD            ] [xrd-12.t2.ucsd.edu:1095] Unable to send the message kXR_close (handle: 0x00000000): [ERROR] Invalid session
+[2026-08-20 02:13:27.613583 +0000][Error  ][XRootD            ] [dtn-03.t2.ucsd.edu:1095] Unable to send the message kXR_close (handle: 0x00000000): [ERROR] Invalid session
+20-Aug-2026 02:13:27 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToZTZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/130000/446120FF-86EB-F047-BF51-7D8D067AE647.root

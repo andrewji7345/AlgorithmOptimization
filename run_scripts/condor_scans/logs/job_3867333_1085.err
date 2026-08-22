@@ -1,0 +1,22 @@
+19-Aug-2026 22:18:59 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 22:19:15 UTC pre-events
+Opened a file at URL root://dm-s11-14-31.cr.cnaf.infn.it:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root?tried=+1213cmsxrootd2.fnal.gov&xrdcl.requuid=08c54efc-e056-4fb6-80cc-4728e65b9715
+%MSG
+19-Aug-2026 22:19:20 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:19:36 UTC pre-events
+Opened a file at URL root://f01-124-152-e.gridka.de:24963//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root?org.dcache.uuid=0bb342fd-1555-43b1-aa6a-eeb3468829d6&org.dcache.xrootd.client=aji.625@cmswn2261.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,dm-s11-14-31.cr.cnaf.infn.it&triedrc=resel&xrd.logintoken=org.dcache.door=2a00:139c:8:0:483d:8a06:b6db:b43e:1094&xrdcl.requuid=c437ec77-48f0-401c-84ae-225f41b4480b
+%MSG
+%MSG-f XrdAdaptorLvl3:  source 19-Aug-2026 22:19:51 UTC PreSource
+Deactivating dm-s11-14-31.cr.cnaf.infn.it from active sources because its quality (1288) is higher than 260 and 4 times larger than the other active server f01-124-152-e.gridka.de (260) 
+%MSG
+Begin processing the 1st record. Run 1, Event 20002, LumiSection 21 on stream 0 at 19-Aug-2026 22:19:52.864 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:19:53 UTC pre-events
+Opened a file at URL root://f01-124-152-e.gridka.de:24963//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root?org.dcache.uuid=4c19917c-a24c-453d-8a4b-61a145bf7eb1&org.dcache.xrootd.client=aji.625@cmswn2261.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,dm-s11-14-31.cr.cnaf.infn.it,cmsxrootd-2.gridka.de&triedrc=resel&xrd.logintoken=org.dcache.door=2a00:139c:8:0:483d:8a06:b6db:b43e:1094&xrdcl.requuid=662988c5-19be-412b-832e-6f5d995f95db
+%MSG
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:20:37 UTC pre-events
+Opened a file at URL root://f01-124-152-e.gridka.de:24963//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root?org.dcache.uuid=8b68a210-392e-403e-91ce-75e973bb4fa9&org.dcache.xrootd.client=aji.625@cmswn2261.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,cmsxrootd-2.gridka.de,dm-s11-14-31.cr.cnaf.infn.it&triedrc=resel&xrd.logintoken=org.dcache.door=2a00:139c:8:0:483d:8a06:b6db:b43e:1094&xrdcl.requuid=26322329-a04b-45fe-bb43-e34b7b0429d2
+%MSG
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:20:50 UTC pre-events
+Opened a file at URL root://f01-124-152-e.gridka.de:24963//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root?org.dcache.uuid=a01726e1-a8d5-4660-80ce-27974c6c4539&org.dcache.xrootd.client=aji.625@cmswn2261.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,cmsxrootd-2.gridka.de,dm-s11-14-31.cr.cnaf.infn.it&triedrc=resel&xrd.logintoken=org.dcache.door=2a00:139c:8:0:483d:8a06:b6db:b43e:1094&xrdcl.requuid=aaf2c68d-02f2-4ffc-a4d4-19404a220c74
+%MSG
+19-Aug-2026 22:21:26 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root

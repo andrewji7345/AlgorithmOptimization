@@ -1,0 +1,46 @@
+035 (3867281.-01.000) 2026-08-19 15:22:10 Cluster submitted from host: <131.225.189.251:9618?addrs=131.225.189.251-9618+[2620-6a-0-8421--e8]-9618&alias=lpcschedd4.fnal.gov&noUDP&sock=schedd_2061_40c7>
+...
+000 (3867281.000.000) 2026-08-19 15:22:10 Job submitted from host: <131.225.189.251:9618?addrs=131.225.189.251-9618+[2620-6a-0-8421--e8]-9618&alias=lpcschedd4.fnal.gov&noUDP&sock=schedd_2061_40c7>
+...
+040 (3867281.000.000) 2026-08-19 15:22:24 Started transferring input files
+	Transferring to host: <131.225.207.47:9618?addrs=[2620-6a-0-8420-f0-0-207-47]-9618+131.225.207.47-9618&alias=cmswn2178.fnal.gov&noUDP&sock=slot1_22_2092_c0ce_4895>
+...
+040 (3867281.000.000) 2026-08-19 15:22:24 Finished transferring input files
+...
+001 (3867281.000.000) 2026-08-19 15:22:25 Job executing on host: <131.225.207.47:9618?addrs=[2620-6a-0-8420-f0-0-207-47]-9618+131.225.207.47-9618&alias=cmswn2178.fnal.gov&noUDP&sock=startd_2039_29b2>
+	SlotName: slot1_22@cmswn2178.fnal.gov
+	CondorScratchDir = "/storage/local/data1/condor/execute/dir_2670835"
+	Cpus = 1
+	Disk = 10489266
+	GPUs = 0
+	Memory = 4096
+...
+006 (3867281.000.000) 2026-08-19 15:22:33 Image size of job updated: 88
+	88  -  MemoryUsage of job (MB)
+	90844  -  ResidentSetSize of job (KB)
+...
+040 (3867281.000.000) 2026-08-19 15:23:32 Started transferring output files
+...
+040 (3867281.000.000) 2026-08-19 15:23:32 Finished transferring output files
+...
+005 (3867281.000.000) 2026-08-19 15:23:33 Job terminated.
+	(1) Normal termination (return value 3)
+		Usr 0 00:00:31, Sys 0 00:00:08  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:31, Sys 0 00:00:08  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	1016  -  Run Bytes Sent By Job
+	12410  -  Run Bytes Received By Job
+	1016  -  Total Bytes Sent By Job
+	12410  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :        0        1         1 
+	   Disk (KB)            :  3508971 10485760  10489266 
+	   GPUs                 :                           0 
+	   Memory (MB)          :       88     4096      4096 
+	   TimeExecute (s)      :       67                    
+	   TimeSlotBusy (s)     :       70                    
+...
+036 (3867281.-01.000) 2026-08-19 15:23:33 Cluster removed
+	Materialized 1 jobs from -1 items.	Complete
+...

@@ -1,0 +1,21 @@
+19-Aug-2026 22:05:32 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root
+[2026-08-19 22:06:11.093857 +0000][Error  ][AsyncSock         ] [f01-124-152-e.gridka.de:24963.0] Socket error while handshaking: [ERROR] Socket timeout
+[2026-08-19 22:06:11.093998 +0000][Error  ][PostMaster        ] [f01-124-152-e.gridka.de:24963] elapsed = 36, pConnectionWindow = 31 seconds.
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 22:06:21 UTC pre-events
+Opened a file at URL root://f01-124-152-e.gridka.de:24963//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root?org.dcache.uuid=4e93c17f-85d7-40d4-9b90-6e49271d8ab7&org.dcache.xrootd.client=aji.624@cmswn2249.fnal.gov&tried=+1213cmsxrootd2.fnal.gov&xrd.logintoken=org.dcache.door=2a00:139c:8:0:483d:8a06:b6db:b43e:1094&xrdcl.requuid=d25b74f4-de08-46b2-8622-9f5117a46d03
+%MSG
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:06:32 UTC pre-events
+Opened a file at URL root://f01-124-152-e.gridka.de:24963//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root?org.dcache.uuid=dc351afb-c3f7-477a-ac6f-c80c384a5e88&org.dcache.xrootd.client=aji.624@cmswn2249.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,cmsxrootd-2.gridka.de&triedrc=resel&xrd.logintoken=org.dcache.door=2a00:139c:8:0:483d:8a06:b6db:b43e:1094&xrdcl.requuid=a0279cfc-3b76-464a-83ca-44b3f283c8a7
+%MSG
+19-Aug-2026 22:06:35 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:06:52 UTC pre-events
+Opened a file at URL root://f01-124-152-e.gridka.de:24963//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root?org.dcache.uuid=5d4ea9d0-3e64-40cd-8eb0-7380bed39536&org.dcache.xrootd.client=aji.624@cmswn2249.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,cmsxrootd-2.gridka.de&triedrc=resel&xrd.logintoken=org.dcache.door=2a00:139c:8:0:483d:8a06:b6db:b43e:1094&xrdcl.requuid=acb5bd5e-4cb2-4c7a-b930-f846f7dd1b5b
+%MSG
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:07:14 UTC pre-events
+Opened a file at URL root://f01-124-152-e.gridka.de:24963//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root?org.dcache.uuid=1da2a2ca-3ece-4258-906c-7aba004129a0&org.dcache.xrootd.client=aji.624@cmswn2249.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,cmsxrootd-2.gridka.de&triedrc=resel&xrd.logintoken=org.dcache.door=2a00:139c:8:0:483d:8a06:b6db:b43e:1094&xrdcl.requuid=25c9b1e5-9092-49ba-9c3e-f94030583db7
+%MSG
+Begin processing the 1st record. Run 1, Event 20002, LumiSection 21 on stream 0 at 19-Aug-2026 22:08:15.410 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 22:09:35 UTC pre-events
+Opened a file at URL root://f01-124-152-e.gridka.de:24963//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root?org.dcache.uuid=aa6d08a2-3ecc-4908-b7de-678f1a9d3a2d&org.dcache.xrootd.client=aji.624@cmswn2249.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,cmsxrootd-2.gridka.de&triedrc=resel&xrd.logintoken=org.dcache.door=2a00:139c:8:0:483d:8a06:b6db:b43e:1094&xrdcl.requuid=11425436-a811-46ba-aab8-5309c3c13ec2
+%MSG
+19-Aug-2026 22:10:33 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root

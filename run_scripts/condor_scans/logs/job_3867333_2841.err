@@ -1,0 +1,38 @@
+19-Aug-2026 23:33:33 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 23:33:38 UTC pre-events
+Opened a file at URL root://sedsk90.grid.hep.ph.ic.ac.uk:20284//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root?org.dcache.uuid=8912203d-39e4-4135-9244-31ab357affa4&org.dcache.xrootd.client=aji.626@cmswn2244.fnal.gov&tried=+1213cmsxrootd2.fnal.gov&xrd.logintoken=org.dcache.door=2a0c:5bc0:c8:2:ba3f:d2ff:fe4b:4c20:1097&xrdcl.requuid=530178cd-7df9-4c03-abeb-1e2ade25a598
+%MSG
+19-Aug-2026 23:34:17 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root
+Begin processing the 1st record. Run 1, Event 2, LumiSection 1 on stream 0 at 19-Aug-2026 23:34:34.997 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 23:35:02 UTC pre-events
+Opened a file at URL root://stormgf3.pi.infn.it:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root?tried=+1213xrootd011213xrootd-cms-uk-2.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,+1213cmsxrootd2.fnal.gov,gfe02.grid.hep.ph.ic.ac.uk&triedrc=resel&xrdcl.requuid=2386ee51-eb04-4e52-abf9-b7324ca591f2
+%MSG
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 19-Aug-2026 23:40:12 UTC Run: 1 Event: 25
+Deactivating stormgf3.pi.infn.it from active sources because its quality (1773) is higher than 260 and 4 times larger than the other active server sedsk90.grid.hep.ph.ic.ac.uk (131) 
+%MSG
+[2026-08-19 23:44:58.495788 +0000][Warning][XRootD            ] [xrootd-cms-redir-int.cr.cnaf.infn.it:1094] Redirect limit has been reached for message kXR_open (file: /store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root?tried=+1098cms-xrd-global011098cms-xrd-global02.cern.ch,+1213llrxrd-redir.in2p3.fr,+1313xrootd-redic.pi.infn.it,+1213xrootd011213xrootd-cms-uk-2.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,+1213cmsxrootd2.fnal.gov,gfe02.grid.hep.ph.ic.ac.uk,stormgf3.pi.infn.it,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-cms.infn.it,xrootd-redic.pi.infn.it,xrootd-redic.pi.infn.it,cms-xrd-transit.cern.ch&triedrc=resel,enoent,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat ), the last known error is: [ERROR] Error response: no such file or directory
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] Redirect trace-back:
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	0. Redirected from: root://cmsxrootd.fnal.gov:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root to: root://cms-xrd-global.cern.ch:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	1. Redirected from: root://cms-xrd-global.cern.ch:1094/ to: root://xrootd-cms-redir-int.cr.cnaf.infn.it:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	2. Redirected from: root://xrootd-cms-redir-int.cr.cnaf.infn.it:1094/ to: root://xrootd-cms-uk.gridpp.rl.ac.uk:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	3. Redirected from: root://xrootd-cms-uk.gridpp.rl.ac.uk:1094/ to: root://xrootd-cms.infn.it:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	4. Redirected from: root://xrootd-cms.infn.it:1094/ to: root://xrootd02.grid.hep.ph.ic.ac.uk:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	5. Redirected from: root://xrootd02.grid.hep.ph.ic.ac.uk:1094/ to: root://cms-xrd-global.cern.ch:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	6. Redirected from: root://cms-xrd-global.cern.ch:1094/ to: root://xrootd-redic.pi.infn.it:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	7. Redirected from: root://xrootd-redic.pi.infn.it:1094/ to: root://xrootd-redic.pi.infn.it:1194/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	8. Redirected from: root://xrootd-redic.pi.infn.it:1194/ to: root://xrootd-cms.infn.it:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	9. Redirected from: root://xrootd-cms.infn.it:1094/ to: root://xrootd-cms-uk.gridpp.rl.ac.uk:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	10. Waited at server request. Resending: root://xrootd-cms-uk.gridpp.rl.ac.uk:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	11. Waited at server request. Resending: root://xrootd-cms-uk.gridpp.rl.ac.uk:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	12. Retrying: root://cms-xrd-global.cern.ch:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	13. Redirected from: root://cms-xrd-global.cern.ch:1094/ to: root://llrxrd-redir.in2p3.fr:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	14. Redirected from: root://llrxrd-redir.in2p3.fr:1094/ to: root://cms-xrd-global.cern.ch:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	15. Redirected from: root://cms-xrd-global.cern.ch:1094/ to: root://xrootd-redic.pi.infn.it:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	16. Redirected from: root://xrootd-redic.pi.infn.it:1094/ to: root://xrootd-redic.pi.infn.it:1194/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	17. Retrying: root://cms-xrd-global.cern.ch:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	18. Waited at server request. Resending: root://cms-xrd-global.cern.ch:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	19. Redirected from: root://cms-xrd-global.cern.ch:1094/ to: root://cms-xrd-transit.cern.ch:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	20. Retrying: root://cms-xrd-global.cern.ch:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	21. Waited at server request. Resending: root://cms-xrd-global.cern.ch:1094/
+[2026-08-19 23:44:58.508399 +0000][Warning][XRootD            ] 	22. Redirected from: root://cms-xrd-global.cern.ch:1094/ to: root://xrootd-cms-redir-int.cr.cnaf.infn.it:1094/
+19-Aug-2026 23:45:19 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root

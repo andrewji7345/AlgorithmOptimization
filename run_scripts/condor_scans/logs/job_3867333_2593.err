@@ -1,0 +1,22 @@
+19-Aug-2026 23:18:19 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 23:18:33 UTC pre-events
+Opened a file at URL root://gaeds016.ciemat.es:25000//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root?org.dcache.uuid=2f756832-75ac-4180-b45f-5a5e66757ae0&org.dcache.xrootd.client=aji.625@cmswn2195.fnal.gov&tried=+1213cmsxrootd2.fnal.gov&xrd.logintoken=org.dcache.door=2001:720:42c:aaee:0:0:c065:a1b8:1094&xrdcl.requuid=1bae10f4-8361-4609-8b04-ece6b644cdc7
+%MSG
+19-Aug-2026 23:18:35 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root
+Begin processing the 1st record. Run 1, Event 2, LumiSection 1 on stream 0 at 19-Aug-2026 23:18:40.602 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 23:18:41 UTC pre-events
+Opened a file at URL root://gaeds016.ciemat.es:25000//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root?org.dcache.uuid=a495d9fa-9707-47f1-9c55-a38ab1c7774e&org.dcache.xrootd.client=aji.625@cmswn2195.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,gaexroot01.ciemat.es&triedrc=resel&xrd.logintoken=org.dcache.door=2001:720:42c:aaee:0:0:c065:a1b8:1094&xrdcl.requuid=c9936f08-fa9d-4bcb-a9f8-4c007aae5850
+%MSG
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 23:19:16 UTC pre-events
+Opened a file at URL root://gaeds016.ciemat.es:25000//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root?org.dcache.uuid=4bb018cb-772c-49fb-aa93-78f5b4cc12e7&org.dcache.xrootd.client=aji.625@cmswn2195.fnal.gov&tried=+1213cmsxrootd2.fnal.gov,gaexroot01.ciemat.es&triedrc=resel&xrd.logintoken=org.dcache.door=2001:720:42c:aaee:0:0:c065:a1b8:1094&xrdcl.requuid=5a35acc6-37ed-44b8-a617-8b19548fb80d
+%MSG
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 23:22:42 UTC pre-events
+Opened a file at URL root://dm-s11-14-29.cr.cnaf.infn.it:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root?tried=+1313xrootd-es-pic.pic.es,+1213cmsxrootd2.fnal.gov,gaexroot01.ciemat.es,xrootd-es-cie.ciemat.es,xrootd-es-cie.ciemat.es,xrootd-es-cie.ciemat.es&triedrc=resel&xrdcl.requuid=02940c99-a3c3-46e2-8c0f-a4402c4f94e3
+%MSG
+%MSG-f XrdAdaptorLvl3:  PostModuleEvent 19-Aug-2026 23:24:39 UTC  PostProcessEvent
+Deactivating dm-s11-14-29.cr.cnaf.infn.it from active sources because the quality (20143) is above 5130 and it is not the only active server
+%MSG
+%MSG-f XrdAdaptorLvl3:  PostModuleEvent 19-Aug-2026 23:24:39 UTC  PostProcessEvent
+Deactivating dm-s11-14-29.cr.cnaf.infn.it from active sources because its quality (20143) is higher than 260 and 4 times larger than the other active server gaeds016.ciemat.es (1257) 
+%MSG
+19-Aug-2026 23:24:47 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root

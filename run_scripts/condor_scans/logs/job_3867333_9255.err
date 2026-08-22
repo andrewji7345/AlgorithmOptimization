@@ -1,0 +1,20 @@
+20-Aug-2026 02:18:50 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+[2026-08-20 02:18:51.802273 +0000][Error  ][AsyncSock         ] [k8s-transfer-15.ultralight.org:1094.0] Unable to connect: network is unreachable
+[2026-08-20 02:18:51.802415 +0000][Error  ][PostMaster        ] [k8s-transfer-15.ultralight.org:1094] elapsed = 0, pConnectionWindow = 31 seconds.
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 02:18:55 UTC pre-events
+Opened a file at URL root://k8s-transfer-15.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?xrdcl.requuid=81fa34f0-ab2a-4f04-8839-fd66e0ec8360
+%MSG
+20-Aug-2026 02:18:58 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 02:19:00 UTC pre-events
+Opened a file at URL root://k8s-transfer-18.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?tried=k8s-transfer-15.ultralight.org&triedrc=resel&xrdcl.requuid=2c045ef3-f7ed-48d9-9942-34425f5ff2f9
+%MSG
+Begin processing the 1st record. Run 1, Event 1150, LumiSection 4 on stream 0 at 20-Aug-2026 02:19:02.035 UTC
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 20-Aug-2026 02:20:01 UTC  Run: 1 Event: 1168
+Deactivating k8s-transfer-15.ultralight.org from active sources because its quality (1110) is higher than 260 and 4 times larger than the other active server k8s-transfer-18.ultralight.org (224) 
+%MSG
+[2026-08-20 03:27:06.942613 +0000][Error  ][AsyncSock         ] [k8s-transfer-16.ultralight.org:1094.0] Unable to connect: network is unreachable
+[2026-08-20 03:27:06.942692 +0000][Error  ][PostMaster        ] [k8s-transfer-16.ultralight.org:1094] elapsed = 0, pConnectionWindow = 31 seconds.
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 03:27:08 UTC pre-events
+Opened a file at URL root://k8s-transfer-16.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?tried=k8s-transfer-18.ultralight.org,k8s-transfer-15.ultralight.org&triedrc=resel&xrdcl.requuid=3a973e20-fd4a-4262-bd01-7481a07d18b3
+%MSG
+20-Aug-2026 03:27:24 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root

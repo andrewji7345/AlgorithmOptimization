@@ -1,0 +1,396 @@
+================================================================================
+NTUPLIZER SUMMARY
+================================================================================
+Number of events : 1000
+Selected method(s): new
+Jet pT cutoff: 120
+New AK radius: 0.6
+New CA radius: 0.4
+Average PF candidates/event: 2034.0
+Minimum/maximum PF candidates: 657/3883
+
+Branch names:
+    HT
+    MET_phi
+    MET_pt
+    PV_x
+    PV_y
+    PV_z
+    ak4_eta
+    ak4_jetArea
+    ak4_mass
+    ak4_phi
+    ak4_pt
+    ak8_eta
+    ak8_mass
+    ak8_phi
+    ak8_pt
+    ak8_softdropMass
+    ak8_tau1
+    ak8_tau2
+    ak8_tau3
+    ak8_tau4
+    akRadius
+    ak_eta
+    ak_mass
+    ak_phi
+    ak_pt
+    caRadius
+    cosThrust
+    event
+    gen_Suu_E
+    gen_Suu_eta
+    gen_Suu_mass
+    gen_Suu_phi
+    gen_Suu_pt
+    gen_Suu_px
+    gen_Suu_py
+    gen_Suu_pz
+    gen_W0_E
+    gen_W0_eta
+    gen_W0_mass
+    gen_W0_phi
+    gen_W0_pt
+    gen_W0_px
+    gen_W0_py
+    gen_W0_pz
+    gen_W0_q0_E
+    gen_W0_q0_eta
+    gen_W0_q0_mass
+    gen_W0_q0_phi
+    gen_W0_q0_pt
+    gen_W0_q0_px
+    gen_W0_q0_py
+    gen_W0_q0_pz
+    gen_W0_q1_E
+    gen_W0_q1_eta
+    gen_W0_q1_mass
+    gen_W0_q1_phi
+    gen_W0_q1_pt
+    gen_W0_q1_px
+    gen_W0_q1_py
+    gen_W0_q1_pz
+    gen_W1_E
+    gen_W1_eta
+    gen_W1_mass
+    gen_W1_phi
+    gen_W1_pt
+    gen_W1_px
+    gen_W1_py
+    gen_W1_pz
+    gen_W1_q0_E
+    gen_W1_q0_eta
+    gen_W1_q0_mass
+    gen_W1_q0_phi
+    gen_W1_q0_pt
+    gen_W1_q0_px
+    gen_W1_q0_py
+    gen_W1_q0_pz
+    gen_W1_q1_E
+    gen_W1_q1_eta
+    gen_W1_q1_mass
+    gen_W1_q1_phi
+    gen_W1_q1_pt
+    gen_W1_q1_px
+    gen_W1_q1_py
+    gen_W1_q1_pz
+    gen_Z0_E
+    gen_Z0_eta
+    gen_Z0_mass
+    gen_Z0_phi
+    gen_Z0_pt
+    gen_Z0_px
+    gen_Z0_py
+    gen_Z0_pz
+    gen_Z0_q0_E
+    gen_Z0_q0_eta
+    gen_Z0_q0_mass
+    gen_Z0_q0_phi
+    gen_Z0_q0_pt
+    gen_Z0_q0_px
+    gen_Z0_q0_py
+    gen_Z0_q0_pz
+    gen_Z0_q1_E
+    gen_Z0_q1_eta
+    gen_Z0_q1_mass
+    gen_Z0_q1_phi
+    gen_Z0_q1_pt
+    gen_Z0_q1_px
+    gen_Z0_q1_py
+    gen_Z0_q1_pz
+    gen_Z1_E
+    gen_Z1_eta
+    gen_Z1_mass
+    gen_Z1_phi
+    gen_Z1_pt
+    gen_Z1_px
+    gen_Z1_py
+    gen_Z1_pz
+    gen_Z1_q0_E
+    gen_Z1_q0_eta
+    gen_Z1_q0_mass
+    gen_Z1_q0_phi
+    gen_Z1_q0_pt
+    gen_Z1_q0_px
+    gen_Z1_q0_py
+    gen_Z1_q0_pz
+    gen_Z1_q1_E
+    gen_Z1_q1_eta
+    gen_Z1_q1_mass
+    gen_Z1_q1_phi
+    gen_Z1_q1_pt
+    gen_Z1_q1_px
+    gen_Z1_q1_py
+    gen_Z1_q1_pz
+    gen_b0_E
+    gen_b0_eta
+    gen_b0_mass
+    gen_b0_phi
+    gen_b0_pt
+    gen_b0_px
+    gen_b0_py
+    gen_b0_pz
+    gen_b1_E
+    gen_b1_eta
+    gen_b1_mass
+    gen_b1_phi
+    gen_b1_pt
+    gen_b1_px
+    gen_b1_py
+    gen_b1_pz
+    gen_chi0_E
+    gen_chi0_eta
+    gen_chi0_mass
+    gen_chi0_phi
+    gen_chi0_pt
+    gen_chi0_px
+    gen_chi0_py
+    gen_chi0_pz
+    gen_chi1_E
+    gen_chi1_eta
+    gen_chi1_mass
+    gen_chi1_phi
+    gen_chi1_pt
+    gen_chi1_px
+    gen_chi1_py
+    gen_chi1_pz
+    gen_h0_E
+    gen_h0_eta
+    gen_h0_mass
+    gen_h0_phi
+    gen_h0_pt
+    gen_h0_px
+    gen_h0_py
+    gen_h0_pz
+    gen_h0_q0_E
+    gen_h0_q0_eta
+    gen_h0_q0_mass
+    gen_h0_q0_phi
+    gen_h0_q0_pt
+    gen_h0_q0_px
+    gen_h0_q0_py
+    gen_h0_q0_pz
+    gen_h0_q1_E
+    gen_h0_q1_eta
+    gen_h0_q1_mass
+    gen_h0_q1_phi
+    gen_h0_q1_pt
+    gen_h0_q1_px
+    gen_h0_q1_py
+    gen_h0_q1_pz
+    gen_h1_E
+    gen_h1_eta
+    gen_h1_mass
+    gen_h1_phi
+    gen_h1_pt
+    gen_h1_px
+    gen_h1_py
+    gen_h1_pz
+    gen_h1_q0_E
+    gen_h1_q0_eta
+    gen_h1_q0_mass
+    gen_h1_q0_phi
+    gen_h1_q0_pt
+    gen_h1_q0_px
+    gen_h1_q0_py
+    gen_h1_q0_pz
+    gen_h1_q1_E
+    gen_h1_q1_eta
+    gen_h1_q1_mass
+    gen_h1_q1_phi
+    gen_h1_q1_pt
+    gen_h1_q1_px
+    gen_h1_q1_py
+    gen_h1_q1_pz
+    gen_t0_E
+    gen_t0_W_E
+    gen_t0_W_eta
+    gen_t0_W_mass
+    gen_t0_W_phi
+    gen_t0_W_pt
+    gen_t0_W_px
+    gen_t0_W_py
+    gen_t0_W_pz
+    gen_t0_W_q0_E
+    gen_t0_W_q0_eta
+    gen_t0_W_q0_mass
+    gen_t0_W_q0_phi
+    gen_t0_W_q0_pt
+    gen_t0_W_q0_px
+    gen_t0_W_q0_py
+    gen_t0_W_q0_pz
+    gen_t0_W_q1_E
+    gen_t0_W_q1_eta
+    gen_t0_W_q1_mass
+    gen_t0_W_q1_phi
+    gen_t0_W_q1_pt
+    gen_t0_W_q1_px
+    gen_t0_W_q1_py
+    gen_t0_W_q1_pz
+    gen_t0_b_E
+    gen_t0_b_eta
+    gen_t0_b_mass
+    gen_t0_b_phi
+    gen_t0_b_pt
+    gen_t0_b_px
+    gen_t0_b_py
+    gen_t0_b_pz
+    gen_t0_eta
+    gen_t0_mass
+    gen_t0_phi
+    gen_t0_pt
+    gen_t0_px
+    gen_t0_py
+    gen_t0_pz
+    gen_t1_E
+    gen_t1_W_E
+    gen_t1_W_eta
+    gen_t1_W_mass
+    gen_t1_W_phi
+    gen_t1_W_pt
+    gen_t1_W_px
+    gen_t1_W_py
+    gen_t1_W_pz
+    gen_t1_W_q0_E
+    gen_t1_W_q0_eta
+    gen_t1_W_q0_mass
+    gen_t1_W_q0_phi
+    gen_t1_W_q0_pt
+    gen_t1_W_q0_px
+    gen_t1_W_q0_py
+    gen_t1_W_q0_pz
+    gen_t1_W_q1_E
+    gen_t1_W_q1_eta
+    gen_t1_W_q1_mass
+    gen_t1_W_q1_phi
+    gen_t1_W_q1_pt
+    gen_t1_W_q1_px
+    gen_t1_W_q1_py
+    gen_t1_W_q1_pz
+    gen_t1_b_E
+    gen_t1_b_eta
+    gen_t1_b_mass
+    gen_t1_b_phi
+    gen_t1_b_pt
+    gen_t1_b_px
+    gen_t1_b_py
+    gen_t1_b_pz
+    gen_t1_eta
+    gen_t1_mass
+    gen_t1_phi
+    gen_t1_pt
+    gen_t1_px
+    gen_t1_py
+    gen_t1_pz
+    isMC
+    jetPtCut
+    lumi
+    nPV
+    nParticles
+    particle_charge
+    particle_dxy
+    particle_dz
+    particle_energy
+    particle_eta
+    particle_fromPV
+    particle_mass
+    particle_match_dr2
+    particle_match_pdgid
+    particle_newAlgoAKIndex
+    particle_newAlgoCAIndex
+    particle_newAlgoLabel
+    particle_oldAlgoAK4Label
+    particle_oldAlgoAK8Index
+    particle_oldAlgoCA8Index
+    particle_oldAlgoLabel
+    particle_pdgId
+    particle_phi
+    particle_pt
+    particle_puppiWeight
+    particle_pvAssociationQuality
+    particle_px
+    particle_py
+    particle_pz
+    particle_truthLabel
+    particle_vx
+    particle_vy
+    particle_vz
+    rho
+    run
+
+================================================================================
+EVENT STATISTICS
+================================================================================
+Events: 1000
+Average PF candidates: 2034.03
+Truth mean chi0/chi1/unassigned counts: 84.64 / 84.83 / 1864.56
+Average total PF mass: 27491.33 GeV
+Average truth Suu mass: 6715.52 GeV
+Average truth chi0/chi1 mass: 2554.31 / 2549.76 GeV
+Truth particle-count mismatches: 0
+
+New (reclustered AK6/CA4)
+----------------------------------------
+Mean chi0/chi1/unassigned counts: 172.00 / 188.68 / 1673.35
+Average Suu mass: 7454.84 GeV
+Average chi0/chi1 mass: 2853.68 / 2829.27 GeV
+Events missing chi0/chi1: 0 / 0
+Particle-count mismatches: 0
+Low/high-mass SJs: 1 / 1984
+
+================================================================================
+VISIBLE PF VS GENERATOR
+================================================================================
+Visible PF energy / generator energy: 0.878 +/- 0.133
+Visible PF mass / generator mass: 0.874 +/- 0.096
+Truth chi0/chi1 mean energy fraction: 0.502 / 0.498
+Truth chi-system energy fraction: mean=1.000, std=0.000
+new chi0/chi1 mean energy fraction: 0.545 / 0.528
+new chi-system fraction: mean=1.073, std=0.081, min=0.895, max=1.633
+
+Suspicious events identified: 5
+------------------------------------------------------------
+Event 418
+Reasons: low truth_chi0_mass
+Truth Suu/chi0/chi1: 5037.9 / 63.1 / 2629.2
+new Suu/chi0/chi1: 8078.7 / 3384.9 / 3384.9
+------------------------------------------------------------
+Event 483
+Reasons: low truth_chi1_mass
+Truth Suu/chi0/chi1: 5070.5 / 2514.2 / 83.4
+new Suu/chi0/chi1: 8596.1 / 3312.3 / 3615.0
+------------------------------------------------------------
+Event 727
+Reasons: low truth_chi0_mass
+Truth Suu/chi0/chi1: 5219.8 / 139.9 / 2806.8
+new Suu/chi0/chi1: 5401.2 / 2111.3 / 444.6
+------------------------------------------------------------
+Event 962
+Reasons: low truth_chi1_mass
+Truth Suu/chi0/chi1: 3763.7 / 2416.4 / 118.9
+new Suu/chi0/chi1: 6483.1 / 2513.9 / 2542.1
+------------------------------------------------------------
+Event 967
+Reasons: low truth_chi0_mass
+Truth Suu/chi0/chi1: 5193.9 / 70.3 / 2774.0
+new Suu/chi0/chi1: 6537.7 / 1900.9 / 1976.3

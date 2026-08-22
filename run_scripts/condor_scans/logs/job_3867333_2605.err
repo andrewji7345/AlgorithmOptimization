@@ -1,0 +1,38 @@
+19-Aug-2026 23:18:00 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root
+[2026-08-19 23:21:36.691273 +0000][Warning][XRootD            ] [xrootd-cms-01.cr.cnaf.infn.it:1094] Redirect limit has been reached for message kXR_open (file: /store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1313xrootd-es-pic.pic.es,+1213cmsxrootd2.fnal.gov1213xrootd.unl.edu,gaexroot01.ciemat.es,gaexroot01.ciemat.es,xrootd-es-cie.ciemat.es,xrootd-es-pic.pic.es,xrootd-cms.infn.it&triedrc=srverr,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat ), the last known error is: [ERROR] Error response: no such file or directory
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] Redirect trace-back:
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	0. Redirected from: root://cmsxrootd.fnal.gov:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root to: root://cms-xrd-global.cern.ch:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	1. Redirected from: root://cms-xrd-global.cern.ch:1094/ to: root://llrxrd-redir.in2p3.fr:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	2. Redirected from: root://llrxrd-redir.in2p3.fr:1094/ to: root://xrootd-es-cie.ciemat.es:1096/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	3. Redirected from: root://xrootd-es-cie.ciemat.es:1096/ to: root://gaexroot01.ciemat.es:1095/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	4. Redirected from: root://gaexroot01.ciemat.es:1095/ to: root://gaexrdoor.ciemat.es:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	5. Retrying: root://cms-xrd-global.cern.ch:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	6. Redirected from: root://cms-xrd-global.cern.ch:1094/ to: root://llrxrd-redir.in2p3.fr:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	7. Redirected from: root://llrxrd-redir.in2p3.fr:1094/ to: root://xrootd-es-pic.pic.es:1096/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	8. Redirected from: root://xrootd-es-pic.pic.es:1096/ to: root://xrootd-cms.infn.it:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	9. Redirected from: root://xrootd-cms.infn.it:1094/ to: root://xrootd-es-pic.pic.es:1096/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	10. Retrying: root://cms-xrd-global.cern.ch:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	11. Redirected from: root://cms-xrd-global.cern.ch:1094/ to: root://xrootd-cms-redir-int.cr.cnaf.infn.it:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	12. Waited at server request. Resending: root://xrootd-cms-redir-int.cr.cnaf.infn.it:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	13. Waited at server request. Resending: root://xrootd-cms-redir-int.cr.cnaf.infn.it:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	14. Waited at server request. Resending: root://xrootd-cms-redir-int.cr.cnaf.infn.it:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	15. Waited at server request. Resending: root://xrootd-cms-redir-int.cr.cnaf.infn.it:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	16. Waited at server request. Resending: root://xrootd-cms-redir-int.cr.cnaf.infn.it:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	17. Redirected from: root://xrootd-cms-redir-int.cr.cnaf.infn.it:1094/ to: root://cms-xrd-global.cern.ch:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	18. Redirected from: root://cms-xrd-global.cern.ch:1094/ to: root://llrxrd-redir.in2p3.fr:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	19. Redirected from: root://llrxrd-redir.in2p3.fr:1094/ to: root://cms-xrd-global.cern.ch:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	20. Redirected from: root://cms-xrd-global.cern.ch:1094/ to: root://xrootd-redic.pi.infn.it:1094/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	21. Redirected from: root://xrootd-redic.pi.infn.it:1094/ to: root://xrootd-redic.pi.infn.it:1194/
+[2026-08-19 23:21:36.691440 +0000][Warning][XRootD            ] 	22. Redirected from: root://xrootd-redic.pi.infn.it:1194/ to: root://xrootd-cms-01.cr.cnaf.infn.it:1094/
+%MSG-w XrdAdaptorInternal:  file_open 19-Aug-2026 23:21:36 UTC pre-events
+Failed to open file at URL root://xrootd-cms-01.cr.cnaf.infn.it:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1313xrootd-es-pic.pic.es,+1213cmsxrootd2.fnal.gov1213xrootd.unl.edu,gaexroot01.ciemat.es,gaexroot01.ciemat.es,xrootd-es-cie.ciemat.es,xrootd-es-pic.pic.es,xrootd-cms.infn.it&xrdcl.requuid=2af80810-3e67-43d9-840f-35828264a16d.
+%MSG
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 23:21:47 UTC pre-events
+Opened a file at URL root://gaeds016.ciemat.es:25000//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root?org.dcache.uuid=803c9d55-d27d-48dc-b019-bd5c56efef5a&org.dcache.xrootd.client=aji.625@cmswn2204.fnal.gov&tried=+1213cmsxrootd2.fnal.gov1213xrootd.unl.edu,&xrd.logintoken=org.dcache.door=2001:720:42c:aaee:0:0:c065:a1b7:1094&xrdcl.requuid=b2d50f31-c893-4e8e-88b2-f99012475805
+%MSG
+19-Aug-2026 23:21:49 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root
+Begin processing the 1st record. Run 1, Event 2, LumiSection 1 on stream 0 at 19-Aug-2026 23:21:54.074 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 23:21:58 UTC pre-events
+Opened a file at URL root://gaeds016.ciemat.es:25000//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root?org.dcache.uuid=0402b290-0755-48f8-8d4c-f5b0622c989b&org.dcache.xrootd.client=aji.625@cmswn2204.fnal.gov&tried=+1213cmsxrootd2.fnal.gov1213xrootd.unl.edu,gaexroot01.ciemat.es,&triedrc=resel&xrd.logintoken=org.dcache.door=2001:720:42c:aaee:0:0:c065:a1b7:1094&xrdcl.requuid=32b25a6f-7f81-4605-b8aa-10c4bbef4575
+%MSG
+19-Aug-2026 23:23:13 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/2550000/665949D3-F52D-D34A-B815-7E6706B55848.root

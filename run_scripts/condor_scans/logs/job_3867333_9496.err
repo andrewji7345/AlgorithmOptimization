@@ -1,0 +1,15 @@
+20-Aug-2026 02:22:05 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+%MSG-f XrdAdaptor:  file_open 20-Aug-2026 02:22:07 UTC pre-events
+Opened a file at URL root://k8s-transfer-13.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?xrdcl.requuid=75ca44f3-9de6-4ad9-a7d4-f6dbf59dd3f0
+%MSG
+20-Aug-2026 02:22:10 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root
+Begin processing the 1st record. Run 1, Event 1150, LumiSection 4 on stream 0 at 20-Aug-2026 02:22:12.052 UTC
+[2026-08-20 02:22:46.077565 +0000][Error  ][AsyncSock         ] [k8s-transfer-15.ultralight.org:1094.0] Unable to connect: network is unreachable
+[2026-08-20 02:22:46.077698 +0000][Error  ][PostMaster        ] [k8s-transfer-15.ultralight.org:1094] elapsed = 0, pConnectionWindow = 31 seconds.
+%MSG-f XrdAdaptor:  (NoModuleName) 20-Aug-2026 02:22:49 UTC pre-events
+Opened a file at URL root://k8s-transfer-15.ultralight.org:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root?tried=k8s-transfer-13.ultralight.org&triedrc=resel&xrdcl.requuid=3bc4b3e2-2720-4f11-a3cb-2c99e125de1a
+%MSG
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 20-Aug-2026 02:23:25 UTC  Run: 1 Event: 8934
+Deactivating k8s-transfer-15.ultralight.org from active sources because its quality (2332) is higher than 260 and 4 times larger than the other active server k8s-transfer-13.ultralight.org (480) 
+%MSG
+20-Aug-2026 02:23:30 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToHTZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/0E7F7F75-5F19-6C4F-8B78-C5E887A76DFA.root

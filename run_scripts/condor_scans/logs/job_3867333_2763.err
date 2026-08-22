@@ -1,0 +1,13 @@
+19-Aug-2026 23:25:24 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 23:25:28 UTC pre-events
+Opened a file at URL root://sedsk90.grid.hep.ph.ic.ac.uk:20284//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root?org.dcache.uuid=78fe8c36-f38a-4f5f-a167-ec9e60395ce8&org.dcache.xrootd.client=aji.624@cmswn2212.fnal.gov&tried=+1213cmsxrootd2.fnal.gov&xrd.logintoken=org.dcache.door=2a0c:5bc0:c8:2:ba3f:d2ff:fe4b:4c20:1097&xrdcl.requuid=7d1c89ec-93c8-4269-bdaf-e3c7a17c43c6
+%MSG
+19-Aug-2026 23:25:30 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root
+Begin processing the 1st record. Run 1, Event 2, LumiSection 1 on stream 0 at 19-Aug-2026 23:25:34.037 UTC
+%MSG-f XrdAdaptor:  (NoModuleName) 19-Aug-2026 23:25:41 UTC pre-events
+Opened a file at URL root://stormgf3.pi.infn.it:1094//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root?tried=+1213xrootd011213xrootd-cms-uk-2.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,+1213cmsxrootd2.fnal.gov,gfe02.grid.hep.ph.ic.ac.uk&triedrc=resel&xrdcl.requuid=b3271ef7-9386-4920-a498-e9974b3c1ac7
+%MSG
+%MSG-f XrdAdaptorLvl3:  PreProcPath p 19-Aug-2026 23:26:07 UTC Run: 1 Event: 25
+Deactivating stormgf3.pi.infn.it from active sources because its quality (791) is higher than 260 and 4 times larger than the other active server sedsk90.grid.hep.ph.ic.ac.uk (119) 
+%MSG
+19-Aug-2026 23:26:48 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root

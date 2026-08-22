@@ -1,0 +1,7 @@
+19-Aug-2026 23:31:08 UTC  Initiating request to open file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root
+%MSG-f XrdAdaptor:  file_open 19-Aug-2026 23:31:12 UTC pre-events
+Opened a file at URL root://sedsk90.grid.hep.ph.ic.ac.uk:20284//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root?org.dcache.uuid=95d38462-8a5c-4ff1-bc1c-3ecdf82af7c2&org.dcache.xrootd.client=aji.624@cmswn2181.fnal.gov&tried=+1213cmsxrootd2.fnal.gov&xrd.logintoken=org.dcache.door=2a0c:5bc0:c8:2:ba3f:d2ff:fe4b:4c20:1097&xrdcl.requuid=fb01a614-f57f-4635-b332-ca4bb4a1353b
+%MSG
+19-Aug-2026 23:31:14 UTC  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root
+Begin processing the 1st record. Run 1, Event 2, LumiSection 1 on stream 0 at 19-Aug-2026 23:31:18.201 UTC
+19-Aug-2026 23:32:41 UTC  Closed file root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBZTToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v3/50000/2068F861-BA27-3242-8F67-E32ECB9AC3A7.root
