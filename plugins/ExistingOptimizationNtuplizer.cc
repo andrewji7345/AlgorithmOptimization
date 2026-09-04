@@ -1034,7 +1034,10 @@ class ExistingOptimizationNtuplizer: public edm::one::EDAnalyzer<edm::one::Share
   float PV_y;
   float PV_z;
   bool isMC_;
+  bool passesEventSelection_;
   double jetPtCut_;
+  double eventJetPtCut_;
+  unsigned int minEventJets_;
   double akRadius_;
   double caRadius_;
   double cosThrust_;
@@ -1082,6 +1085,10 @@ ExistingOptimizationNtuplizer::ExistingOptimizationNtuplizer(
 
     jetPtCut_ = iConfig.getParameter<double>("jetPtCut");
 
+    eventJetPtCut_ = iConfig.getParameter<double>("eventJetPtCut");
+
+    minEventJets_ = iConfig.getParameter<unsigned int>("minEventJets");
+
     akRadius_ = iConfig.getParameter<double>("akRadius");
 
     caRadius_ = iConfig.getParameter<double>("caRadius");
@@ -1105,6 +1112,8 @@ void ExistingOptimizationNtuplizer::printEventDebug() {
 
   std::cout << "isMC: " << isMC_ << "\n";
   std::cout << "jetPtCut:  " << jetPtCut_  << "\n";
+  std::cout << "eventJetPtCut: " << eventJetPtCut_
+            << " minEventJets: " << minEventJets_ << "\n";
   std::cout << "akRadius:  " << akRadius_  << "\n";
   std::cout << "caRadius:  " << caRadius_  << "\n";
   std::cout << "cosThrust: " << cosThrust_ << "\n";
@@ -1282,7 +1291,10 @@ void ExistingOptimizationNtuplizer::beginJob(){
   tree_->Branch("PV_z",    &PV_z);
   tree_->Branch("nParticles", &nParticles);
   tree_->Branch("isMC",    &isMC_);
+  tree_->Branch("passesEventSelection", &passesEventSelection_);
   tree_->Branch("jetPtCut",    &jetPtCut_);
+  tree_->Branch("eventJetPtCut", &eventJetPtCut_);
+  tree_->Branch("minEventJets", &minEventJets_);
   tree_->Branch("akRadius",    &akRadius_);
   tree_->Branch("caRadius",    &caRadius_);
   tree_->Branch("cosThrust",   &cosThrust_);
@@ -1446,6 +1458,7 @@ void ExistingOptimizationNtuplizer::analyze(const edm::Event& iEvent,
   HT = 0;
   rho = 0;
   PV_x = PV_y = PV_z = 0;
+  passesEventSelection_ = true;
 
   gen_Suu = {};
 
@@ -1988,6 +2001,21 @@ void ExistingOptimizationNtuplizer::analyze(const edm::Event& iEvent,
 
   newAlg.run(*packedPFCands, *ak8Jets);
 
+  // minEventJets_ == 0 is the legacy, single-threshold behavior: no event
+  // selection is applied. A positive value opts into the two-threshold mode.
+  // In that mode, require minEventJets_ reclustered AK jets above the high
+  // event threshold, while every AK jet above jetPtCut_ (the lower collection
+  // threshold used by collectAKConstituents) enters the subsequent steps.
+  if (minEventJets_ > 0) {
+    const auto nHighPtAKJets = std::count_if(
+        newAlg.akJets().begin(), newAlg.akJets().end(),
+        [this](const oldJetSortingAlgorithm::JetRecord& jet) {
+          return jet.p4.Pt() >= eventJetPtCut_;
+        });
+    passesEventSelection_ =
+        nHighPtAKJets >= static_cast<decltype(nHighPtAKJets)>(minEventJets_);
+  }
+
   particle_newAlgoLabel = newAlg.labels();
   particle_newAlgoAKIndex = newAlg.akJet_indices();
   particle_newAlgoCAIndex = newAlg.caJet_indices();
@@ -2012,7 +2040,8 @@ void ExistingOptimizationNtuplizer::analyze(const edm::Event& iEvent,
   assert(particle_newAlgoAKIndex.size()   == nPF);
   assert(particle_newAlgoCAIndex.size()   == nPF);
 
-  // Fill tree
+  // Fill every analyzed event. Rejected events must remain in the tree so the
+  // evaluator can measure end-to-end selection/reconstruction efficiency.
   tree_->Fill();
 
 } // end analyze()
@@ -2065,6 +2094,12 @@ void ExistingOptimizationNtuplizer::fillDescriptions(
   desc.add<bool>("isMC", true);
 
   desc.add<double>("jetPtCut", 300.0);
+
+  desc.add<double>("eventJetPtCut", 300.0);
+
+  // Zero disables the event-level selection and preserves the original
+  // single-threshold ntuplizer behavior.
+  desc.add<unsigned int>("minEventJets", 0);
 
   desc.add<double>("akRadius", 0.8);
 

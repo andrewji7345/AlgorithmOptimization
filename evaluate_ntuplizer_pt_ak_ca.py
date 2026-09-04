@@ -17,6 +17,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import uproot
 
+from resolution_metrics import relative_fwhm_resolution
+
 
 TREE_NAME = "existingOptimizationNtuplizer/Events"
 
@@ -154,9 +156,9 @@ def calculate_metrics(mass0, mass1, valid_event, args):
             "f_peak_chi": np.nan,
             "f_peak_event_both": np.nan,
             "median_mass": np.nan,
-            "q16_mass": np.nan,
-            "q84_mass": np.nan,
-            "robust_resolution": np.nan,
+            "fwhm_mass": np.nan,
+            "fwhm_peak_mass": np.nan,
+            "fwhm_resolution": np.nan,
             "median_mass_asymmetry": np.nan,
         }
 
@@ -176,8 +178,8 @@ def calculate_metrics(mass0, mass1, valid_event, args):
     f_peak_chi = float(np.mean(np.concatenate((peak0, peak1))))
     f_peak_event_both = float(np.mean(peak0 & peak1))
 
-    q16, median, q84 = np.quantile(masses, [0.16, 0.50, 0.84])
-    resolution = (q84 - q16) / (2.0 * median) if median > 0 else np.nan
+    median = np.median(masses)
+    resolution, fwhm_mass, fwhm_peak_mass = relative_fwhm_resolution(masses)
     denominator = m0 + m1
     asymmetry = np.divide(
         np.abs(m0 - m1),
@@ -198,9 +200,9 @@ def calculate_metrics(mass0, mass1, valid_event, args):
         "f_peak_chi": f_peak_chi,
         "f_peak_event_both": f_peak_event_both,
         "median_mass": float(median),
-        "q16_mass": float(q16),
-        "q84_mass": float(q84),
-        "robust_resolution": float(resolution),
+        "fwhm_mass": fwhm_mass,
+        "fwhm_peak_mass": fwhm_peak_mass,
+        "fwhm_resolution": resolution,
         "median_mass_asymmetry": float(np.nanmedian(asymmetry)),
     }
 
@@ -209,7 +211,7 @@ def balanced_score(row, args):
     required = (
         row["f_low_event"],
         row["median_mass"],
-        row["robust_resolution"],
+        row["fwhm_resolution"],
         row["reconstruction_efficiency"],
     )
     if not all(np.isfinite(value) for value in required):
@@ -217,7 +219,7 @@ def balanced_score(row, args):
 
     mass_bias = abs(row["median_mass"] - args.true_chi_mass) / args.true_chi_mass
     inefficiency = 1.0 - row["reconstruction_efficiency"]
-    return float(row["f_low_event"] + 0.1 * mass_bias + row["robust_resolution"] + inefficiency)
+    return float(row["f_low_event"] + 0.1 * mass_bias + row["fwhm_resolution"] + inefficiency)
 
 
 def radius_edges(values):
@@ -325,8 +327,8 @@ def make_per_threshold_heatmaps(rows, output_dir, args):
             "cmap": "viridis",
             "format": ".0f",
         },
-        "robust_resolution": {
-            "label": r"$(Q_{84}-Q_{16})/(2\,\mathrm{median})$",
+        "fwhm_resolution": {
+            "label": r"FWHM / histogram peak",
             "vmin": 0.0,
             "vmax": None,
             "cmap": "plasma",
@@ -349,7 +351,7 @@ def make_per_threshold_heatmaps(rows, output_dir, args):
         vmax = settings["vmax"]
         if metric == "median_mass":
             vmax = finite_upper_limit(cube, 1.5 * args.true_chi_mass)
-        elif metric == "robust_resolution":
+        elif metric == "fwhm_resolution":
             vmax = finite_upper_limit(cube, 0.5)
 
         for i, pt_cut in enumerate(PT_CUTS):
@@ -487,7 +489,7 @@ def select_interesting_points(rows, args):
                 ("best_balanced", min(selection_pool, key=lambda row: row["balanced_score"])),
                 ("highest_failure", max(selection_pool, key=lambda row: row["f_low_event"])),
                 ("largest_mass_bias", max(valid, key=lambda row: abs(row["median_mass"] - args.true_chi_mass))),
-                ("worst_resolution", max(valid, key=lambda row: row["robust_resolution"])),
+                ("worst_resolution", max(valid, key=lambda row: row["fwhm_resolution"])),
                 ("lowest_efficiency", min(valid, key=lambda row: row["reconstruction_efficiency"])),
             ]
         )
@@ -547,7 +549,8 @@ def make_detailed_histograms(rows, output_dir, args):
             0.95,
             rf"$f_{{\rm low}}^{{\rm event}}={row['f_low_event']:.3f}$" + "\n"
             + rf"$\epsilon_{{2\chi}}={row['reconstruction_efficiency']:.3f}$" + "\n"
-            + rf"median $m_\chi={row['median_mass']:.0f}$ GeV",
+            + rf"median $m_\chi={row['median_mass']:.0f}$ GeV" + "\n"
+            + rf"FWHM/$m_{{\rm peak}}={row['fwhm_resolution']:.3f}$",
             transform=ax.transAxes,
             ha="right",
             va="top",
@@ -637,9 +640,9 @@ def main(args):
                         "f_peak_chi",
                         "f_peak_event_both",
                         "median_mass",
-                        "q16_mass",
-                        "q84_mass",
-                        "robust_resolution",
+                        "fwhm_mass",
+                        "fwhm_peak_mass",
+                        "fwhm_resolution",
                         "median_mass_asymmetry",
                         "balanced_score",
                     ):

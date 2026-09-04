@@ -120,11 +120,20 @@ def save_close(output, filename):
     plt.close()
 
 
+def open_root_file(filename):
+    """Open local/FUSE files without fsspec's asynchronous local reader."""
+    options = {}
+    if "://" not in os.fspath(filename):
+        options["handler"] = uproot.source.file.MemmapSource
+    return uproot.open(filename, **options)
+
+
 ################################################################################
 # Event reconstruction
 ################################################################################
 
-def reconstruct_event(event, selected_methods, method_configs):
+def reconstruct_event(event, selected_methods, method_configs, jet_pt_cut,
+                      event_jet_pt_cut, two_threshold):
     """Reconstruct truth and all requested algorithm quantities for one event."""
     px = np.asarray(event["particle_px"])
     py = np.asarray(event["particle_py"])
@@ -157,6 +166,14 @@ def reconstruct_event(event, selected_methods, method_configs):
         if config["ak_pt_branch"]:
             # Corrected pT from the input slimmedJetsAK8 collection.
             ak_pts = np.asarray(event[config["ak_pt_branch"]], dtype=float)
+            # particle_oldAlgoAK8Index intentionally describes the complete
+            # slimmedJetsAK8 collection.  Restrict both its jet map and pT array
+            # to the jets that actually entered the reconstruction.
+            if two_threshold:
+                selected_indices = np.flatnonzero(ak_pts >= jet_pt_cut)
+                ak_jets = {int(i): ak_jets[int(i)] for i in selected_indices
+                           if int(i) in ak_jets}
+                ak_pts = ak_pts[selected_indices]
         else:
             # Custom AK jets are reconstructed directly from PF constituents.
             ak_pts = np.asarray([np.hypot(jet[0], jet[1]) for jet in ak_jets.values()])
@@ -193,7 +210,7 @@ def reconstruct_event(event, selected_methods, method_configs):
             "n_chi1": int(np.sum(chi1_mask)),
             "n_unassigned": int(np.sum(labels == 0)),
             "n_ak_event": len(ak_pts),
-            "n_ak_event_300": int(np.count_nonzero(ak_pts >= 300.0)),
+            "n_ak_event_300": int(np.count_nonzero(ak_pts >= event_jet_pt_cut)),
             "sj_kinematics": sj_kinematics,
             "ak_kinematics": ak_jets,
             "ak_pts": ak_pts,
@@ -210,16 +227,32 @@ def main(args):
     selected_methods = ["old"] if args.old else ["new"] if args.new else ["old", "new"]
 
     print(f"Opening file {args.input}\n")
-    root_file = uproot.open(args.input)
+    root_file = open_root_file(args.input)
     tree = root_file["existingOptimizationNtuplizer/Events"]
-    branches = tree.arrays(library="ak", entry_stop=args.num_events)
-    n_events = len(branches)
-    if n_events == 0:
+    available_fields = set(tree.keys())
+    metadata_fields = {"jetPtCut", "akRadius", "caRadius"}
+    missing_metadata = sorted(metadata_fields - available_fields)
+    if missing_metadata:
+        raise KeyError("Missing ntuplizer metadata branches: " + ", ".join(missing_metadata))
+    for optional in ("eventJetPtCut", "minEventJets"):
+        if optional in available_fields:
+            metadata_fields.add(optional)
+    metadata = tree.arrays(sorted(metadata_fields), library="ak", entry_stop=1)
+    if len(metadata) == 0:
         raise RuntimeError("The requested input contains no events.")
 
-    jet_pt_cut = int(branches["jetPtCut"][0])
-    ak_radius = int(round(float(branches["akRadius"][0]) * 10))
-    ca_radius = int(round(float(branches["caRadius"][0]) * 10))
+    jet_pt_cut = int(metadata["jetPtCut"][0])
+    event_jet_pt_cut = (
+        float(metadata["eventJetPtCut"][0])
+        if "eventJetPtCut" in metadata.fields
+        else 300.0
+    )
+    min_event_jets = (
+        int(metadata["minEventJets"][0]) if "minEventJets" in metadata.fields else 0
+    )
+    two_threshold = min_event_jets > 0
+    ak_radius = int(round(float(metadata["akRadius"][0]) * 10))
+    ca_radius = int(round(float(metadata["caRadius"][0]) * 10))
     configs = get_method_configs(ak_radius, ca_radius)
 
     required = {"particle_px", "particle_py", "particle_pz", "particle_energy",
@@ -230,19 +263,36 @@ def main(args):
         required.update([config["label_branch"], config["ca_index_branch"], config["ak_index_branch"]])
         if config["ak_pt_branch"]:
             required.add(config["ak_pt_branch"])
-    missing = sorted(required - set(branches.fields))
+    required.update(metadata_fields)
+    missing = sorted(required - available_fields)
     if missing:
         raise KeyError("Missing branches required by selected method(s): " + ", ".join(missing))
 
-    output = (f"{args.output}_jetPtCut{jet_pt_cut}_ak{ak_radius}_ca{ca_radius}_{args.method}/")
+    # Loading every diagnostic branch is unnecessarily expensive for files
+    # containing deeply nested truth records. Read only what the selected plot
+    # methods consume while retaining the complete branch list in the report.
+    branches = tree.arrays(sorted(required), library="ak", entry_stop=args.num_events)
+    n_events = len(branches)
+    if n_events == 0:
+        raise RuntimeError("The requested input contains no events.")
+
+    if two_threshold:
+        output = (f"{args.output}_jetPtCut{jet_pt_cut}_eventPt{event_jet_pt_cut:g}"
+                  f"_minJets{min_event_jets}_ak{ak_radius}_ca{ca_radius}_{args.method}/")
+    else:
+        # Preserve the output path used by legacy ntuples and invocations.
+        output = (f"{args.output}_jetPtCut{jet_pt_cut}_ak{ak_radius}"
+                  f"_ca{ca_radius}_{args.method}/")
     os.makedirs(output, exist_ok=True)
-    print(f"Loaded {n_events} events, {len(branches.fields)} branches\n")
+    print(f"Loaded {n_events} events; using {len(branches.fields)} of "
+          f"{len(available_fields)} branches\n")
 
     results = []
     for i in range(n_events):
         if (i + 1) % 1000 == 0:
             print(f"  {i + 1:6d} / {n_events}")
-        results.append(reconstruct_event(branches[i], selected_methods, configs))
+        results.append(reconstruct_event(branches[i], selected_methods, configs,
+                                         jet_pt_cut, event_jet_pt_cut, two_threshold))
 
     total_mass = np.asarray([r["total_mass"] for r in results])
     truth_suu_mass = np.asarray([r["truth_suu_mass"] for r in results])
@@ -334,13 +384,19 @@ def main(args):
     with open(os.path.join(output, "evaluate_ntuplizer.txt"), "w") as f:
         f.write("=" * 80 + "\nNTUPLIZER SUMMARY\n" + "=" * 80 + "\n")
         f.write(f"Number of events : {n_events}\nSelected method(s): {', '.join(selected_methods)}\n")
-        f.write(f"Jet pT cutoff: {jet_pt_cut}\nNew AK radius: {ak_radius / 10:.1f}\n")
+        f.write(f"Jet pT cutoff: {jet_pt_cut}\n")
+        if two_threshold:
+            f.write(f"Event selection: at least {min_event_jets} jets with pT >= "
+                    f"{event_jet_pt_cut:g} GeV\n")
+        else:
+            f.write("Event selection: legacy single-threshold mode\n")
+        f.write(f"New AK radius: {ak_radius / 10:.1f}\n")
         f.write(f"New CA radius: {ca_radius / 10:.1f}\n")
         f.write(f"Average PF candidates/event: {ak.mean(branches['nParticles']):.1f}\n")
         f.write(f"Minimum/maximum PF candidates: {ak.min(branches['nParticles'])}/"
                 f"{ak.max(branches['nParticles'])}\n")
         f.write("\nBranch names:\n")
-        for name in sorted(branches.fields):
+        for name in sorted(available_fields):
             f.write(f"    {name}\n")
 
         f.write("\n" + "=" * 80 + "\nEVENT STATISTICS\n" + "=" * 80 + "\n")
@@ -574,7 +630,7 @@ def main(args):
             save_close(output, f"{method}_algo_sj_m_vs_{file_tag}deltaR.png")
 
     ################################################################################
-    # N_CA vs N_CA per SJ, split by event-wide N_AK above 300 GeV
+    # N_CA vs N_CA per SJ, split by event-wide N_AK above the event cut
     ################################################################################
 
     for method in selected_methods:
@@ -594,7 +650,8 @@ def main(args):
             plt.ylim(0.5, 5.5)
             plt.xlabel(f"N({c['ca_name']}) in SJ 1")
             plt.ylabel(f"N({c['ca_name']}) in SJ 2")
-            plt.title(f"{c['display']}, N({c['ak_name']}, pT>300 GeV)={n_ak}")
+            plt.title(f"{c['display']}, N({c['ak_name']}, "
+                      f"pT>{event_jet_pt_cut:g} GeV)={n_ak}")
             plt.colorbar(label="Number of events")
             save_close(output, f"{method}_algo_sj_nca_vs_sj_nca_nak_{n_ak}.png")
 
@@ -626,7 +683,7 @@ def main(args):
             plt.xlim(-0.5, 5.5)
             plt.ylim(-0.5, 5.5)
             plt.xlabel(f"N({c['ca_name']}) in other SJ")
-            plt.ylabel(f"N({c['ak_name']}) with pT>300 GeV")
+            plt.ylabel(f"N({c['ak_name']}) with pT>{event_jet_pt_cut:g} GeV")
             plt.title(f"{c['display']}: selected SJ N(CA)={selected_n_ca}")
             plt.colorbar(label="Number of events")
             save_close(output, f"{method}_algo_other_sj_nca_vs_event_nak_"
@@ -636,7 +693,13 @@ def main(args):
     # Number of AK jets vs pT threshold, split by SJ topology
     ################################################################################
 
-    pt_thresholds = np.arange(0, 401, 20)
+    # The ntuple contains only jets above jetPtCut, so lower scan points would
+    # falsely appear identical to jetPtCut.  Start at the actual input cut.
+    pt_thresholds = (
+        np.arange(jet_pt_cut, 401, 20)
+        if two_threshold
+        else np.arange(0, 401, 20)
+    )
     sj_modes = {
         "1ca_1ca": lambda n1, n2: n1 == 1 and n2 == 1,
         "2ca_2ca": lambda n1, n2: n1 == 2 and n2 == 2,

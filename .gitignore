@@ -1,0 +1,15 @@
+# Generated scan evaluations, plots, and tables
+/results/
+# Python
+__pycache__/
+*.pyc
+
+# Condor output
+run_scripts/condor_scans/logs/
+run_scripts/condor_scans/logs_*/
+*.out
+*.err
+*.log
+
+# Large CMSSW/Condor packages
+run_scripts/condor_scans/*.tgz

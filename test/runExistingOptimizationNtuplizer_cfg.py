@@ -5,7 +5,7 @@ options = VarParsing('analysis')
 
 options.register(
     'inputRootFiles',
-    'SuuAnalysis/existingOptimization/test/signalMCFiles/WbWb_4000_1000.txt', # to test ntuplizer
+    'SuuAnalysis/ExistingOptimization/test/signalMCFiles/WbWb_4000_1000.txt', # to test ntuplizer
     #'SuuAnalysis/ExistingOptimization/test/signalMCFiles/WbWb_all.txt', # for realsies
     VarParsing.multiplicity.singleton,
     VarParsing.varType.string,
@@ -26,7 +26,23 @@ options.register(
     300.0,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.float,
-    'Jet pT threshold'
+    'Minimum pT for jets passed to the reconstruction (legacy default: 300 GeV)'
+)
+
+options.register(
+    'eventJetPtCut',
+    300.0,
+    VarParsing.multiplicity.singleton,
+    VarParsing.varType.float,
+    'pT threshold used by the event-level jet multiplicity requirement'
+)
+
+options.register(
+    'minEventJets',
+    0,
+    VarParsing.multiplicity.singleton,
+    VarParsing.varType.int,
+    'Minimum number of jets above eventJetPtCut (0 disables the event gate)'
 )
 
 options.register(
@@ -86,6 +102,10 @@ process.TFileService = cms.Service(
 process.load("SuuAnalysis.ExistingOptimization.ExistingOptimizationNtuplizer_cfi")
 
 process.existingOptimizationNtuplizer.jetPtCut = cms.double(options.jetPtCut)
+
+process.existingOptimizationNtuplizer.eventJetPtCut = cms.double(options.eventJetPtCut)
+
+process.existingOptimizationNtuplizer.minEventJets = cms.uint32(options.minEventJets)
 
 process.existingOptimizationNtuplizer.akRadius = cms.double(options.akRadius)
 
