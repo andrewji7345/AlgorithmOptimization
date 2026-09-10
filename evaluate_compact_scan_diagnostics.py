@@ -3,7 +3,11 @@
 
 This is the drill-down companion to the scan-wide evaluator. It reads only
 the compact schema and deliberately does not emulate truth/PF-candidate plots
-that require branches omitted by the compact ntuplizer.
+that require branches omitted by the compact ntuplizer. It does write a
+legacy-style ``chi_mass.png`` from the stored SJ masses. An invariant
+``m(Suu)`` cannot be reconstructed because the compact schema does not retain
+SJ four-vectors; its deliberate absence is documented next to each diagnostic
+output.
 
 A configuration is ``n_gate:T_gate:T_keep:R_AK:R_CA:c``. For example::
 
@@ -561,7 +565,9 @@ def _write_summary(output_dir, selection, metadata, metrics, status_rows,
         "SJ1/SJ2 are ordered by lab-frame pT, not matched to generated chi labels.",
         "Mass plots use only gate-passing events with recoStatus=valid.",
         "Status fractions retain complexity_guard and every other failure in denominators.",
-        "Truth, PF-candidate, and constituent diagnostics are absent from this compact schema.",
+        "chi_mass.png is legacy-style but contains only compact reconstructed SJs.",
+        "An invariant Suu mass cannot be recovered: compact files retain SJ masses, not SJ four-vectors.",
+        "Truth, slimmedJetsAK8 (old), PF-candidate, and constituent diagnostics are absent from this compact schema.",
     ]
     (output_dir / "summary.txt").write_text("\n".join(lines) + "\n")
 
@@ -582,6 +588,48 @@ def _survivor_responses(arrays, true_chi_mass):
     response2 = arrays["sj2_mass"][selected] / true_chi_mass
     finite = np.isfinite(response1) & np.isfinite(response2)
     return response1[finite], response2[finite]
+
+
+def _plot_legacy_compatible_chi_mass(output_dir, sample, key, arrays):
+    """Write the old evaluator's chi-mass histogram from compact SJ masses.
+
+    The legacy evaluator pooled its two reconstructed chi masses into one
+    100-bin, 0--4000 GeV histogram. The compact representation preserves the
+    two SJ masses, so that observable is available for gate-passing, valid
+    reconstructions. Truth and the old slimmedJetsAK8 curve are intentionally
+    not fabricated because their inputs are absent from compact files.
+    """
+    selected = arrays["survivor"]
+    masses = np.concatenate((arrays["sj1_mass"][selected],
+                             arrays["sj2_mass"][selected]))
+    masses = masses[np.isfinite(masses) & (masses >= 0)]
+    fig, ax = plt.subplots(figsize=(8, 6))
+    if masses.size:
+        ax.hist(masses, bins=100, range=(0, 4000), histtype="step",
+                linewidth=2, color="tab:blue",
+                label="Compact reconstruction (gate-passing, valid)")
+        ax.legend()
+    else:
+        ax.text(0.5, 0.5, "No gate-passing valid reconstructions",
+                transform=ax.transAxes, ha="center", va="center")
+    ax.set_xlabel(r"Reconstructed $m_{\chi}$ [GeV]")
+    ax.set_ylabel("Events")
+    ax.set_title(r"Reconstructed $m_{\chi}$" + "\n" + _title(sample, key))
+    _save(fig, output_dir / "chi_mass.png")
+
+
+def _write_unavailable_suu_note(output_dir):
+    """Document why no legacy-equivalent Suu-mass plot is written."""
+    (output_dir / "suu_mass_unavailable.txt").write_text(
+        "No legacy-equivalent suu_mass.png was produced.\n\n"
+        "The compact schema stores sj1Mass and sj2Mass but not reconstructed "
+        "SJ four-vectors (or their opening angle). Therefore invariant "
+        "m(Suu) cannot be calculated. sj1Mass + sj2Mass is not an invariant "
+        "Suu mass and is deliberately not plotted as a substitute.\n\n"
+        "The compact schema also lacks truth labels/PF candidates and the "
+        "slimmedJetsAK8 inputs, so neither the truth nor the legacy old-method "
+        "mass curves can be recovered.\n"
+    )
 
 
 def _plot_mass_responses(output_dir, sample, key, arrays, true_chi_mass,
@@ -743,6 +791,8 @@ def _plot_gate_multiplicity(output_dir, sample, key, arrays):
 
 def _make_plots(output_dir, sample, key, arrays, status_rows, true_chi_mass,
                 physicality, metrics):
+    _plot_legacy_compatible_chi_mass(output_dir, sample, key, arrays)
+    _write_unavailable_suu_note(output_dir)
     _plot_mass_responses(output_dir, sample, key, arrays, true_chi_mass,
                          physicality, metrics)
     _plot_asymmetry(output_dir, sample, key, arrays)

@@ -208,6 +208,8 @@ class CompactEvaluatorCliTest(unittest.TestCase):
             "status_breakdown.csv",
             "problem_events.csv",
             "summary.txt",
+            "chi_mass.png",
+            "suu_mass_unavailable.txt",
             "pooled_mass_response.png",
             "paired_mass_response.png",
             "mass_asymmetry.png",
@@ -250,6 +252,9 @@ class CompactEvaluatorCliTest(unittest.TestCase):
         summary = (selected_dir / "summary.txt").read_text()
         self.assertIn("End-to-end signal retention: 0.25", summary)
         self.assertIn("Complexity-guard fraction given gate: 0.5", summary)
+        self.assertIn("invariant Suu mass cannot be recovered", summary)
+        suu_note = (selected_dir / "suu_mass_unavailable.txt").read_text()
+        self.assertIn("not an invariant Suu mass", suu_note)
 
 
 if __name__ == "__main__":
