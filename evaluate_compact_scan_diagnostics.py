@@ -4,10 +4,9 @@
 This is the drill-down companion to the scan-wide evaluator. It reads only
 the compact schema and deliberately does not emulate truth/PF-candidate plots
 that require branches omitted by the compact ntuplizer. It does write a
-legacy-style ``chi_mass.png`` from the stored SJ masses. An invariant
-``m(Suu)`` cannot be reconstructed because the compact schema does not retain
-SJ four-vectors; its deliberate absence is documented next to each diagnostic
-output.
+legacy-style ``chi_mass.png`` from the stored SJ masses and ``suu_mass.png``
+from the pair invariant mass stored in schema version 2. Version-1 files remain
+readable, with a note explaining why their Suu-mass plot is unavailable.
 
 A configuration is ``n_gate:T_gate:T_keep:R_AK:R_CA:c``. For example::
 
@@ -389,6 +388,8 @@ def _event_arrays(metadata, payload, key, metrics):
         "n_ambiguous": _column(payload.n_ambiguous, config_index, int),
         "sj1_mass": sj1_mass,
         "sj2_mass": sj2_mass,
+        "suu_mass": (None if payload.suu_mass is None else
+                     _column(payload.suu_mass, config_index, float)),
     }
     arrays["gate_multiplicity"] = (
         None if key.gate_pt_cut is None else
@@ -414,7 +415,7 @@ def _event_arrays(metadata, payload, key, metrics):
 EVENT_FIELDS = (
     "run", "lumi", "event", "gen_weight", "passes_gate",
     "gate_jet_multiplicity", "reco_status", "status_name", "is_valid",
-    "is_tail_event", "n_ca_jets", "n_ambiguous", "sj1_mass", "sj2_mass",
+    "is_tail_event", "n_ca_jets", "n_ambiguous", "sj1_mass", "sj2_mass", "suu_mass",
     "sj1_mass_response", "sj2_mass_response",
 )
 
@@ -439,6 +440,8 @@ def _event_row(index, arrays, names, true_chi_mass, tail):
         "n_ambiguous": int(arrays["n_ambiguous"][index]),
         "sj1_mass": mass1,
         "sj2_mass": mass2,
+        "suu_mass": (float(arrays["suu_mass"][index])
+                     if arrays["suu_mass"] is not None else math.nan),
         "sj1_mass_response": mass1 / true_chi_mass if math.isfinite(mass1) else math.nan,
         "sj2_mass_response": mass2 / true_chi_mass if math.isfinite(mass2) else math.nan,
     }
@@ -566,7 +569,9 @@ def _write_summary(output_dir, selection, metadata, metrics, status_rows,
         "Mass plots use only gate-passing events with recoStatus=valid.",
         "Status fractions retain complexity_guard and every other failure in denominators.",
         "chi_mass.png is legacy-style but contains only compact reconstructed SJs.",
-        "An invariant Suu mass cannot be recovered: compact files retain SJ masses, not SJ four-vectors.",
+        ("suu_mass.png uses stored suuMass = M(SJ1 + SJ2), the reconstructed pair invariant mass."
+         if metadata.schema_version >= 2 else
+         "An invariant Suu mass cannot be recovered from schema version 1: neither suuMass nor SJ four-vectors were stored."),
         "Truth, slimmedJetsAK8 (old), PF-candidate, and constituent diagnostics are absent from this compact schema.",
     ]
     (output_dir / "summary.txt").write_text("\n".join(lines) + "\n")
@@ -618,14 +623,40 @@ def _plot_legacy_compatible_chi_mass(output_dir, sample, key, arrays):
     _save(fig, output_dir / "chi_mass.png")
 
 
+def _plot_suu_mass(output_dir, sample, key, arrays):
+    """Plot one pair invariant mass per gate-passing, valid reconstruction."""
+    if arrays["suu_mass"] is None:
+        # A reused output directory must not present an old plot as current.
+        (output_dir / "suu_mass.png").unlink(missing_ok=True)
+        _write_unavailable_suu_note(output_dir)
+        return
+    (output_dir / "suu_mass_unavailable.txt").unlink(missing_ok=True)
+    masses = arrays["suu_mass"][arrays["survivor"]]
+    masses = masses[np.isfinite(masses) & (masses >= 0)]
+    fig, ax = plt.subplots(figsize=(8, 6))
+    if masses.size:
+        ax.hist(masses, bins=100, range=(0, 10000), histtype="step",
+                linewidth=2, color="tab:blue",
+                label="Compact reconstruction (gate-passing, valid)")
+        ax.legend()
+    else:
+        ax.text(0.5, 0.5, "No gate-passing valid reconstructions",
+                transform=ax.transAxes, ha="center", va="center")
+    ax.set_xlabel(r"Reconstructed $m_{S_{uu}}$ [GeV]")
+    ax.set_ylabel("Events")
+    ax.set_title(r"Reconstructed $m_{S_{uu}}$" + "\n" + _title(sample, key))
+    _save(fig, output_dir / "suu_mass.png")
+
+
 def _write_unavailable_suu_note(output_dir):
     """Document why no legacy-equivalent Suu-mass plot is written."""
     (output_dir / "suu_mass_unavailable.txt").write_text(
         "No legacy-equivalent suu_mass.png was produced.\n\n"
-        "The compact schema stores sj1Mass and sj2Mass but not reconstructed "
+        "Compact schema version 1 stores sj1Mass and sj2Mass but not suuMass or reconstructed "
         "SJ four-vectors (or their opening angle). Therefore invariant "
         "m(Suu) cannot be calculated. sj1Mass + sj2Mass is not an invariant "
-        "Suu mass and is deliberately not plotted as a substitute.\n\n"
+        "Suu mass and is deliberately not plotted as a substitute. "
+        "Regenerate the ntuple with schema version 2 to obtain suu_mass.png.\n\n"
         "The compact schema also lacks truth labels/PF candidates and the "
         "slimmedJetsAK8 inputs, so neither the truth nor the legacy old-method "
         "mass curves can be recovered.\n"
@@ -792,7 +823,7 @@ def _plot_gate_multiplicity(output_dir, sample, key, arrays):
 def _make_plots(output_dir, sample, key, arrays, status_rows, true_chi_mass,
                 physicality, metrics):
     _plot_legacy_compatible_chi_mass(output_dir, sample, key, arrays)
-    _write_unavailable_suu_note(output_dir)
+    _plot_suu_mass(output_dir, sample, key, arrays)
     _plot_mass_responses(output_dir, sample, key, arrays, true_chi_mass,
                          physicality, metrics)
     _plot_asymmetry(output_dir, sample, key, arrays)

@@ -170,3 +170,18 @@ are temporary float32 files under a temporary directory and are removed on
 normal exit or failure. Persistent exhaustive output is gzip-compressed CSV;
 the diagnostic per-event table is disabled by default and, when explicitly
 requested, is also compressed.
+
+## Reconstructed Suu mass
+
+Schema-version-2 ntuples store `suuMass = M(p4_SJ1 + p4_SJ2)` per reconstruction
+configuration. `evaluate_compact_scan_diagnostics.py` writes `suu_mass.png`
+with one stored pair mass per gate-passing, valid event (100 bins over
+0--10,000 GeV). The event/problem CSV tables include `suu_mass` in GeV.
+This diagnostic does not change chi-based physicality or global ranking.
+
+Version-1 inputs remain supported for all existing metrics and chi plots.
+Their Suu mass cannot be recovered from `sj1Mass` and `sj2Mass` alone; the
+Suu plot is replaced by `suu_mass_unavailable.txt` and the CSV column is NaN.
+Regenerate those ntuples with the version-2 producer to obtain the Suu plot.
+Reusing an output directory removes a stale Suu plot or unavailable note as
+appropriate. Truth and old slimmed-AK8 mass curves are still unavailable.

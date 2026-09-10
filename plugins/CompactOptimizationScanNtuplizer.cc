@@ -85,6 +85,7 @@ struct AssignmentResult {
   std::uint16_t nAmbiguous = 0;
   float leadingPtMass = kInvalidMass;
   float subleadingPtMass = kInvalidMass;
+  float suuMass = kInvalidMass;
 };
 
 struct CAJetCache {
@@ -152,7 +153,7 @@ private:
   TTree *eventsTree_ = nullptr;
 
   // Metadata (one row per output file).
-  std::uint32_t schemaVersion_ = 1;
+  std::uint32_t schemaVersion_ = 2;
   std::string sampleName_;
   bool puppiWeighted_ = true;
   bool useJEC_ = false;
@@ -190,6 +191,7 @@ private:
   std::vector<std::uint16_t> nAmbiguous_;
   std::vector<float> sj1Mass_;
   std::vector<float> sj2Mass_;
+  std::vector<float> suuMass_;
 };
 
 CompactOptimizationScanNtuplizer::CompactOptimizationScanNtuplizer(
@@ -420,6 +422,7 @@ void CompactOptimizationScanNtuplizer::beginJob() {
   eventsTree_->Branch("nAmbiguous", &nAmbiguous_);
   eventsTree_->Branch("sj1Mass", &sj1Mass_);
   eventsTree_->Branch("sj2Mass", &sj2Mass_);
+  eventsTree_->Branch("suuMass", &suuMass_);
 }
 
 std::vector<WeightedParticle>
@@ -791,6 +794,13 @@ AssignmentResult CompactOptimizationScanNtuplizer::assignCAJets(
   if (!physicalMass(best0, mass0) || !physicalMass(best1, mass1)) {
     return failure(RecoStatus::numericalFailure, nAmbiguous);
   }
+  // The invariant mass of the reconstructed pair is not mass0 + mass1.
+  // Compute it in the selected-system COM frame before the lab boost.
+  double suuMass = 0.;
+  if (!physicalMass(best0 + best1, suuMass) ||
+      !std::isfinite(static_cast<float>(suuMass))) {
+    return failure(RecoStatus::numericalFailure, nAmbiguous);
+  }
   TLorentzVector lab0 = best0;
   TLorentzVector lab1 = best1;
   lab0.Boost(caJets.beta);
@@ -802,6 +812,7 @@ AssignmentResult CompactOptimizationScanNtuplizer::assignCAJets(
   AssignmentResult result;
   result.status = RecoStatus::valid;
   result.nAmbiguous = static_cast<std::uint16_t>(nAmbiguous);
+  result.suuMass = static_cast<float>(suuMass);
   if (lab0.Pt() >= lab1.Pt()) {
     result.leadingPtMass = static_cast<float>(mass0);
     result.subleadingPtMass = static_cast<float>(mass1);
@@ -833,6 +844,7 @@ void CompactOptimizationScanNtuplizer::analyze(const edm::Event &input,
   nAmbiguous_.assign(configId_.size(), 0);
   sj1Mass_.assign(configId_.size(), kInvalidMass);
   sj2Mass_.assign(configId_.size(), kInvalidMass);
+  suuMass_.assign(configId_.size(), kInvalidMass);
 
   const auto &candidates = input.get(packedPFToken_);
   try {
@@ -905,6 +917,7 @@ void CompactOptimizationScanNtuplizer::analyze(const edm::Event &input,
         nAmbiguous_[configIndex] = assignment.nAmbiguous;
         sj1Mass_[configIndex] = assignment.leadingPtMass;
         sj2Mass_[configIndex] = assignment.subleadingPtMass;
+        suuMass_[configIndex] = assignment.suuMass;
       }
     }
   } catch (const fastjet::Error &) {

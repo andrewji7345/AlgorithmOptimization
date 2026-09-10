@@ -9,6 +9,7 @@ import os
 import sys
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 import numpy as np
@@ -209,7 +210,7 @@ class CompactEvaluatorCliTest(unittest.TestCase):
             "problem_events.csv",
             "summary.txt",
             "chi_mass.png",
-            "suu_mass_unavailable.txt",
+            "suu_mass.png",
             "pooled_mass_response.png",
             "paired_mass_response.png",
             "mass_asymmetry.png",
@@ -252,9 +253,47 @@ class CompactEvaluatorCliTest(unittest.TestCase):
         summary = (selected_dir / "summary.txt").read_text()
         self.assertIn("End-to-end signal retention: 0.25", summary)
         self.assertIn("Complexity-guard fraction given gate: 0.5", summary)
-        self.assertIn("invariant Suu mass cannot be recovered", summary)
-        suu_note = (selected_dir / "suu_mass_unavailable.txt").read_text()
-        self.assertIn("not an invariant Suu mass", suu_note)
+        self.assertIn("stored suuMass = M(SJ1 + SJ2)", summary)
+        self.assertFalse((selected_dir / "suu_mass_unavailable.txt").exists())
+        self.assertIn("suu_mass", problem_rows[0])
+
+    def test_suu_plot_uses_stored_survivor_pair_mass_and_clears_stale_outputs(self):
+        output_dir = Path(self.tempdir.name) / "suu_plot"
+        output_dir.mkdir()
+        key = metrics.configuration_key(1, 200.0, 100.0, 0.8, 0.8, 0.0)
+        metadata = metrics.load_metadata(self.root_file)
+        payload = metrics.read_event_payload(metadata)
+        arrays = diagnostics._event_arrays(metadata, payload, key, {})
+        # Only event 1 passes both gate and reconstruction. Event 3 is valid
+        # but fails the strict >200 GeV gate; event 2 is a guarded failure.
+        from matplotlib.axes import Axes
+        original_hist = Axes.hist
+        observed = []
+        def record_hist(ax, values, *args, **kwargs):
+            observed.extend(np.asarray(values).tolist())
+            return original_hist(ax, values, *args, **kwargs)
+        (output_dir / "suu_mass_unavailable.txt").write_text("stale")
+        with mock.patch.object(Axes, "hist", record_hist):
+            diagnostics._plot_suu_mass(output_dir, metadata.sample_name, key, arrays)
+        self.assertEqual(observed, [4000.0])
+        self.assertTrue((output_dir / "suu_mass.png").is_file())
+        self.assertFalse((output_dir / "suu_mass_unavailable.txt").exists())
+
+        # Reusing this directory with a v1 ntuple must remove the old plot.
+        make_compact_fixture(self.root_file, schema_version_number=1)
+        metadata = metrics.load_metadata(self.root_file)
+        payload = metrics.read_event_payload(metadata)
+        arrays = diagnostics._event_arrays(metadata, payload, key, {})
+        diagnostics._plot_suu_mass(output_dir, metadata.sample_name, key, arrays)
+        self.assertFalse((output_dir / "suu_mass.png").exists())
+        self.assertIn("Regenerate the ntuple", (output_dir / "suu_mass_unavailable.txt").read_text())
+
+        # A v2 sample with zero surviving events still gets an empty plot.
+        arrays["suu_mass"] = np.full(payload.n_events, np.nan)
+        arrays["survivor"] = np.zeros(payload.n_events, dtype=bool)
+        diagnostics._plot_suu_mass(output_dir, metadata.sample_name, key, arrays)
+        self.assertTrue((output_dir / "suu_mass.png").is_file())
+        self.assertFalse((output_dir / "suu_mass_unavailable.txt").exists())
 
 
 if __name__ == "__main__":

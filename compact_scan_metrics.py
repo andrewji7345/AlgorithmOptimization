@@ -27,7 +27,7 @@ except ImportError:  # pragma: no cover
 
 METADATA_PATH = "compactScan/Metadata"
 EVENTS_PATH = "compactScan/Events"
-SUPPORTED_SCHEMA_VERSIONS = (1,)
+SUPPORTED_SCHEMA_VERSIONS = (1, 2)
 STATUS_NAMES = (
     "valid", "no_selected_jets", "no_selected_constituents", "invalid_com",
     "invalid_thrust", "no_ca_jets", "complexity_guard",
@@ -344,6 +344,7 @@ class EventPayload:
     n_ambiguous: np.ndarray
     sj1_mass: np.ndarray
     sj2_mass: np.ndarray
+    suu_mass: Optional[np.ndarray] = None  # Absent in schema version 1.
 
     @property
     def n_events(self) -> int:
@@ -526,8 +527,13 @@ def read_event_payload(metadata_or_path: Any, max_events: int = -1) -> EventPayl
     stop = None if max_events < 0 else max_events
     names = ("run", "lumi", "event", "genWeight", "akJetPt", "nCAJets",
              "recoStatus", "nAmbiguous", "sj1Mass", "sj2Mass")
+    if metadata.schema_version >= 2:
+        names += ("suuMass",)
     with _open_root_file(metadata.path) as root_file:
-        events = root_file[EVENTS_PATH].arrays(names, entry_stop=stop, library="ak")
+        tree = root_file[EVENTS_PATH]
+        if metadata.schema_version >= 2 and "suuMass" not in tree:
+            raise ValueError(f"{metadata.path}: schema version 2 requires suuMass")
+        events = tree.arrays(names, entry_stop=stop, library="ak")
     payload = EventPayload(
         np.asarray(ak.to_numpy(events["run"]), dtype=np.uint32),
         np.asarray(ak.to_numpy(events["lumi"]), dtype=np.uint32),
@@ -538,6 +544,8 @@ def read_event_payload(metadata_or_path: Any, max_events: int = -1) -> EventPayl
         _regular(events["nAmbiguous"], np.uint16, "nAmbiguous"),
         _regular(events["sj1Mass"], np.float64, "sj1Mass"),
         _regular(events["sj2Mass"], np.float64, "sj2Mass"),
+        (_regular(events["suuMass"], np.float64, "suuMass")
+         if metadata.schema_version >= 2 else None),
     )
     if payload.reco_status.shape != payload.n_ambiguous.shape or payload.reco_status.shape != payload.sj1_mass.shape or payload.reco_status.shape != payload.sj2_mass.shape:
         raise ValueError(f"{metadata.path}: reconstruction branch shapes differ")
@@ -545,6 +553,14 @@ def read_event_payload(metadata_or_path: Any, max_events: int = -1) -> EventPayl
         raise ValueError(f"{metadata.path}: reconstruction width mismatch")
     if payload.n_ca_jets.shape != (payload.n_events, metadata.n_base_configurations):
         raise ValueError(f"{metadata.path}: base width mismatch")
+    if payload.suu_mass is not None:
+        if payload.suu_mass.shape != payload.reco_status.shape:
+            raise ValueError(f"{metadata.path}: suuMass shape differs from reconstruction branches")
+        valid = payload.reco_status == VALID_STATUS
+        if np.any(valid & (~np.isfinite(payload.suu_mass) | (payload.suu_mass < 0))):
+            raise ValueError(f"{metadata.path}: valid reconstruction has non-finite/negative suuMass")
+        if np.any(~valid & ~np.isnan(payload.suu_mass)):
+            raise ValueError(f"{metadata.path}: invalid reconstruction must have NaN suuMass")
     return payload
 
 

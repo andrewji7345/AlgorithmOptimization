@@ -16,7 +16,7 @@ from collections import Counter
 
 METADATA_PATH = "compactScan/Metadata"
 EVENTS_PATH = "compactScan/Events"
-SUPPORTED_SCHEMA_VERSIONS = {1}
+SUPPORTED_SCHEMA_VERSIONS = {1, 2}
 STATUS_NAMES = (
     "valid",
     "no_selected_jets",
@@ -241,6 +241,8 @@ def _check_tree_types(metadata, events, findings):
     _check_type(events, "genWeight", {"float_t", "float"}, findings)
     for name in ("akJetPt", "sj1Mass", "sj2Mass"):
         _check_type(events, name, {"vector<float>"}, findings)
+    if events.GetBranch("suuMass"):
+        _check_type(events, "suuMass", {"vector<float>"}, findings)
     _check_type(events, "nCAJets", vector_u16, findings)
     _check_type(events, "recoStatus", vector_u8, findings)
     _check_type(events, "nAmbiguous", vector_u16, findings)
@@ -466,7 +468,7 @@ def _validate_metadata(metadata, event_entries, expected_max, findings):
 
 def _validate_event_results(context, n_ca, statuses, n_ambiguous,
                             sj1_mass, sj2_mass, metadata_info, findings,
-                            status_counts):
+                            status_counts, suu_mass=None):
     nbase = metadata_info["nbase"]
     nconfig = metadata_info["nconfig"]
     config_base = metadata_info["config_base"]
@@ -483,6 +485,8 @@ def _validate_event_results(context, n_ca, statuses, n_ambiguous,
         "sj1Mass": len(sj1_mass),
         "sj2Mass": len(sj2_mass),
     }
+    if suu_mass is not None:
+        result_lengths["suuMass"] = len(suu_mass)
     for name, length in result_lengths.items():
         if length != nconfig:
             findings.error("{} {} length {} does not equal Nconfig {}".format(
@@ -526,6 +530,19 @@ def _validate_event_results(context, n_ca, statuses, n_ambiguous,
         elif not (math.isnan(mass1) and math.isnan(mass2)):
             findings.error(
                 "{} invalid configuration {} must have two NaN mass sentinels".format(
+                    context, config_index))
+
+        if suu_mass is not None:
+            pair_mass = suu_mass[config_index]
+            if status == VALID_STATUS:
+                if not _is_finite(pair_mass) or pair_mass < 0.0:
+                    findings.error("{} valid configuration {} has non-finite/negative suuMass".format(
+                        context, config_index))
+                elif pair_mass + 1.e-5 * max(1.0, pair_mass) < mass1 + mass2:
+                    findings.error("{} configuration {} has suuMass below sj1Mass + sj2Mass".format(
+                        context, config_index))
+            elif not math.isnan(pair_mass):
+                findings.error("{} invalid configuration {} must have NaN suuMass".format(
                     context, config_index))
 
         if status == COMPLEXITY_GUARD_STATUS:
@@ -594,7 +611,9 @@ def _validate_events(events, metadata_info, max_events, findings):
             _vector(events, "nAmbiguous", int),
             _vector(events, "sj1Mass", float),
             _vector(events, "sj2Mass", float),
-            metadata_info, findings, status_counts)
+            metadata_info, findings, status_counts,
+            _vector(events, "suuMass", float)
+            if metadata_info["schema_version"] >= 2 else None)
 
     return {
         "checked": checked,
@@ -704,8 +723,12 @@ def validate_file(args):
 
         metadata_complete = _check_branch_set(
             metadata, METADATA_BRANCHES, args.strict_branches, findings)
+        expected_events = set(EVENT_BRANCHES)
+        if metadata_complete and metadata.GetEntry(0) > 0:
+            if int(_scalar(metadata, "schemaVersion")) >= 2:
+                expected_events.add("suuMass")
         events_complete = _check_branch_set(
-            events, EVENT_BRANCHES, args.strict_branches, findings)
+            events, expected_events, args.strict_branches, findings)
         if not (metadata_complete and events_complete):
             findings.print_messages()
             return 1

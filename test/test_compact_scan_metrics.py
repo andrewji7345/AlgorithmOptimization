@@ -2,6 +2,7 @@
 """Deterministic integration tests for compact-scan metric factorization."""
 
 import os
+import math
 import sys
 import tempfile
 import unittest
@@ -30,7 +31,8 @@ def _fill_vector(vector, values):
         vector.push_back(value)
 
 
-def make_compact_fixture(path, sample_name="WbWb_4000_1000", ak_radius=0.8):
+def make_compact_fixture(path, sample_name="WbWb_4000_1000", ak_radius=0.8,
+                         schema_version_number=2, suu_defect=None):
     """Write four events with exact gate boundaries and one guard failure."""
 
     output = ROOT.TFile(str(path), "RECREATE")
@@ -38,7 +40,7 @@ def make_compact_fixture(path, sample_name="WbWb_4000_1000", ak_radius=0.8):
     directory.cd()
 
     metadata = ROOT.TTree("Metadata", "compact scan metadata")
-    schema_version = array("I", [1])
+    schema_version = array("I", [schema_version_number])
     sample = ROOT.std.string(sample_name)
     stored_ak_radius = array("f", [ak_radius])
     max_ambiguous = array("I", [12])
@@ -134,6 +136,7 @@ def make_compact_fixture(path, sample_name="WbWb_4000_1000", ak_radius=0.8):
     n_ambiguous = vu16()
     sj1_mass = vf()
     sj2_mass = vf()
+    suu_mass = vf()
     events.Branch("run", run, "run/i")
     events.Branch("lumi", lumi, "lumi/i")
     events.Branch("event", event, "event/l")
@@ -147,6 +150,9 @@ def make_compact_fixture(path, sample_name="WbWb_4000_1000", ak_radius=0.8):
         ("sj2Mass", sj2_mass),
     ):
         events.Branch(name, value)
+
+    if schema_version_number >= 2 and suu_defect != "missing":
+        events.Branch("suuMass", suu_mass)
 
     nan = float("nan")
     entries = (
@@ -170,10 +176,48 @@ def make_compact_fixture(path, sample_name="WbWb_4000_1000", ak_radius=0.8):
         _fill_vector(n_ambiguous, ambiguous)
         _fill_vector(sj1_mass, mass1)
         _fill_vector(sj2_mass, mass2)
+        # Pair mass includes relative SJ momentum; it differs from m1 + m2.
+        pair_mass = [4000.0 - 250.0 * (entry_number - 1)
+                     if code == 0 else nan for code in status]
+        if suu_defect == "short":
+            pair_mass.pop()
+        elif suu_defect == "nonfinite" and entry_number == 1:
+            pair_mass[0] = nan
+        elif suu_defect == "finite_invalid" and entry_number == 2:
+            pair_mass[0] = 4000.0
+        _fill_vector(suu_mass, pair_mass)
         events.Fill()
 
     output.Write()
     output.Close()
+
+
+@unittest.skipIf(ROOT is None, "PyROOT is not available")
+class SuuMassPayloadTest(unittest.TestCase):
+    def test_versioned_pair_mass_reading(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "fixture.root"
+            for version in (1, 2):
+                with self.subTest(version=version):
+                    make_compact_fixture(path, schema_version_number=version)
+                    payload = metrics.read_event_payload(path)
+                    if version == 1:
+                        self.assertIsNone(payload.suu_mass)
+                    else:
+                        self.assertEqual(payload.suu_mass.shape, (4, 4))
+                        self.assertEqual(payload.suu_mass[0, 0], 4000.0)
+                        self.assertNotEqual(payload.suu_mass[0, 0],
+                                            payload.sj1_mass[0, 0] + payload.sj2_mass[0, 0])
+                        self.assertTrue(math.isnan(payload.suu_mass[1, 0]))
+
+    def test_malformed_version_two_pair_mass_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "fixture.root"
+            for defect in ("missing", "short", "nonfinite", "finite_invalid"):
+                with self.subTest(defect=defect):
+                    make_compact_fixture(path, suu_defect=defect)
+                    with self.assertRaisesRegex(ValueError, "suuMass"):
+                        metrics.read_event_payload(path)
 
 
 class SampleDefinitionTest(unittest.TestCase):

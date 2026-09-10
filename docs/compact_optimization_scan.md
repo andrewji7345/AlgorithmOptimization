@@ -46,6 +46,9 @@ file. Pure mass is supported but excluded from the production cut grid.
 
 ## Compact ROOT schema
 
+New outputs use **schema version 2**, which adds the per-configuration
+`suuMass` branch. The reader and validator also support version 1.
+
 With the cfg module label `compactScan`, each file has:
 
 - `compactScan/Metadata`: one entry containing the schema version, sample,
@@ -53,9 +56,13 @@ With the cfg module label `compactScan`, each file has:
   event count, and generator-weight sums;
 - `compactScan/Events`: one entry per input event with `run`, `lumi`, `event`,
   `genWeight`, sorted `akJetPt`, base-level `nCAJets`, and flat per-config
-  `recoStatus`, `nAmbiguous`, `sj1Mass`, and `sj2Mass` vectors.
+  `recoStatus`, `nAmbiguous`, `sj1Mass`, `sj2Mass`, and `suuMass` vectors.
 
-Invalid masses are quiet NaNs. The status codes are:
+`suuMass` is a `vector<float>` in GeV aligned with `configId`, just like the
+SJ mass vectors. It stores the invariant mass `M(p4_SJ1 + p4_SJ2)`, evaluated
+before the lab-frame boost; it is not the scalar sum of the two SJ masses.
+It is filled only for valid reconstructions, independently of the offline
+event gate. Invalid masses are quiet NaNs. The status codes are:
 
 | Code | Name |
 |---:|---|

@@ -30,7 +30,7 @@ def _make_fixture(path, defect=None):
     directory.cd()
 
     metadata = ROOT.TTree("Metadata", "compact scan metadata")
-    schema_version = array("I", [1])
+    schema_version = array("I", [1 if defect == "schema1" else 2])
     sample_name = ROOT.std.string("unit_test_sample")
     ak_radius = array("f", [0.8])
     max_ambiguous = array("I", [12])
@@ -125,6 +125,7 @@ def _make_fixture(path, defect=None):
     n_ambiguous = vu16()
     sj1_mass = vf()
     sj2_mass = vf()
+    suu_mass = vf()
     events.Branch("run", run, "run/i")
     events.Branch("lumi", lumi, "lumi/i")
     events.Branch("event", event, "event/l")
@@ -135,6 +136,9 @@ def _make_fixture(path, defect=None):
         ("sj1Mass", sj1_mass), ("sj2Mass", sj2_mass),
     ):
         events.Branch(name, value)
+
+    if defect not in ("schema1", "missing_suu"):
+        events.Branch("suuMass", suu_mass)
 
     nan = float("nan")
     entries = (
@@ -177,6 +181,19 @@ def _make_fixture(path, defect=None):
         _fill_vector(n_ambiguous, values["namb"])
         _fill_vector(sj1_mass, mass1_values)
         _fill_vector(sj2_mass, mass2_values)
+        pair_mass = [1000.0 if code == 0 else nan for code in status_values]
+        if defect == "short_suu":
+            pair_mass.pop()
+        if index == 0:
+            if defect == "nonfinite_suu":
+                pair_mass[0] = nan
+            elif defect == "negative_suu":
+                pair_mass[0] = -1.0
+            elif defect == "unphysical_suu":
+                pair_mass[0] = 100.0
+            elif defect == "finite_invalid_suu":
+                pair_mass[2] = 1000.0
+        _fill_vector(suu_mass, pair_mass)
         events.Fill()
 
     output.Write()
@@ -205,6 +222,24 @@ class CompactScanValidatorTest(unittest.TestCase):
         self.assertEqual(result, 0, msg=stderr)
         self.assertIn("PASS:", stdout)
         self.assertIn("projected at 10,000 events", stdout)
+
+    def test_schema_one_remains_supported(self):
+        result, _, stderr = self._run("schema1")
+        self.assertEqual(result, 0, msg=stderr)
+
+    def test_invalid_suu_mass_fails(self):
+        for defect, message in (
+            ("missing_suu", "suuMass"),
+            ("short_suu", "suuMass length 3 does not equal Nconfig 4"),
+            ("nonfinite_suu", "non-finite/negative suuMass"),
+            ("negative_suu", "non-finite/negative suuMass"),
+            ("unphysical_suu", "suuMass below sj1Mass + sj2Mass"),
+            ("finite_invalid_suu", "must have NaN suuMass"),
+        ):
+            with self.subTest(defect=defect):
+                result, _, stderr = self._run(defect)
+                self.assertEqual(result, 1)
+                self.assertIn(message, stderr)
 
     def test_out_of_range_status_fails(self):
         result, _, stderr = self._run("bad_status")
