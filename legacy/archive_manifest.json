@@ -1,0 +1,158 @@
+{
+  "date": "2026-09-10",
+  "policy": "Archive without deleting file content; retain current compact workflow paths and CMSSW plugin/config paths.",
+  "moves": [
+    {
+      "source": "evaluate_ntuplizer.py",
+      "destination": "legacy/evaluate_ntuplizer.py"
+    },
+    {
+      "source": "evaluate_ntuplizer_pt_ak_ca.py",
+      "destination": "legacy/evaluate_ntuplizer_pt_ak_ca.py"
+    },
+    {
+      "source": "evaluate_ntuplizer_dc_mp_pt_ak_ca_th.py",
+      "destination": "legacy/evaluate_ntuplizer_dc_mp_pt_ak_ca_th.py"
+    },
+    {
+      "source": "resolution_metrics.py",
+      "destination": "legacy/resolution_metrics.py"
+    },
+    {
+      "source": "run_scripts/interactive_scans",
+      "destination": "legacy/run_scripts/interactive_scans"
+    },
+    {
+      "source": "test/eventDebugReadout.txt",
+      "destination": "legacy/debug/eventDebugReadout.txt"
+    },
+    {
+      "source": "run_scripts/condor_scans/CMSSW_15_0_19_existingOptimization_two_threshold.tgz",
+      "destination": "legacy/run_scripts/condor_scans/CMSSW_15_0_19_existingOptimization_two_threshold.tgz"
+    },
+    {
+      "source": "run_scripts/condor_scans/README.md",
+      "destination": "legacy/run_scripts/condor_scans/README.md"
+    },
+    {
+      "source": "run_scripts/condor_scans/README_two_threshold.md",
+      "destination": "legacy/run_scripts/condor_scans/README_two_threshold.md"
+    },
+    {
+      "source": "run_scripts/condor_scans/logs",
+      "destination": "legacy/run_scripts/condor_scans/logs"
+    },
+    {
+      "source": "run_scripts/condor_scans/logs_two_threshold",
+      "destination": "legacy/run_scripts/condor_scans/logs_two_threshold"
+    },
+    {
+      "source": "run_scripts/condor_scans/run_ntuplizer_scan_pt_ak_ca_th.sh",
+      "destination": "legacy/run_scripts/condor_scans/run_ntuplizer_scan_pt_ak_ca_th.sh"
+    },
+    {
+      "source": "run_scripts/condor_scans/run_ntuplizer_scan_two_threshold.sh",
+      "destination": "legacy/run_scripts/condor_scans/run_ntuplizer_scan_two_threshold.sh"
+    },
+    {
+      "source": "run_scripts/condor_scans/scan_parameters.tsv",
+      "destination": "legacy/run_scripts/condor_scans/scan_parameters.tsv"
+    },
+    {
+      "source": "run_scripts/condor_scans/scan_parameters_legacy_rescue.tsv",
+      "destination": "legacy/run_scripts/condor_scans/scan_parameters_legacy_rescue.tsv"
+    },
+    {
+      "source": "run_scripts/condor_scans/scan_parameters_two_threshold.tsv",
+      "destination": "legacy/run_scripts/condor_scans/scan_parameters_two_threshold.tsv"
+    },
+    {
+      "source": "run_scripts/condor_scans/scan_parameters_two_threshold_rescue.tsv",
+      "destination": "legacy/run_scripts/condor_scans/scan_parameters_two_threshold_rescue.tsv"
+    },
+    {
+      "source": "run_scripts/condor_scans/submit_ntuplizer_scan_legacy_rescue.jdl",
+      "destination": "legacy/run_scripts/condor_scans/submit_ntuplizer_scan_legacy_rescue.jdl"
+    },
+    {
+      "source": "run_scripts/condor_scans/submit_ntuplizer_scan_pt_ak_ca_th.jdl",
+      "destination": "legacy/run_scripts/condor_scans/submit_ntuplizer_scan_pt_ak_ca_th.jdl"
+    },
+    {
+      "source": "run_scripts/condor_scans/submit_ntuplizer_scan_pt_ak_ca_th.sh",
+      "destination": "legacy/run_scripts/condor_scans/submit_ntuplizer_scan_pt_ak_ca_th.sh"
+    },
+    {
+      "source": "run_scripts/condor_scans/submit_ntuplizer_scan_two_threshold.jdl",
+      "destination": "legacy/run_scripts/condor_scans/submit_ntuplizer_scan_two_threshold.jdl"
+    },
+    {
+      "source": "run_scripts/condor_scans/submit_ntuplizer_scan_two_threshold.sh",
+      "destination": "legacy/run_scripts/condor_scans/submit_ntuplizer_scan_two_threshold.sh"
+    },
+    {
+      "source": "run_scripts/condor_scans/submit_ntuplizer_scan_two_threshold_rescue.jdl",
+      "destination": "legacy/run_scripts/condor_scans/submit_ntuplizer_scan_two_threshold_rescue.jdl"
+    },
+    {
+      "source": "results/evaluate_ntuplizer_WbWb_4000_1000_pt120_ak6_ca4_jetPtCut120_ak6_ca4_new",
+      "destination": "legacy/results/evaluate_ntuplizer_WbWb_4000_1000_pt120_ak6_ca4_jetPtCut120_ak6_ca4_new"
+    },
+    {
+      "source": "results/evaluate_ntuplizer_WbWb_4000_1000_pt300_ak8_ca8_th85_jetPtCut300_ak8_ca8_both",
+      "destination": "legacy/results/evaluate_ntuplizer_WbWb_4000_1000_pt300_ak8_ca8_th85_jetPtCut300_ak8_ca8_both"
+    },
+    {
+      "source": "results/evaluate_ntuplizer_WbWb_4000_1000_pt300_ak8_ca8_th8_jetPtCut300_ak8_ca8_both",
+      "destination": "legacy/results/evaluate_ntuplizer_WbWb_4000_1000_pt300_ak8_ca8_th8_jetPtCut300_ak8_ca8_both"
+    },
+    {
+      "source": "results/evaluate_ntuplizer_WbWb_8000_3000_pt120_ak6_ca4_jetPtCut120_ak6_ca4_new",
+      "destination": "legacy/results/evaluate_ntuplizer_WbWb_8000_3000_pt120_ak6_ca4_jetPtCut120_ak6_ca4_new"
+    },
+    {
+      "source": "results/evaluate_ntuplizer_dc_mp_pt_ak_ca_th",
+      "destination": "legacy/results/evaluate_ntuplizer_dc_mp_pt_ak_ca_th"
+    },
+    {
+      "source": "results/evaluate_ntuplizer_jetPtCut",
+      "destination": "legacy/results/evaluate_ntuplizer_jetPtCut"
+    },
+    {
+      "source": "results/evaluate_ntuplizer_jetPtCut100_ak6_ca4",
+      "destination": "legacy/results/evaluate_ntuplizer_jetPtCut100_ak6_ca4"
+    },
+    {
+      "source": "results/evaluate_ntuplizer_jetPtCut160_ak6_ca4",
+      "destination": "legacy/results/evaluate_ntuplizer_jetPtCut160_ak6_ca4"
+    },
+    {
+      "source": "results/evaluate_ntuplizer_jetPtCut300_ak8_ca8",
+      "destination": "legacy/results/evaluate_ntuplizer_jetPtCut300_ak8_ca8"
+    },
+    {
+      "source": "results/evaluate_ntuplizer_jetPtCut380_ak16_ca16",
+      "destination": "legacy/results/evaluate_ntuplizer_jetPtCut380_ak16_ca16"
+    },
+    {
+      "source": "results/evaluate_ntuplizer_pt_ak_ca",
+      "destination": "legacy/results/evaluate_ntuplizer_pt_ak_ca"
+    },
+    {
+      "source": "results/evaluate_ntuplizer_pt_ak_ca_th",
+      "destination": "legacy/results/evaluate_ntuplizer_pt_ak_ca_th"
+    },
+    {
+      "source": "results/evaluate_ntuplizer_truthMatching",
+      "destination": "legacy/results/evaluate_ntuplizer_truthMatching"
+    },
+    {
+      "source": "results/original_configuration_legacy",
+      "destination": "legacy/results/original_configuration_legacy"
+    },
+    {
+      "source": "results/top_configuration_legacy",
+      "destination": "legacy/results/top_configuration_legacy"
+    }
+  ]
+}

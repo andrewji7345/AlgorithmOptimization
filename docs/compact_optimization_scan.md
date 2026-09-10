@@ -1,8 +1,7 @@
 # Compact expanded optimization scan
 
 This ntuplizer implements the expanded reconstruction family while keeping
-event gates factorized from reconstruction. The evaluator is intentionally a
-separate follow-up: these files contain the event-level quantities needed to
+event gates factorized from reconstruction. The [compact evaluator](compact_scan_evaluation.md) uses these files, which contain the event-level quantities needed to
 measure gate efficiency, reconstruction efficiency conditional on the gate,
 end-to-end retention, physicality, and later signal sensitivity without
 re-running MiniAOD.
@@ -123,6 +122,6 @@ Condor workflow and its dry-run commands are documented in
 - 114-sample by 7-AK-radius Condor manifest dry run (798 unique jobs), plus
   local JDL materialization without submission.
 
-The current evaluator scripts are not used by this format. Building the
-two-dimensional physicality-versus-signal-retention/Pareto evaluator is the
-next study stage.
+Use `evaluate_compact_scan.py` and `evaluate_compact_scan_diagnostics.py` for
+this format; see the [evaluation guide](compact_scan_evaluation.md). The
+per-point evaluators archived under `legacy/` read a different event format.

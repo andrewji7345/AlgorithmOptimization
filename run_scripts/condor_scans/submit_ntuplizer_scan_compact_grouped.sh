@@ -267,6 +267,7 @@ local_tarball="$(mktemp "/tmp/${tarball_name%.tgz}.XXXXXX.tgz")"
 echo "Building compact CMSSW tarball..."
 tar \
     --exclude-vcs \
+    --exclude='*/SuuAnalysis/ExistingOptimization/legacy/*' \
     --exclude-caches-all \
     --exclude='*.root' \
     --exclude='*.tgz' \

@@ -1,9 +1,8 @@
 # Evaluating the compact expanded scan
 
-The compact-format evaluators are an additive workflow. They do not replace
-or modify `evaluate_ntuplizer.py`, `evaluate_ntuplizer_pt_ak_ca.py`, or
-`evaluate_ntuplizer_dc_mp_pt_ak_ca_th.py`, which continue to read the legacy
-event format.
+The compact-format evaluators are the current workflow. The older per-point
+evaluators live under `legacy/` and continue to read the legacy event format;
+see the [legacy index](../legacy/README.md).
 
 Two new entry points consume `compactScan/Metadata` and
 `compactScan/Events`:
