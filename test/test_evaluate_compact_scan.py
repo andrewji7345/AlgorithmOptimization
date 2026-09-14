@@ -27,7 +27,7 @@ REPOSITORY = Path(os.environ.get(
 sys.path.insert(0, str(REPOSITORY))
 
 import compact_scan_metrics as metrics  # noqa: E402
-import evaluate_compact_scan as global_evaluator  # noqa: E402
+import legacy.evaluate_compact_scan_physicality as global_evaluator  # noqa: E402
 import evaluate_compact_scan_diagnostics as diagnostics  # noqa: E402
 from test_compact_scan_metrics import make_compact_fixture  # noqa: E402
 

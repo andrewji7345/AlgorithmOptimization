@@ -1,0 +1,52 @@
+{
+  "study_name": "suu-sensitivity-ul2017-ak4-ak8-v3",
+  "campaign": "sensitivity_2017.json",
+  "run_dir": "../sensitivity_runs/ul2017-ak4-ak8-v3",
+  "n_trials": 30,
+  "max_parallel_trials": 2,
+  "files_per_job": 5,
+  "max_events_per_job": 10000,
+  "max_files_per_sample": 1,
+  "seed": 67023,
+  "poll_seconds": 30,
+  "trial_timeout_seconds": 86400,
+  "submission_visibility_seconds": 180,
+  "max_poll_errors": 5,
+  "cmssw_release": "CMSSW_15_0_19",
+  "backend": {
+    "kind": "condor",
+    "cmssw_bundle": "$CMSSW_BASE/../sensitivity_bundles/CMSSW_15_0_19_sensitivity_ak4_ak8_v3.tar.gz",
+    "schedd": "auto",
+    "command_timeout_seconds": 60,
+    "minimum_proxy_seconds": 3600,
+    "request_cpus": 1,
+    "request_memory_mb": 4000,
+    "request_disk_mb": 20000
+  },
+  "search_space": {
+    "t_keep": {
+      "low": 100,
+      "high": 400,
+      "step": 20
+    },
+    "t_gate_max": 600,
+    "n_gate_jets": {
+      "low": 0,
+      "high": 6
+    },
+    "r_ca": {
+      "low": 0.4,
+      "high": 1.6,
+      "step": 0.1
+    },
+    "cos_thrust": {
+      "low": 0.0,
+      "high": 0.95,
+      "step": 0.05
+    }
+  },
+  "ak_radii": [
+    0.4,
+    0.8
+  ]
+}

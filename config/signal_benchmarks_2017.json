@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "year": 2017,
+  "luminosity_fb": 41.48,
+  "benchmark": {
+    "y_uu": 2.0,
+    "y_chi": 2.0,
+    "chi_to_Wb_BR": 0.5,
+    "W_to_hadrons_BR": 0.6741,
+    "production_order": "LO, reproducing AN Table 3 and return_signal_SF.py; no extra NLO K factor"
+  },
+  "source_repository": "https://github.com/emcannaert/SuuToChiChi-analysis-software",
+  "source_commit": "8ef9b506ef4229a2110ec8e662fd5ae93b73420a",
+  "source": "AN-23-067 Tables 1-3 and postprocess/return_signal_SF/return_signal_SF.py:36-60,104-108,222-232",
+  "samples": [
+    {
+      "name": "Suu4_chi1_WBWB",
+      "kind": "signal",
+      "category": "SuuToChiChi",
+      "suu_mass_gev": 4000,
+      "chi_mass_gev": 1000,
+      "cross_section_pb": 0.1567165012696888,
+      "production_cross_section_fb": 3200.0,
+      "suu_to_chichi_branching_fraction": 0.43109807750196566,
+      "fully_hadronic_decay_branching_fraction": 0.11360270250000001
+    },
+    {
+      "name": "Suu6_chi2_WBWB",
+      "kind": "signal",
+      "category": "SuuToChiChi",
+      "suu_mass_gev": 6000,
+      "chi_mass_gev": 2000,
+      "cross_section_pb": 0.005711471665638484,
+      "production_cross_section_fb": 137.0,
+      "suu_to_chichi_branching_fraction": 0.36697695815590964,
+      "fully_hadronic_decay_branching_fraction": 0.11360270250000001
+    },
+    {
+      "name": "Suu8_chi3_WBWB",
+      "kind": "signal",
+      "category": "SuuToChiChi",
+      "suu_mass_gev": 8000,
+      "chi_mass_gev": 3000,
+      "cross_section_pb": 0.00011091388424720394,
+      "production_cross_section_fb": 3.0300000000000002,
+      "suu_to_chichi_branching_fraction": 0.32222158029919995,
+      "fully_hadronic_decay_branching_fraction": 0.11360270250000001
+    }
+  ]
+}

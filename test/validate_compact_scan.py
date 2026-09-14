@@ -16,7 +16,7 @@ from collections import Counter
 
 METADATA_PATH = "compactScan/Metadata"
 EVENTS_PATH = "compactScan/Events"
-SUPPORTED_SCHEMA_VERSIONS = {1, 2}
+SUPPORTED_SCHEMA_VERSIONS = {1, 2, 3}
 STATUS_NAMES = (
     "valid",
     "no_selected_jets",
@@ -46,6 +46,37 @@ EVENT_BRANCHES = {
     "run", "lumi", "event", "genWeight", "akJetPt", "nCAJets",
     "recoStatus", "nAmbiguous", "sj1Mass", "sj2Mass",
 }
+
+ANALYSIS_METADATA_BRANCHES = {"analysisSelection", "correctionPrescription", "sampleKind"}
+ANALYSIS_EVENT_BRANCHES = {
+    "analysisWeight", "passesBaseline", "passesSignalRegion", "passesRecoJetVeto", "passesTrigger",
+    "passesFilters", "passesLeptonVeto", "passesJetVeto", "analysisHT",
+    "analysisNAK4", "analysisNAK8", "analysisNHeavyAK8", "analysisNBTags",
+    "sj1NCA4E300", "sj2NCA4E300",
+}
+
+
+OBSERVABLE_METADATA_BRANCHES = {
+    "analysisObservableVersion", "analysisSystematic", "referenceReconstruction", "weightVariationNames",
+}
+OBSERVABLE_VECTOR_COUNTS = {"sj1NCA4E50", "sj2NCA4E50"}
+OBSERVABLE_VECTOR_MASSES = {"sj1MassE100", "sj2MassE100"}
+OBSERVABLE_REGION_BRANCHES = {"passesControlRegion", "passesAT0b", "passesAT1b"}
+OBSERVABLE_FLOAT_VECTORS = {"analysisWeightVariations", "referenceWeightVariations",
+                            "analysisBTagJetPt", "analysisBTagJetEta", "analysisBTagJetDiscriminator"}
+REFERENCE_MASSES = {"referenceSJ1Mass", "referenceSJ2Mass", "referenceSuuMass",
+                    "referenceSJ1MassE100", "referenceSJ2MassE100"}
+REFERENCE_COUNTS = {"referenceSJ1NCA4E50", "referenceSJ2NCA4E50",
+                    "referenceSJ1NCA4E300", "referenceSJ2NCA4E300"}
+OBSERVABLE_EVENT_BRANCHES = (OBSERVABLE_VECTOR_COUNTS | OBSERVABLE_VECTOR_MASSES |
+    OBSERVABLE_REGION_BRANCHES | OBSERVABLE_FLOAT_VECTORS | REFERENCE_MASSES | REFERENCE_COUNTS |
+    {"referenceWeight", "referenceRecoStatus", "referenceRegion", "btagWeightVariationFallback"})
+WEIGHT_VARIATION_NAMES = (
+    "pileupUp", "pileupDown", "prefiringUp", "prefiringDown",
+    "btagHFCorrelatedUp", "btagHFCorrelatedDown", "btagHFUncorrelatedUp", "btagHFUncorrelatedDown",
+    "btagLFCorrelatedUp", "btagLFCorrelatedDown", "btagLFUncorrelatedUp", "btagLFUncorrelatedDown",
+    "topPtUp", "topPtDown",
+)
 
 
 class Findings(object):
@@ -246,6 +277,42 @@ def _check_tree_types(metadata, events, findings):
     _check_type(events, "nCAJets", vector_u16, findings)
     _check_type(events, "recoStatus", vector_u8, findings)
     _check_type(events, "nAmbiguous", vector_u16, findings)
+    if events.GetBranch("analysisWeight"):
+        if events.GetBranch("analysisBTagWeight"):
+            _check_type(events, "analysisBTagWeight", {"float_t", "float"}, findings)
+            _check_type(events, "analysisBTagWeightFallback", {"bool", "bool_t"}, findings)
+        for name in ANALYSIS_METADATA_BRANCHES:
+            _check_type(metadata, name, {"string"}, findings)
+        for name in ("analysisWeight", "analysisHT"):
+            _check_type(events, name, {"float_t", "float"}, findings)
+        for name in ("passesBaseline", "passesTrigger", "passesFilters", "passesLeptonVeto", "passesJetVeto"):
+            _check_type(events, name, {"bool", "bool_t"}, findings)
+        for name in ("analysisNAK4", "analysisNAK8", "analysisNHeavyAK8", "analysisNBTags"):
+            _check_type(events, name, {"ushort_t", "unsignedshort"}, findings)
+        for name in ("sj1NCA4E300", "sj2NCA4E300"):
+            _check_type(events, name, vector_u16, findings)
+        _check_type(events, "passesSignalRegion", vector_u8, findings)
+        _check_type(events, "passesRecoJetVeto", vector_u8, findings)
+
+
+    if metadata.GetBranch("analysisObservableVersion"):
+        _check_type(metadata, "analysisObservableVersion", {"uint_t", "unsignedint"}, findings)
+        for name in ("analysisSystematic", "referenceReconstruction"):
+            _check_type(metadata, name, string_types, findings)
+        _check_type(metadata, "weightVariationNames", vector_string, findings)
+        for name in OBSERVABLE_VECTOR_COUNTS:
+            _check_type(events, name, vector_u16, findings)
+        for name in OBSERVABLE_VECTOR_MASSES | OBSERVABLE_FLOAT_VECTORS:
+            _check_type(events, name, {"vector<float>"}, findings)
+        _check_type(events, "btagWeightVariationFallback", vector_u8, findings)
+        for name in OBSERVABLE_REGION_BRANCHES:
+            _check_type(events, name, vector_u8, findings)
+        for name in REFERENCE_MASSES | {"referenceWeight"}:
+            _check_type(events, name, {"float", "float_t"}, findings)
+        for name in REFERENCE_COUNTS:
+            _check_type(events, name, {"unsignedshort", "ushort_t"}, findings)
+        for name in ("referenceRecoStatus", "referenceRegion"):
+            _check_type(events, name, {"unsignedchar", "uchar_t"}, findings)
 
 
 def _validate_metadata_header(metadata, event_entries, expected_max, findings):
@@ -277,8 +344,33 @@ def _validate_metadata_header(metadata, event_entries, expected_max, findings):
             max_ambiguous, expected_max))
     if not bool(_scalar(metadata, "puppiWeighted")):
         findings.error("puppiWeighted is false; weighted four-vectors are required")
-    if bool(_scalar(metadata, "useJEC")):
+    if schema_version < 3 and bool(_scalar(metadata, "useJEC")):
         findings.error("useJEC is true; this study requires uncorrected AK-jet pT")
+    if schema_version >= 3:
+        if not bool(_scalar(metadata, "useJEC")):
+            findings.error("schema v3 requires useJEC")
+        if str(_scalar(metadata, "analysisSelection")) != "AN-23-067-UL2017-cutbased-v1":
+            findings.error("unsupported analysisSelection")
+        profile = str(_scalar(metadata, "correctionPrescription"))
+        if profile not in ("UL2017-AK4PFchs-AK8PFPuppi-JEC-JER-nominal-v1", "UL2017-AK4CHS-baseline-AK4AK8Puppi-reco-JEC-JER-nominal-v2", "UL2017-AK4CHS-baseline-AK4AK8Puppi-reco-JEC-JER-btagGuard-v3"):
+            findings.error("unsupported correctionPrescription")
+        if str(_scalar(metadata, "sampleKind")) not in ("signal", "background"):
+            findings.error("sampleKind must be signal or background")
+        allowed_radii = (0.8,) if profile == "UL2017-AK4PFchs-AK8PFPuppi-JEC-JER-nominal-v1" else (0.4, 0.8)
+        if not any(abs(ak_radius - radius) <= 1.e-6 for radius in allowed_radii):
+            findings.error("AK radius incompatible with correctionPrescription")
+
+    observable_version = 0
+    if metadata.GetBranch("analysisObservableVersion"):
+        observable_version = int(_scalar(metadata, "analysisObservableVersion"))
+        if schema_version != 3 or observable_version != 1:
+            findings.error("analysisObservableVersion=1 requires schemaVersion=3")
+        if str(_scalar(metadata, "analysisSystematic")) not in ("nominal", "JECUp", "JECDown", "JERUp", "JERDown"):
+            findings.error("unsupported analysisSystematic")
+        if str(_scalar(metadata, "referenceReconstruction")) != "AN23-067-PATAK8-CA8-Thrust-source-port-v1":
+            findings.error("unsupported referenceReconstruction")
+        if tuple(_vector(metadata, "weightVariationNames", str)) != WEIGHT_VARIATION_NAMES:
+            findings.error("weightVariationNames does not match analysisObservableVersion=1 order")
 
     ca_algorithm = str(_scalar(metadata, "caAlgorithm"))
     if ca_algorithm != "cambridge_y_phi":
@@ -308,6 +400,7 @@ def _validate_metadata_header(metadata, event_entries, expected_max, findings):
 
     return {
         "schema_version": schema_version,
+        "observable_version": observable_version,
         "sample_name": sample_name,
         "ak_radius": ak_radius,
         "ca_algorithm": ca_algorithm,
@@ -560,6 +653,105 @@ def _validate_event_results(context, n_ca, statuses, n_ambiguous,
                 context, config_index, mapped_n_ca))
 
 
+def _expected_region(baseline, valid, veto, btags, n300a, n300b, n50a, n50b, m100a, m100b):
+    if not baseline or not valid or not veto:
+        return 0
+    tag_a, tag_b = n300a >= 2, n300b >= 2
+    anti_a = n50a == 0 and _is_finite(m100a) and 0 <= m100a < 150
+    anti_b = n50b == 0 and _is_finite(m100b) and 0 <= m100b < 150
+    if tag_a and tag_b:
+        return 1 if btags else 2
+    if (tag_a and anti_b) or (tag_b and anti_a):
+        return 3 if btags else 4
+    return 0
+
+
+def _validate_tag_observables(context, status, masses, n50, n300, mass100, findings):
+    for side, (mass, count50, count300, restricted_mass) in enumerate(zip(masses, n50, n300, mass100)):
+        if count50 < 0 or count300 < 0 or count300 > count50:
+            findings.error("{} side {} has inconsistent CA4 E50/E300 counts".format(context, side))
+        if status == VALID_STATUS:
+            tolerance = 1.e-4 * max(1., abs(mass))
+            if not _is_finite(mass) or mass <= 0:
+                findings.error("{} valid reconstruction needs positive finite superjet masses".format(context))
+            if not _is_finite(restricted_mass) or restricted_mass < 0:
+                findings.error("{} valid reconstruction has invalid MassE100".format(context))
+            elif _is_finite(mass) and restricted_mass > mass + tolerance:
+                findings.error("{} MassE100 exceeds full superjet mass".format(context))
+            if _is_finite(mass) and (50. * count50 > mass + tolerance or 300. * count300 > mass + tolerance):
+                findings.error("{} CA4 count violates superjet rest-energy bound".format(context))
+            if count50 == 0 and _is_finite(restricted_mass) and restricted_mass != 0:
+                findings.error("{} zero CA4 E50 count requires zero MassE100".format(context))
+        elif count50 or count300 or not math.isnan(restricted_mass):
+            findings.error("{} invalid reconstruction needs zero CA4 counts and NaN MassE100".format(context))
+
+
+def _validate_observable_event(events, metadata_info, context, findings):
+    nconfig = metadata_info["nconfig"]
+    baseline = bool(_scalar(events, "passesBaseline"))
+    btags = int(_scalar(events, "analysisNBTags"))
+    flags = _vector(events, "btagWeightVariationFallback", int)
+    if len(flags) != 8 or any(flag not in (0, 1) for flag in flags):
+        findings.error("{} btagWeightVariationFallback requires eight boolean values".format(context))
+    weight = float(_scalar(events, "referenceWeight"))
+    if not _is_finite(weight) or weight < 0:
+        findings.error("{} invalid referenceWeight".format(context))
+    for name in ("analysisWeightVariations", "referenceWeightVariations"):
+        values = _vector(events, name, float)
+        if len(values) != len(WEIGHT_VARIATION_NAMES) or any(not _is_finite(x) or x < 0 for x in values):
+            findings.error("{} {} must contain 14 finite nonnegative absolute weights".format(context, name))
+    pt, eta, disc = [_vector(events, name, float) for name in
+                     ("analysisBTagJetPt", "analysisBTagJetEta", "analysisBTagJetDiscriminator")]
+    if any(len(values) != int(_scalar(events, "analysisNAK4")) for values in (pt, eta, disc)):
+        findings.error("{} b-tag jet observable lengths disagree with analysisNAK4".format(context))
+    if (any(not _is_finite(x) or x < 50. - 1.e-4 for x in pt) or
+            any(not _is_finite(x) or abs(x) > 2.5 + 1.e-6 for x in eta) or
+            any(not _is_finite(x) or x < 0 for x in disc)):
+        findings.error("{} invalid b-tag jet pT/eta/discriminator".format(context))
+    if sum(p > 70. and d > .304 for p, d in zip(pt, disc)) != btags:
+        findings.error("{} b-tag observables contradict analysisNBTags".format(context))
+    vectors = {name: _vector(events, name, float if name in OBSERVABLE_VECTOR_MASSES else int)
+               for name in OBSERVABLE_VECTOR_COUNTS | OBSERVABLE_VECTOR_MASSES | OBSERVABLE_REGION_BRANCHES}
+    vectors.update({name: _vector(events, name, int) for name in
+                    ("passesSignalRegion", "passesRecoJetVeto", "recoStatus", "sj1NCA4E300", "sj2NCA4E300")})
+    vectors.update({name: _vector(events, name, float) for name in ("sj1Mass", "sj2Mass")})
+    for name, values in vectors.items():
+        if len(values) != nconfig:
+            findings.error("{} {} width mismatch".format(context, name))
+    count = min([nconfig] + [len(values) for values in vectors.values()])
+    for index in range(count):
+        get = lambda name: vectors[name][index]
+        status = get("recoStatus")
+        _validate_tag_observables("{} configuration {}".format(context, index), status,
+            [get("sj1Mass"), get("sj2Mass")], [get("sj1NCA4E50"), get("sj2NCA4E50")],
+            [get("sj1NCA4E300"), get("sj2NCA4E300")], [get("sj1MassE100"), get("sj2MassE100")], findings)
+        region = _expected_region(baseline, status == VALID_STATUS, get("passesRecoJetVeto"), btags,
+            get("sj1NCA4E300"), get("sj2NCA4E300"), get("sj1NCA4E50"), get("sj2NCA4E50"),
+            get("sj1MassE100"), get("sj2MassE100"))
+        bits = [get(name) for name in ("passesSignalRegion", "passesControlRegion", "passesAT1b", "passesAT0b")]
+        if any(bit not in (0, 1) for bit in bits) or sum(bits) > 1 or bits != [int(region == x) for x in (1, 2, 3, 4)]:
+            findings.error("{} configuration {} region bits contradict exclusive tag/anti-tag definitions".format(context, index))
+    ref_status = _as_int(_scalar(events, "referenceRecoStatus"))
+    ref_region = _as_int(_scalar(events, "referenceRegion"))
+    masses = [float(_scalar(events, name)) for name in ("referenceSJ1Mass", "referenceSJ2Mass")]
+    pair = float(_scalar(events, "referenceSuuMass"))
+    n50 = [int(_scalar(events, name)) for name in ("referenceSJ1NCA4E50", "referenceSJ2NCA4E50")]
+    n300 = [int(_scalar(events, name)) for name in ("referenceSJ1NCA4E300", "referenceSJ2NCA4E300")]
+    mass100 = [float(_scalar(events, name)) for name in ("referenceSJ1MassE100", "referenceSJ2MassE100")]
+    if ref_status not in range(len(STATUS_NAMES)):
+        findings.error("{} invalid referenceRecoStatus".format(context))
+    _validate_tag_observables(context + " reference", ref_status, masses, n50, n300, mass100, findings)
+    if ref_status == VALID_STATUS:
+        if not _is_finite(pair) or pair <= 0 or pair + 1.e-5 * max(1., pair) < sum(masses):
+            findings.error("{} invalid referenceSuuMass or pair-mass bound".format(context))
+    elif not all(math.isnan(x) for x in masses + [pair]):
+        findings.error("{} invalid reference reconstruction needs NaN masses".format(context))
+    expected = _expected_region(baseline, ref_status == VALID_STATUS, True, btags,
+                                n300[0], n300[1], n50[0], n50[1], mass100[0], mass100[1])
+    if ref_region != expected:
+        findings.error("{} referenceRegion contradicts baseline/status/tag/anti-tag definitions".format(context))
+
+
 def _validate_events(events, metadata_info, max_events, findings):
     total_entries = int(events.GetEntries())
     if total_entries == 0:
@@ -603,6 +795,51 @@ def _validate_events(events, metadata_info, max_events, findings):
         if any(ak_pt[index] < ak_pt[index + 1]
                for index in range(len(ak_pt) - 1)):
             findings.error("{} akJetPt is not sorted descending".format(context))
+
+        if metadata_info["schema_version"] >= 3:
+            baseline = bool(_scalar(events, "passesBaseline"))
+            weight = float(_scalar(events, "analysisWeight"))
+            if events.GetBranch("analysisBTagWeight"):
+                btag = float(_scalar(events, "analysisBTagWeight"))
+                fallback = bool(_scalar(events, "analysisBTagWeightFallback"))
+                if not _is_finite(btag) or btag < 0. or btag > 100. or (fallback and btag != 1.):
+                    findings.error("{} invalid b-tag weight/fallback".format(context))
+            ht = float(_scalar(events, "analysisHT"))
+            if not _is_finite(weight) or weight < 0.:
+                findings.error("{} invalid analysisWeight".format(context))
+            if not _is_finite(ht) or ht < 0.:
+                findings.error("{} invalid analysisHT".format(context))
+            if baseline and not all(bool(_scalar(events, name)) for name in
+                                    ("passesTrigger", "passesFilters", "passesLeptonVeto", "passesJetVeto")):
+                findings.error("{} baseline contradicts cutflow flags".format(context))
+            sr = _vector(events, "passesSignalRegion", int)
+            rv = _vector(events, "passesRecoJetVeto", int)
+            n1 = _vector(events, "sj1NCA4E300", int)
+            n2 = _vector(events, "sj2NCA4E300", int)
+            statuses = _vector(events, "recoStatus", int)
+            masses1 = _vector(events, "sj1Mass", float)
+            masses2 = _vector(events, "sj2Mass", float)
+            for name, values in (("passesSignalRegion", sr), ("passesRecoJetVeto", rv), ("sj1NCA4E300", n1), ("sj2NCA4E300", n2)):
+                if len(values) != metadata_info["nconfig"]:
+                    findings.error("{} {} width mismatch".format(context, name))
+            for selected, jet_veto, count1, count2, status, mass1, mass2 in zip(
+                    sr, rv, n1, n2, statuses, masses1, masses2):
+                if jet_veto not in (0, 1):
+                    findings.error("{} passesRecoJetVeto must be boolean".format(context))
+                expected = baseline and bool(jet_veto) and int(_scalar(events, "analysisNBTags")) > 0 and status == 0 and count1 >= 2 and count2 >= 2
+                if jet_veto not in (0, 1) or selected not in (0, 1) or bool(selected) != expected:
+                    findings.error("{} signal-region bit contradicts baseline/jet-veto/btag/reconstruction/substructure".format(context))
+                if status != 0 and (count1 != 0 or count2 != 0):
+                    findings.error("{} invalid reconstruction must have zero CA4 tag counts".format(context))
+                if status == 0:
+                    for name, count, mass in (("sj1NCA4E300", count1, mass1),
+                                              ("sj2NCA4E300", count2, mass2)):
+                        tolerance = 1.e-4 * max(1., abs(mass))
+                        if _is_finite(mass) and mass + tolerance < 300. * count:
+                            findings.error("{} {} violates superjet rest-energy bound".format(context, name))
+
+        if metadata_info.get("observable_version"):
+            _validate_observable_event(events, metadata_info, context, findings)
 
         _validate_event_results(
             context,
@@ -721,12 +958,26 @@ def validate_file(args):
             findings.print_messages()
             return 1
 
+        has_observables = bool((_branch_names(metadata) & OBSERVABLE_METADATA_BRANCHES) or
+                               (_branch_names(events) & OBSERVABLE_EVENT_BRANCHES))
+        expected_metadata = set(METADATA_BRANCHES)
+        if has_observables:
+            expected_metadata |= OBSERVABLE_METADATA_BRANCHES
+        if metadata.GetBranch("schemaVersion") and metadata.GetEntry(0) > 0:
+            if int(_scalar(metadata, "schemaVersion")) >= 3:
+                expected_metadata |= ANALYSIS_METADATA_BRANCHES
         metadata_complete = _check_branch_set(
-            metadata, METADATA_BRANCHES, args.strict_branches, findings)
+            metadata, expected_metadata, args.strict_branches, findings)
         expected_events = set(EVENT_BRANCHES)
+        if has_observables:
+            expected_events |= OBSERVABLE_EVENT_BRANCHES
         if metadata_complete and metadata.GetEntry(0) > 0:
             if int(_scalar(metadata, "schemaVersion")) >= 2:
                 expected_events.add("suuMass")
+            if int(_scalar(metadata, "schemaVersion")) >= 3:
+                expected_events |= ANALYSIS_EVENT_BRANCHES
+                if str(_scalar(metadata, "correctionPrescription")).endswith("btagGuard-v3"):
+                    expected_events |= {"analysisBTagWeight", "analysisBTagWeightFallback"}
         events_complete = _check_branch_set(
             events, expected_events, args.strict_branches, findings)
         if not (metadata_complete and events_complete):
@@ -734,6 +985,9 @@ def validate_file(args):
             return 1
 
         _check_tree_types(metadata, events, findings)
+        if findings.error_count:
+            findings.print_messages()
+            return 1
         event_entries = int(events.GetEntries())
         metadata_info = _validate_metadata(
             metadata, event_entries, args.expected_max_ambiguous, findings)

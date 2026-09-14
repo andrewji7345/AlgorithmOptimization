@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "source_repository": "https://github.com/emcannaert/SuuToChiChi-analysis-software",
+  "source_commit": "8ef9b506ef4229a2110ec8e662fd5ae93b73420a",
+  "source_path": "postprocess/return_signal_SF/return_signal_SF.py",
+  "source_url": "https://github.com/emcannaert/SuuToChiChi-analysis-software/blob/8ef9b506ef4229a2110ec8e662fd5ae93b73420a/postprocess/return_signal_SF/return_signal_SF.py",
+  "vendored_path": "data/analysis_2017/signal_normalization_source.py",
+  "sha256": "269a27a22496726a5b8e7cae85c8e9a3dc4fa3af83904dc69726907f72901f52",
+  "vendoring": "Exact original bytes; the catalog builder evaluates only two hash-locked pure functions through AST extraction, without importing the source module or requiring ROOT/numpy.",
+  "used_functions": [
+    "return_Suu_to_chi_chi_xs",
+    "calculate_Suu_to_chi_chi_BR"
+  ],
+  "normalization": {
+    "y_uu": 2.0,
+    "y_chi": 2.0,
+    "chi_to_Wb_BR": 0.5,
+    "chi_to_Zt_BR": 0.25,
+    "chi_to_Ht_BR": 0.25,
+    "W_hadronic_BR": 0.6741,
+    "Z_hadronic_BR": 0.6991,
+    "H_source_BR": 0.58,
+    "top_source_hadronic_BR": 0.6741,
+    "mixed_channel_multiplicity": 2,
+    "extra_K_factor": 1.0,
+    "production_order": "LO",
+    "H_factor_note": "The source's literal factor 0.58 is preserved. It is not an assertion that the inclusive hadronic Higgs branching fraction is 0.58.",
+    "event_denominator": "Use measured signed generator weights summed over every processed preselection event. Do not use the legacy return_signal_SF function's hardcoded generated-event counts."
+  },
+  "documented_substitute": {
+    "sample_alias": "HtZt_6000_2000",
+    "nominal_alias_masses_gev": [6000, 2000],
+    "actual_generated_masses_gev": [6200, 1950],
+    "existing_evidence": [
+      "test/signalMCFiles/HtZt_6000_2000.txt first-line note and all seven LFNs",
+      "docs/compact_scan_evaluation.md, Nominal and generated masses"
+    ],
+    "interpolation_policy": "User-authorized log-linear interpolation of positive LO production cross sections between Suu masses 6000 and 7000 GeV, followed by the source branching function evaluated at actual generated masses 6200/1950 and the HTZT mixed hadronic decay factor.",
+    "anchor_cross_sections_fb": [137.0, 23.1],
+    "interpolation_fraction": 0.2,
+    "production_formula": "sigma_LO(6200) = exp(0.8*log(137.0) + 0.2*log(23.1)) fb",
+    "final_formula": "sigma_final_pb = sigma_LO(6200)_fb * BR_SuuToChiChi(6200,1950) * 2*(0.25*0.58*0.6741)*(0.25*0.6991*0.6741) / 1000",
+    "limitation": "This is a documented nominal interpolation, not an independently calculated 6200-GeV production cross section. No interpolation uncertainty is inferred. The entire decay cross section is not interpolated across changing chi masses."
+  },
+  "input_inventory_scope": "Dataset identifiers are reconstructed from existing local-list LFNs. Generation does not query DAS, establish current accessibility, certify complete dataset coverage, or audit full-dataset signed generator denominators.",
+  "reproduce": "python3 build_signal_grid_catalog.py --check"
+}

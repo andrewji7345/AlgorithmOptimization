@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "resolved_at_utc": "2026-09-10T21:11:13.162120+00:00",
+  "sample": "WJetsMC_QQ_HT800toInf",
+  "dataset": "/WJetsToQQ_HT-800toInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/MINIAODSIM",
+  "dbs_instance": "prod/global",
+  "catalog": "/tmp/existing-optimization-sensitivity/config/backgrounds_2017.json",
+  "catalog_sha256": "09d2c0c577de9db0b6ee0d878974cadb9898d07a96db654b62343c7083c4c238",
+  "source_repository": "https://github.com/emcannaert/SuuToChiChi-analysis-software",
+  "source_commit": "8ef9b506ef4229a2110ec8e662fd5ae93b73420a",
+  "query_argv": [
+    "/cvmfs/cms.cern.ch/common/dasgoclient",
+    "-query",
+    "file dataset=/WJetsToQQ_HT-800toInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/MINIAODSIM instance=prod/global",
+    "-limit",
+    "0"
+  ],
+  "redirector": "root://cmsxrootd.fnal.gov/",
+  "available_files": 300,
+  "selected_files": 1,
+  "max_files": 1,
+  "complete_file_coverage": false,
+  "selection": "lexicographic_first_n_pilot_subset",
+  "input_list_sha256": "2a51ffa551a422702e502d580b5903f4b296106328bcd7fb88e4f86416b692cb",
+  "normalization_note": "File coverage is not a signed generator-weight denominator; use all preselection genWeights for the declared scope."
+}

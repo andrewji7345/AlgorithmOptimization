@@ -1,0 +1,6 @@
+# Use an initialized CMSSW Python runtime for ROOT validation/ntuplizing.
+optuna==4.5.0
+numpy>=1.23,<3
+awkward>=2,<3
+uproot>=5,<6
+matplotlib>=3.6,<4

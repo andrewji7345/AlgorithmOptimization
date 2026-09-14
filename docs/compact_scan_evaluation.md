@@ -1,6 +1,6 @@
-# Evaluating the compact expanded scan
+# Compact reconstruction diagnostics and historical signal-only evaluation
 
-The compact-format evaluators are the current workflow. The older per-point
+Sensitivity optimization now uses [the weighted signal/background evaluator](sensitivity_objective.md). The signal-only global ranking described below is archived as `legacy/evaluate_compact_scan_physicality.py`; its retention regrets are historical. The compact diagnostic evaluator remains current. The older per-point
 evaluators live under `legacy/` and continue to read the legacy event format;
 see the [legacy index](../legacy/README.md).
 
@@ -67,7 +67,7 @@ the interpretation of a previous result.
 
 The initial defaults are bias `0.20`, relative resolution `0.50`, invalid
 fraction `0.20`, tail fraction `0.50`, and at least 50 gated valid events. The
-response-tail window is `[0.70, 1.30]`; the common estimator uses 150 bins over
+response-tail window is `[0.50, 1.50]`; the common estimator uses 150 bins over
 response `[0, 3]`. These are configurable working limits, not a claim that the
 first chosen boundary is the final physics optimum.
 
@@ -126,7 +126,7 @@ for the separate all-regime-qualified ranking and per-regime pass/fail reports.
 For one tagged production campaign, run from the package directory:
 
 ```bash
-python3 evaluate_compact_scan.py \
+python3 legacy/evaluate_compact_scan_physicality.py \
   --input-dir /eos/uscms/store/user/aji/rootfiles_existingOptimization_compact \
   --input-glob 'compactOptimization_global-v1-10k_*.root' \
   --output-dir results/compact_global_v1

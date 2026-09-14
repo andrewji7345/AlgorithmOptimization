@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "name": "expanded_SR_two_bin_exploratory_2017_v1",
+  "mass_bin_edges_gev": [0, 3500, 12000],
+  "qcd_groups": [[0], [1]],
+  "rationale": "Retain the finest contiguous coarsening supported by AN-reference development background MC at n_eff >= 1/0.175^2. Preserve the original four-bin study and its failures.",
+  "selection_basis": "AN-reference development background yields and variances only; signal scores and candidate rankings do not choose the boundaries. Both existing folds were inspected before this follow-up.",
+  "validation_scope": "exploratory_reuse",
+  "qcd_group_interpretation": "Recompute sumw and sumw2 in each coarse bin and give each its own linear Gaussian MC direction. The reference stage adds the 15% blanket term in quadrature in that same direction. The independent blanket terms are a modeling assumption; shared process normalization and template nuisances remain correlated. This is a new coarse likelihood, not a covariance-preserving projection of the original groups."
+}

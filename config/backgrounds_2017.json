@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "year": 2017,
+  "luminosity_fb": 41.48,
+  "luminosity_pb": 41480.0,
+  "source_repository": "https://github.com/emcannaert/SuuToChiChi-analysis-software",
+  "source_commit": "8ef9b506ef4229a2110ec8e662fd5ae93b73420a",
+  "dataset_source": "templates/createAltCrabTemplate_Cfg.py:356-393",
+  "cross_section_source": "AN-23-067 Table 9 (2017), supplied PDF, printed page 15 (PDF page 17); cross sections in pb",
+  "normalization_notes": [
+    "This catalog carries cross sections, not weights normalized to historical file counts. Compute sum_gen_weights over the exact generated sample scope before applying any selection.",
+    "Background set follows the supplied updated note: ten QCD pT bins, three disjoint TTJets HT bins, four WJets bins, six ST channels. Do not combine the alternative QCD HT or inclusive TT samples.",
+    "Historical return_BR_SF.py constants differ from AN values and depend on old available-event counts; they must not be applied to a new subset.",
+    "For signed-weight MC, use signed sum_gen_weights rather than DAS nevents. DAS event counts only verify input completeness."
+  ],
+  "samples": [
+    {
+      "name": "QCDMC_Pt_170to300",
+      "kind": "background",
+      "category": "QCDMC",
+      "dataset": "/QCD_Pt_170to300_TuneCP5_13TeV_pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v1/MINIAODSIM",
+      "cross_section_pb": 104000,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "QCDMC_Pt_300to470",
+      "kind": "background",
+      "category": "QCDMC",
+      "dataset": "/QCD_Pt_300to470_TuneCP5_13TeV_pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v1/MINIAODSIM",
+      "cross_section_pb": 6830,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "QCDMC_Pt_470to600",
+      "kind": "background",
+      "category": "QCDMC",
+      "dataset": "/QCD_Pt_470to600_TuneCP5_13TeV_pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v1/MINIAODSIM",
+      "cross_section_pb": 552.0,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "QCDMC_Pt_600to800",
+      "kind": "background",
+      "category": "QCDMC",
+      "dataset": "/QCD_Pt_600to800_TuneCP5_13TeV_pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v1/MINIAODSIM",
+      "cross_section_pb": 154.6,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "QCDMC_Pt_800to1000",
+      "kind": "background",
+      "category": "QCDMC",
+      "dataset": "/QCD_Pt_800to1000_TuneCP5_13TeV_pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v1/MINIAODSIM",
+      "cross_section_pb": 26.15,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "QCDMC_Pt_1000to1400",
+      "kind": "background",
+      "category": "QCDMC",
+      "dataset": "/QCD_Pt_1000to1400_TuneCP5_13TeV_pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v1/MINIAODSIM",
+      "cross_section_pb": 7.501,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "QCDMC_Pt_1400to1800",
+      "kind": "background",
+      "category": "QCDMC",
+      "dataset": "/QCD_Pt_1400to1800_TuneCP5_13TeV_pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v1/MINIAODSIM",
+      "cross_section_pb": 0.6419,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "QCDMC_Pt_1800to2400",
+      "kind": "background",
+      "category": "QCDMC",
+      "dataset": "/QCD_Pt_1800to2400_TuneCP5_13TeV_pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v1/MINIAODSIM",
+      "cross_section_pb": 0.0877,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "QCDMC_Pt_2400to3200",
+      "kind": "background",
+      "category": "QCDMC",
+      "dataset": "/QCD_Pt_2400to3200_TuneCP5_13TeV_pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v1/MINIAODSIM",
+      "cross_section_pb": 0.005241,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "QCDMC_Pt_3200toInf",
+      "kind": "background",
+      "category": "QCDMC",
+      "dataset": "/QCD_Pt_3200toInf_TuneCP5_13TeV_pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v1/MINIAODSIM",
+      "cross_section_pb": 0.0001346,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "TTJetsMCHT800to1200",
+      "kind": "background",
+      "category": "TTbarMC",
+      "dataset": "/TTJets_HT-800to1200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/MINIAODSIM",
+      "cross_section_pb": 0.5581,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "TTJetsMCHT1200to2500",
+      "kind": "background",
+      "category": "TTbarMC",
+      "dataset": "/TTJets_HT-1200to2500_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/MINIAODSIM",
+      "cross_section_pb": 0.09876,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "TTJetsMCHT2500toInf",
+      "kind": "background",
+      "category": "TTbarMC",
+      "dataset": "/TTJets_HT-2500toInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/MINIAODSIM",
+      "cross_section_pb": 0.001124,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "WJetsMC_QQ_HT800toInf",
+      "kind": "background",
+      "category": "WJetsMC",
+      "dataset": "/WJetsToQQ_HT-800toInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/MINIAODSIM",
+      "cross_section_pb": 29.1,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "WJetsMC_LNu_HT800to1200",
+      "kind": "background",
+      "category": "WJetsMC",
+      "dataset": "/WJetsToLNu_HT-800To1200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/MINIAODSIM",
+      "cross_section_pb": 4.926,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "WJetsMC_LNu_HT1200to2500",
+      "kind": "background",
+      "category": "WJetsMC",
+      "dataset": "/WJetsToLNu_HT-1200To2500_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v1/MINIAODSIM",
+      "cross_section_pb": 1.152,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "WJetsMC_LNu_HT2500toInf",
+      "kind": "background",
+      "category": "WJetsMC",
+      "dataset": "/WJetsToLNu_HT-2500ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/MINIAODSIM",
+      "cross_section_pb": 0.02646,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "ST_t_channel_top_inclMC",
+      "kind": "background",
+      "category": "STMC",
+      "dataset": "/ST_t-channel_top_5f_InclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v1/MINIAODSIM",
+      "cross_section_pb": 119.7,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "ST_t_channel_antitop_inclMC",
+      "kind": "background",
+      "category": "STMC",
+      "dataset": "/ST_t-channel_antitop_5f_InclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/MINIAODSIM",
+      "cross_section_pb": 71.75,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "ST_s_channel_hadronsMC",
+      "kind": "background",
+      "category": "STMC",
+      "dataset": "/ST_s-channel_4f_hadronicDecays_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/MINIAODSIM",
+      "cross_section_pb": 7.104,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "ST_s_channel_leptonsMC",
+      "kind": "background",
+      "category": "STMC",
+      "dataset": "/ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v1/MINIAODSIM",
+      "cross_section_pb": 3.549,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "ST_tW_antiTop_inclMC",
+      "kind": "background",
+      "category": "STMC",
+      "dataset": "/ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/MINIAODSIM",
+      "cross_section_pb": 32.51,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    },
+    {
+      "name": "ST_tW_top_inclMC",
+      "kind": "background",
+      "category": "STMC",
+      "dataset": "/ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/MINIAODSIM",
+      "cross_section_pb": 32.45,
+      "cross_section_source": "AN-23-067 Table 9, 2017",
+      "dbs_instance": "prod/global"
+    }
+  ]
+}

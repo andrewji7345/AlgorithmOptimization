@@ -90,7 +90,15 @@ options.register(
     VarParsing.varType.int,
     "ROOT ZSTD compression level",
 )
+options.register("analysisMode", False, VarParsing.multiplicity.singleton,
+                 VarParsing.varType.bool, "Apply the calibrated AN-23-067 UL2017 selection")
+options.register("sampleKind", "signal", VarParsing.multiplicity.singleton,
+                 VarParsing.varType.string, "signal or background")
+options.register("analysisSystematic", "nominal", VarParsing.multiplicity.singleton,
+                 VarParsing.varType.string, "nominal, JECUp, JECDown, JERUp or JERDown")
 options.parseArguments()
+if not options.analysisMode and options.analysisSystematic != "nominal":
+    raise ValueError("Kinematic systematic variations require analysisMode=True")
 
 
 def parse_csv(raw, converter, option_name):
@@ -147,6 +155,8 @@ from SuuAnalysis.ExistingOptimization.CompactOptimizationScanNtuplizer_cfi impor
 
 process.compactScan = compactOptimizationScanNtuplizer.clone(
     sampleName=cms.string(sample_name),
+    sampleKind=cms.string(options.sampleKind),
+    analysisMode=cms.bool(options.analysisMode),
     akRadius=cms.double(options.akRadius),
     collectionPtCuts=cms.vdouble(*collection_pt_cuts),
     caRadii=cms.vdouble(*ca_radii),
@@ -158,4 +168,23 @@ process.compactScan = compactOptimizationScanNtuplizer.clone(
     compressionLevel=cms.uint32(options.compressionLevel),
 )
 
-process.path = cms.Path(process.compactScan)
+if options.analysisMode:
+    from SuuAnalysis.ExistingOptimization.analysis2017_cfi import configure_analysis2017
+    if options.sampleKind == "signal":
+        category = "SuuToChiChi"
+    elif sample_name.startswith("QCD"):
+        category = "QCDMC"
+    elif sample_name.startswith("TT"):
+        category = "TTbarMC"
+    elif sample_name.startswith("ST"):
+        category = "STMC"
+    elif sample_name.startswith("WJets"):
+        category = "WJetsMC"
+    else:
+        raise ValueError("No validated b-tag efficiency map for background " + sample_name)
+    analysis_config, analysis_sequence = configure_analysis2017(process, category, options.analysisSystematic)
+    process.compactScan.analysis = analysis_config
+    # These are producers, not filters: retain every event for MC normalization.
+    process.path = cms.Path(analysis_sequence * process.compactScan)
+else:
+    process.path = cms.Path(process.compactScan)

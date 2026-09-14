@@ -27,7 +27,7 @@ except ImportError:  # pragma: no cover
 
 METADATA_PATH = "compactScan/Metadata"
 EVENTS_PATH = "compactScan/Events"
-SUPPORTED_SCHEMA_VERSIONS = (1, 2)
+SUPPORTED_SCHEMA_VERSIONS = (1, 2, 3)
 STATUS_NAMES = (
     "valid", "no_selected_jets", "no_selected_constituents", "invalid_com",
     "invalid_thrust", "no_ca_jets", "complexity_guard",
@@ -40,8 +40,8 @@ DEFAULT_RESOLUTION_LIMIT = 0.50
 DEFAULT_INVALID_LIMIT = 0.20
 DEFAULT_TAIL_LIMIT = 0.50
 DEFAULT_MIN_VALID_EVENTS = 50
-DEFAULT_TAIL_RESPONSE_MIN = 0.70
-DEFAULT_TAIL_RESPONSE_MAX = 1.30
+DEFAULT_TAIL_RESPONSE_MIN = 0.50
+DEFAULT_TAIL_RESPONSE_MAX = 1.50
 DEFAULT_RESPONSE_HIST_MIN = 0.0
 DEFAULT_RESPONSE_HIST_MAX = 3.0
 DEFAULT_RESPONSE_HIST_BINS = 150
@@ -321,6 +321,13 @@ class CompactMetadata:
     mass_objective: str
     gate_reco_constraint: str
     enforce_legacy_radius_constraint: bool
+    analysis_selection: str = "none"
+    correction_prescription: str = "none"
+    sample_kind: str = "signal"
+    analysis_systematic: str = "nominal"
+    analysis_observable_version: int = 0
+    reference_reconstruction: str = "none"
+    weight_variation_names: Tuple[str, ...] = ()
     _config_lookup: Dict[Tuple[float, float, float], int] = field(default_factory=dict, repr=False)
 
     @property
@@ -345,6 +352,9 @@ class EventPayload:
     sj1_mass: np.ndarray
     sj2_mass: np.ndarray
     suu_mass: Optional[np.ndarray] = None  # Absent in schema version 1.
+    analysis_weight: Optional[np.ndarray] = None
+    passes_baseline: Optional[np.ndarray] = None
+    passes_signal_region: Optional[np.ndarray] = None
 
     @property
     def n_events(self) -> int:
@@ -388,7 +398,7 @@ def _one_vector(array: Any, cast) -> Tuple[Any, ...]:
 
 
 def load_metadata(path: Any) -> CompactMetadata:
-    """Read and validate metadata-authoritative compact schema version 1."""
+    """Read and validate versioned compact metadata, including calibrated scans."""
 
     names = (
         "schemaVersion", "sampleName", "akRadius", "maxAmbiguousCAJets",
@@ -406,6 +416,16 @@ def load_metadata(path: Any) -> CompactMetadata:
         missing = sorted(set(names) - set(tree.keys()))
         if missing:
             raise KeyError(f"{path} metadata is missing: {', '.join(missing)}")
+        version = int(tree["schemaVersion"].array(entry_stop=1, library="np")[0])
+        if version >= 3:
+            names += ("analysisSelection", "correctionPrescription", "sampleKind")
+        extension = ("analysisSystematic", "analysisObservableVersion",
+                     "referenceReconstruction", "weightVariationNames")
+        present = set(extension) & set(tree.keys())
+        if present and present != set(extension):
+            raise ValueError(f"{path}: incomplete reference-observable metadata")
+        if present:
+            names += extension
         arrays = tree.arrays(names, entry_start=0, entry_stop=1, library="ak")
         event_entries = int(root_file[EVENTS_PATH].num_entries)
     scalar = lambda name, cast: cast(_one_scalar(arrays[name]))
@@ -431,14 +451,30 @@ def load_metadata(path: Any) -> CompactMetadata:
         ca_algorithm=scalar("caAlgorithm", str), mass_objective=scalar("massObjective", str),
         gate_reco_constraint=scalar("gateRecoConstraint", str),
         enforce_legacy_radius_constraint=scalar("enforceLegacyRadiusConstraint", bool),
+        analysis_selection=scalar("analysisSelection", str) if version >= 3 else "none",
+        correction_prescription=scalar("correctionPrescription", str) if version >= 3 else "none",
+        sample_kind=scalar("sampleKind", str) if version >= 3 else "signal",
+        analysis_systematic=scalar("analysisSystematic", str) if present else "nominal",
+        analysis_observable_version=scalar("analysisObservableVersion", int) if present else 0,
+        reference_reconstruction=scalar("referenceReconstruction", str) if present else "none",
+        weight_variation_names=vector("weightVariationNames", str) if present else (),
     )
+    if metadata.analysis_systematic not in ("nominal", "JECUp", "JECDown", "JERUp", "JERDown"):
+        raise ValueError(f"{path}: unknown analysis systematic")
+    if present and (version != 3 or metadata.analysis_observable_version != 1):
+        raise ValueError(f"{path}: unsupported reference-observable version")
     if metadata.schema_version not in SUPPORTED_SCHEMA_VERSIONS:
         raise ValueError(f"unsupported compact schemaVersion {metadata.schema_version}")
     if metadata.processed_events != event_entries:
         raise ValueError(f"{path}: processedEvents/tree-entry mismatch")
-    parse_sample_name(metadata.sample_name)
-    if not metadata.puppi_weighted or metadata.use_jec:
-        raise ValueError(f"{path}: requires PUPPI weighting and no JEC")
+    if metadata.sample_kind == "signal":
+        parse_sample_name(metadata.sample_name)
+    elif metadata.sample_kind != "background" or not re.fullmatch(r"[A-Za-z0-9_.-]+", metadata.sample_name):
+        raise ValueError(f"{path}: invalid sample kind/name")
+    if not metadata.puppi_weighted or (metadata.schema_version < 3 and metadata.use_jec):
+        raise ValueError(f"{path}: incompatible PUPPI/JEC prescription")
+    if metadata.schema_version >= 3 and (not metadata.use_jec or metadata.analysis_selection == "none"):
+        raise ValueError(f"{path}: schema version 3 requires calibrated analysis selection")
     if metadata.ca_algorithm != "cambridge_y_phi":
         raise ValueError(f"{path}: unexpected CA algorithm {metadata.ca_algorithm!r}")
     if metadata.mass_objective != "abs(m1-m2)/(m1+m2)":
@@ -529,6 +565,8 @@ def read_event_payload(metadata_or_path: Any, max_events: int = -1) -> EventPayl
              "recoStatus", "nAmbiguous", "sj1Mass", "sj2Mass")
     if metadata.schema_version >= 2:
         names += ("suuMass",)
+    if metadata.schema_version >= 3:
+        names += ("analysisWeight", "passesBaseline", "passesSignalRegion")
     with _open_root_file(metadata.path) as root_file:
         tree = root_file[EVENTS_PATH]
         if metadata.schema_version >= 2 and "suuMass" not in tree:
@@ -546,6 +584,12 @@ def read_event_payload(metadata_or_path: Any, max_events: int = -1) -> EventPayl
         _regular(events["sj2Mass"], np.float64, "sj2Mass"),
         (_regular(events["suuMass"], np.float64, "suuMass")
          if metadata.schema_version >= 2 else None),
+        (np.asarray(ak.to_numpy(events["analysisWeight"]), dtype=np.float64)
+         if metadata.schema_version >= 3 else None),
+        (np.asarray(ak.to_numpy(events["passesBaseline"]), dtype=bool)
+         if metadata.schema_version >= 3 else None),
+        (_regular(events["passesSignalRegion"], np.uint8, "passesSignalRegion")
+         if metadata.schema_version >= 3 else None),
     )
     if payload.reco_status.shape != payload.n_ambiguous.shape or payload.reco_status.shape != payload.sj1_mass.shape or payload.reco_status.shape != payload.sj2_mass.shape:
         raise ValueError(f"{metadata.path}: reconstruction branch shapes differ")
@@ -561,6 +605,19 @@ def read_event_payload(metadata_or_path: Any, max_events: int = -1) -> EventPayl
             raise ValueError(f"{metadata.path}: valid reconstruction has non-finite/negative suuMass")
         if np.any(~valid & ~np.isnan(payload.suu_mass)):
             raise ValueError(f"{metadata.path}: invalid reconstruction must have NaN suuMass")
+    if metadata.schema_version >= 3:
+        if payload.passes_signal_region.shape != payload.reco_status.shape:
+            raise ValueError(f"{metadata.path}: passesSignalRegion width mismatch")
+        if not np.all(np.isfinite(payload.analysis_weight)) or np.any(payload.analysis_weight < 0):
+            raise ValueError(f"{metadata.path}: non-finite/negative analysisWeight")
+        baseline_values = np.asarray(ak.to_numpy(events["passesBaseline"]))
+        if np.any((baseline_values != 0) & (baseline_values != 1)):
+            raise ValueError(f"{metadata.path}: passesBaseline must be boolean")
+        if np.any(payload.passes_signal_region > 1):
+            raise ValueError(f"{metadata.path}: passesSignalRegion must be boolean")
+        if np.any((payload.passes_signal_region != 0) &
+                  ((payload.reco_status != VALID_STATUS) | ~payload.passes_baseline[:, None])):
+            raise ValueError(f"{metadata.path}: signal region requires baseline and valid reconstruction")
     return payload
 
 

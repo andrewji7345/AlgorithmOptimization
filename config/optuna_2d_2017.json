@@ -1,0 +1,60 @@
+{
+  "study_name": "suu-asimov-2d-ul2017-full-grid-optimization-v1",
+  "campaign": "sensitivity_2d_2017.json",
+  "run_dir": "../sensitivity_runs/ul2017-2d-full-grid-optimization-v1",
+  "n_trials": 12,
+  "max_parallel_trials": 1,
+  "files_per_job": 5,
+  "max_events_per_job": 10000,
+  "max_files_per_sample": 1,
+  "seed": 67023,
+  "poll_seconds": 30,
+  "trial_timeout_seconds": 86400,
+  "submission_visibility_seconds": 180,
+  "max_poll_errors": 5,
+  "cmssw_release": "CMSSW_15_0_19",
+  "backend": {
+    "kind": "condor",
+    "cmssw_bundle": "$CMSSW_BASE/../sensitivity_bundles/CMSSW_15_0_19_sensitivity_2d_v1.tar.gz",
+    "schedd": "auto",
+    "command_timeout_seconds": 60,
+    "minimum_proxy_seconds": 3600,
+    "request_cpus": 1,
+    "request_memory_mb": 4000,
+    "request_disk_mb": 20000
+  },
+  "search_space": {
+    "t_keep": {
+      "low": 100,
+      "high": 400,
+      "step": 20
+    },
+    "t_gate_max": 600,
+    "n_gate_jets": {
+      "low": 0,
+      "high": 6
+    },
+    "r_ca": {
+      "low": 0.4,
+      "high": 1.6,
+      "step": 0.1
+    },
+    "cos_thrust": {
+      "low": 0.0,
+      "high": 0.95,
+      "step": 0.05
+    }
+  },
+  "ak_radii": [
+    0.4,
+    0.8
+  ],
+  "notes": [
+    "Explicit pilot configuration. This file does not authorize or initiate submission: optimize_sensitivity.py defaults to plan mode and only --execute submits or manages jobs.",
+    "Use a freshly built CMSSW_15_0_19_sensitivity_2d_v1.tar.gz archive; the new filename prevents accidental reuse of the older three-benchmark bundle.",
+    "One trial covers all 137 samples with at most one listed file and 10000 events per sample. With these limits it creates 137 worker tasks; one trial runs at a time. Sparse backgrounds and zero signal acceptance can still make calibration or optimization unsupported.",
+    "Keep the same file/event caps and ordered input lists for calibration and main optimization. Any expansion of the representative subset requires recalibration and a new reference.",
+    "Gate multiplicity and gate pT remain adjustable; AK4/AK8, collection pT, CA radius and thrust-assignment threshold retain the existing search ranges.",
+    "The fixed sensitivity_2d_references_2017.json must already exist and match this exact campaign before any submission. Twelve trials are a bounded pilot budget, not a completed production optimization."
+  ]
+}

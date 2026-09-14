@@ -7,6 +7,7 @@ were deleted. The complete old-to-new mapping is in
 
 | Path | Contents |
 | --- | --- |
+| `evaluate_compact_scan_physicality.py` | Historical compact signal-only physicality/retention rankings; replaced by the active sensitivity evaluator. |
 | `evaluate_ntuplizer.py` | Detailed single-ntuple old/new reconstruction diagnostics. |
 | `evaluate_ntuplizer_pt_ak_ca.py` | Single-sample per-point grid evaluator. |
 | `evaluate_ntuplizer_dc_mp_pt_ak_ca_th.py` | Multi-sample single/two-threshold evaluator. |

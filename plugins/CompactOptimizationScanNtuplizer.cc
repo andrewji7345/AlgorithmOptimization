@@ -1,3 +1,4 @@
+#include <memory>
 #include <algorithm>
 #include <cmath>
 #include <cstdint>
@@ -12,11 +13,16 @@
 #include "TFile.h"
 #include "TLorentzVector.h"
 #include "TTree.h"
+#include "SuuAnalysis/ExistingOptimization/interface/AN2017Selection.h"
+#include "SuuAnalysis/ExistingOptimization/interface/AN2017Regions.h"
+#include "PhysicsTools/CandUtils/interface/Thrust.h"
+#include "DataFormats/Candidate/interface/LeafCandidate.h"
 #include "TVector3.h"
 
 #include "CommonTools/UtilAlgos/interface/TFileService.h"
 #include "DataFormats/PatCandidates/interface/PackedCandidate.h"
 #include "FWCore/Framework/interface/Event.h"
+#include "FWCore/Framework/interface/ConsumesCollector.h"
 #include "FWCore/Framework/interface/EventSetup.h"
 #include "FWCore/Framework/interface/MakerMacros.h"
 #include "FWCore/Framework/interface/one/EDAnalyzer.h"
@@ -66,11 +72,14 @@ template <typename T> void sortAndUnique(std::vector<T> &values) {
 
 struct WeightedParticle {
   TLorentzVector labP4;
+  int pdgId = 0;
+  int charge = 0;
 };
 
 struct AKJetCache {
   TLorentzVector labP4;
   std::vector<std::uint32_t> constituentIndices;
+  bool passesVeto = true;
 };
 
 struct SelectedSystem {
@@ -86,14 +95,20 @@ struct AssignmentResult {
   float leadingPtMass = kInvalidMass;
   float subleadingPtMass = kInvalidMass;
   float suuMass = kInvalidMass;
+  std::uint16_t leadingNCA4E300 = 0;
+  std::uint16_t subleadingNCA4E300 = 0;
+  std::uint16_t leadingNCA4E50 = 0, subleadingNCA4E50 = 0;
+  float leadingMassE100 = kInvalidMass, subleadingMassE100 = kInvalidMass;
 };
 
 struct CAJetCache {
   RecoStatus status = RecoStatus::numericalFailure;
   TVector3 beta;
   std::vector<TLorentzVector> comJets;
+  std::vector<std::vector<TLorentzVector>> comJetConstituents;
   std::vector<double> cosToThrust;
   std::map<std::vector<std::int8_t>, AssignmentResult> assignmentCache;
+  bool sourceReference = false;
 };
 
 struct BaseConfiguration {
@@ -121,7 +136,7 @@ private:
   std::vector<WeightedParticle>
   makeWeightedParticles(const pat::PackedCandidateCollection &) const;
   std::vector<AKJetCache>
-  clusterAKJets(const std::vector<WeightedParticle> &) const;
+  clusterAKJets(std::vector<WeightedParticle> &) const;
   SelectedSystem
   buildSelectedSystem(std::size_t, const std::vector<AKJetCache> &,
                       const std::vector<WeightedParticle> &) const;
@@ -130,6 +145,7 @@ private:
                                 const std::vector<std::int8_t> &) const;
   std::vector<std::int8_t> classificationForCut(const CAJetCache &,
                                                 double) const;
+  AssignmentResult reconstructReference(const std::vector<TLorentzVector>&) const;
 
   static bool findThrustAxis(const std::vector<TLorentzVector> &, TVector3 &);
   static bool physicalMass(const TLorentzVector &, double &);
@@ -147,6 +163,40 @@ private:
   unsigned int maxAmbiguousCAJets_;
   bool enforceLegacyRadiusConstraint_;
   unsigned int compressionLevel_;
+  bool analysisMode_ = false;
+  std::unique_ptr<AN2017Selection> analysis_;
+  std::string analysisSelection_ = "none";
+  std::string correctionPrescription_ = "none";
+  std::string sampleKind_ = "signal";
+  bool passesTrigger_ = false, passesFilters_ = false;
+  bool passesLeptonVeto_ = false, passesJetVeto_ = false, passesBaseline_ = false;
+  float analysisHT_ = 0.f, analysisWeight_ = 1.f;
+  float analysisBTagWeight_ = 1.f;
+  bool analysisBTagWeightFallback_ = false;
+  std::uint16_t analysisNAK4_ = 0, analysisNAK8_ = 0, analysisNHeavyAK8_ = 0, analysisNBTags_ = 0;
+  std::vector<std::uint8_t> passesSignalRegion_;
+  std::vector<std::uint8_t> passesRecoJetVeto_;
+  std::vector<std::uint16_t> sj1NCA4E300_, sj2NCA4E300_;
+  std::vector<std::uint16_t> sj1NCA4E50_, sj2NCA4E50_;
+  std::vector<float> sj1MassE100_, sj2MassE100_;
+  std::vector<std::uint8_t> passesControlRegion_, passesAT0b_, passesAT1b_;
+  std::uint32_t analysisObservableVersion_ = 1;
+  std::string analysisSystematic_ = "nominal";
+  std::string referenceReconstruction_ = "AN23-067-PATAK8-CA8-Thrust-source-port-v1";
+  std::vector<std::string> weightVariationNames_{
+      "pileupUp", "pileupDown", "prefiringUp", "prefiringDown",
+      "btagHFCorrelatedUp", "btagHFCorrelatedDown", "btagHFUncorrelatedUp", "btagHFUncorrelatedDown",
+      "btagLFCorrelatedUp", "btagLFCorrelatedDown", "btagLFUncorrelatedUp", "btagLFUncorrelatedDown",
+      "topPtUp", "topPtDown"};
+  std::vector<float> analysisWeightVariations_, referenceWeightVariations_;
+  std::vector<std::uint8_t> btagWeightVariationFallback_;
+  std::vector<float> analysisBTagJetPt_, analysisBTagJetEta_, analysisBTagJetDiscriminator_;
+  float referenceWeight_ = 1.f;
+  std::uint8_t referenceRecoStatus_ = 8, referenceRegion_ = 0;
+  float referenceSJ1Mass_ = kInvalidMass, referenceSJ2Mass_ = kInvalidMass, referenceSuuMass_ = kInvalidMass;
+  float referenceSJ1MassE100_ = kInvalidMass, referenceSJ2MassE100_ = kInvalidMass;
+  std::uint16_t referenceSJ1NCA4E50_ = 0, referenceSJ2NCA4E50_ = 0;
+  std::uint16_t referenceSJ1NCA4E300_ = 0, referenceSJ2NCA4E300_ = 0;
 
   std::vector<BaseConfiguration> baseConfigurations_;
   TTree *metadataTree_ = nullptr;
@@ -216,6 +266,22 @@ CompactOptimizationScanNtuplizer::CompactOptimizationScanNtuplizer(
       compressionLevel_(config.getParameter<unsigned int>("compressionLevel")),
       sampleName_(config.getParameter<std::string>("sampleName")) {
   usesResource(TFileService::kSharedResource);
+  analysisMode_ = config.getParameter<bool>("analysisMode");
+  sampleKind_ = config.getParameter<std::string>("sampleKind");
+  if (sampleKind_ != "signal" && sampleKind_ != "background")
+    throw cms::Exception("Configuration") << "sampleKind must be signal or background";
+  if (analysisMode_) {
+    if (std::abs(akRadius_ - 0.4) > 1.e-6 && std::abs(akRadius_ - 0.8) > 1.e-6)
+      throw cms::Exception("Configuration") << "Calibrated sensitivity supports AK R=0.4 or 0.8 only; arbitrary-radius JEC is unavailable";
+    analysis_ = std::make_unique<AN2017Selection>(config.getParameter<edm::ParameterSet>("analysis"), consumesCollector());
+    analysisSystematic_ = config.getParameter<edm::ParameterSet>("analysis").getParameter<std::string>("systematic");
+    schemaVersion_ = 3;
+    useJEC_ = true;
+    analysisSelection_ = "AN-23-067-UL2017-cutbased-v1";
+    correctionPrescription_ = "UL2017-AK4CHS-baseline-AK4AK8Puppi-reco-JEC-JER-btagGuard-v3";
+  } else if (sampleKind_ != "signal") {
+    throw cms::Exception("Configuration") << "Background production requires analysisMode";
+  }
 
   sortAndUnique(collectionPtCuts_);
   sortAndUnique(caRadii_);
@@ -423,6 +489,57 @@ void CompactOptimizationScanNtuplizer::beginJob() {
   eventsTree_->Branch("sj1Mass", &sj1Mass_);
   eventsTree_->Branch("sj2Mass", &sj2Mass_);
   eventsTree_->Branch("suuMass", &suuMass_);
+  if (analysisMode_) {
+    metadataTree_->Branch("analysisSelection", &analysisSelection_);
+    metadataTree_->Branch("correctionPrescription", &correctionPrescription_);
+    metadataTree_->Branch("sampleKind", &sampleKind_);
+    metadataTree_->Branch("analysisObservableVersion", &analysisObservableVersion_);
+    metadataTree_->Branch("analysisSystematic", &analysisSystematic_);
+    metadataTree_->Branch("referenceReconstruction", &referenceReconstruction_);
+    metadataTree_->Branch("weightVariationNames", &weightVariationNames_);
+    eventsTree_->Branch("analysisWeight", &analysisWeight_);
+    eventsTree_->Branch("analysisBTagWeight", &analysisBTagWeight_);
+    eventsTree_->Branch("analysisBTagWeightFallback", &analysisBTagWeightFallback_);
+    eventsTree_->Branch("passesBaseline", &passesBaseline_);
+    eventsTree_->Branch("passesSignalRegion", &passesSignalRegion_);
+    eventsTree_->Branch("passesRecoJetVeto", &passesRecoJetVeto_);
+    eventsTree_->Branch("passesTrigger", &passesTrigger_);
+    eventsTree_->Branch("passesFilters", &passesFilters_);
+    eventsTree_->Branch("passesLeptonVeto", &passesLeptonVeto_);
+    eventsTree_->Branch("passesJetVeto", &passesJetVeto_);
+    eventsTree_->Branch("analysisHT", &analysisHT_);
+    eventsTree_->Branch("analysisNAK4", &analysisNAK4_);
+    eventsTree_->Branch("analysisNAK8", &analysisNAK8_);
+    eventsTree_->Branch("analysisNHeavyAK8", &analysisNHeavyAK8_);
+    eventsTree_->Branch("analysisNBTags", &analysisNBTags_);
+    eventsTree_->Branch("sj1NCA4E300", &sj1NCA4E300_);
+    eventsTree_->Branch("sj2NCA4E300", &sj2NCA4E300_);
+    eventsTree_->Branch("sj1NCA4E50", &sj1NCA4E50_);
+    eventsTree_->Branch("sj2NCA4E50", &sj2NCA4E50_);
+    eventsTree_->Branch("sj1MassE100", &sj1MassE100_);
+    eventsTree_->Branch("sj2MassE100", &sj2MassE100_);
+    eventsTree_->Branch("passesControlRegion", &passesControlRegion_);
+    eventsTree_->Branch("passesAT0b", &passesAT0b_);
+    eventsTree_->Branch("passesAT1b", &passesAT1b_);
+    eventsTree_->Branch("analysisWeightVariations", &analysisWeightVariations_);
+    eventsTree_->Branch("referenceWeight", &referenceWeight_);
+    eventsTree_->Branch("referenceWeightVariations", &referenceWeightVariations_);
+    eventsTree_->Branch("btagWeightVariationFallback", &btagWeightVariationFallback_);
+    eventsTree_->Branch("analysisBTagJetPt", &analysisBTagJetPt_);
+    eventsTree_->Branch("analysisBTagJetEta", &analysisBTagJetEta_);
+    eventsTree_->Branch("analysisBTagJetDiscriminator", &analysisBTagJetDiscriminator_);
+    eventsTree_->Branch("referenceRecoStatus", &referenceRecoStatus_);
+    eventsTree_->Branch("referenceRegion", &referenceRegion_);
+    eventsTree_->Branch("referenceSJ1Mass", &referenceSJ1Mass_);
+    eventsTree_->Branch("referenceSJ2Mass", &referenceSJ2Mass_);
+    eventsTree_->Branch("referenceSuuMass", &referenceSuuMass_);
+    eventsTree_->Branch("referenceSJ1MassE100", &referenceSJ1MassE100_);
+    eventsTree_->Branch("referenceSJ2MassE100", &referenceSJ2MassE100_);
+    eventsTree_->Branch("referenceSJ1NCA4E50", &referenceSJ1NCA4E50_);
+    eventsTree_->Branch("referenceSJ2NCA4E50", &referenceSJ2NCA4E50_);
+    eventsTree_->Branch("referenceSJ1NCA4E300", &referenceSJ1NCA4E300_);
+    eventsTree_->Branch("referenceSJ2NCA4E300", &referenceSJ2NCA4E300_);
+  }
 }
 
 std::vector<WeightedParticle>
@@ -441,13 +558,13 @@ CompactOptimizationScanNtuplizer::makeWeightedParticles(
     if (!finiteP4(p4) || p4.E() <= 0.) {
       continue;
     }
-    particles.push_back({p4});
+    particles.push_back({p4, candidate.pdgId(), candidate.charge()});
   }
   return particles;
 }
 
 std::vector<AKJetCache> CompactOptimizationScanNtuplizer::clusterAKJets(
-    const std::vector<WeightedParticle> &particles) const {
+    std::vector<WeightedParticle> &particles) const {
   std::vector<AKJetCache> result;
   if (particles.empty()) {
     return result;
@@ -462,7 +579,8 @@ std::vector<AKJetCache> CompactOptimizationScanNtuplizer::clusterAKJets(
     inputs.push_back(pseudojet);
   }
 
-  const double minimumPt = collectionPtCuts_.front();
+  // Select on corrected pT; no raw threshold may discard a jet migrating up.
+  const double minimumPt = analysisMode_ ? 0. : collectionPtCuts_.front();
   const fastjet::JetDefinition definition(fastjet::antikt_algorithm, akRadius_);
   const fastjet::ClusterSequence sequence(inputs, definition);
   const auto jets = fastjet::sorted_by_pt(sequence.inclusive_jets(minimumPt));
@@ -487,7 +605,44 @@ std::vector<AKJetCache> CompactOptimizationScanNtuplizer::clusterAKJets(
       }
       record.constituentIndices.push_back(static_cast<std::uint32_t>(index));
     }
+    if (analysisMode_) {
+      if (std::abs(record.labP4.Eta()) > 2.5) continue;
+      const double factor = analysis_->correctReclusteredJet(record.labP4, akRadius_);
+      if (!std::isfinite(factor) || factor < 0.)
+        throw cms::Exception("InvalidCorrection") << "Non-finite/negative AK jet correction";
+      record.labP4 *= factor;
+      record.passesVeto = analysis_->passesReclusteredJetVeto(record.labP4);
+      for (auto index : record.constituentIndices) particles[index].labP4 *= factor;
+    }
     result.push_back(std::move(record));
+  }
+  if (analysisMode_) {
+    std::stable_sort(result.begin(), result.end(), [](const auto &a, const auto &b) {
+      return a.labP4.Pt() > b.labP4.Pt();
+    });
+    // Radius-specific object requirements apply after corrections, in pT order.
+    const bool isAK4 = std::abs(akRadius_ - 0.4) < 1.e-6;
+    std::vector<AKJetCache> accepted;
+    for (auto &jet : result) {
+      if (jet.labP4.Pt() <= collectionPtCuts_.front() ||
+          (isAK4 ? jet.labP4.Pt() <= 50. : std::hypot(jet.labP4.Pt(), jet.labP4.M()) <= 300.) ||
+          std::abs(jet.labP4.Eta()) >= (isAK4 || accepted.size() < 2 ? 2.5 : 1.4)) continue;
+      double totalE=0., nh=0., ne=0., mu=0., ce=0., ch=0.;
+      for (auto index : jet.constituentIndices) {
+        const auto &part=particles[index]; const double energy=part.labP4.E();
+        totalE += energy;
+        const int id=std::abs(part.pdgId);
+        if (id==130 || id==2112) nh += energy;
+        if (id==22) ne += energy;
+        if (id==13) mu += energy;
+        if (id==11) ce += energy;
+        if (part.charge != 0 && id != 11 && id != 13) ch += energy;
+      }
+      if (totalE<=0. || jet.constituentIndices.size()<2 || ch<=0. ||
+          nh/totalE>=0.9 || ne/totalE>=0.9 || mu/totalE>=0.8 || ce/totalE>=0.8) continue;
+      accepted.push_back(std::move(jet));
+    }
+    return accepted;
   }
   return result;
 }
@@ -639,6 +794,12 @@ CompactOptimizationScanNtuplizer::clusterCAJets(const SelectedSystem &system,
       return result;
     }
     result.comJets.push_back(p4);
+    if (analysisMode_) {
+      std::vector<TLorentzVector> constituents;
+      for (const auto &part : jet.constituents())
+        constituents.emplace_back(part.px(), part.py(), part.pz(), part.e());
+      result.comJetConstituents.push_back(std::move(constituents));
+    }
     result.cosToThrust.push_back(std::clamp(rawCosine, -1., 1.));
   }
   result.status = RecoStatus::valid;
@@ -697,6 +858,62 @@ CompactOptimizationScanNtuplizer::failure(RecoStatus status,
   return result;
 }
 
+AssignmentResult CompactOptimizationScanNtuplizer::reconstructReference(
+    const std::vector<TLorentzVector>& particles) const {
+  if (particles.empty()) return failure(RecoStatus::noSelectedConstituents);
+  TLorentzVector total;
+  for (const auto& part : particles) total += part;
+  if (!finiteP4(total) || total.E() <= 0. || total.BoostVector().Mag2() >= 1.)
+    return failure(RecoStatus::invalidCOM);
+  CAJetCache cache;
+  cache.sourceReference = true;
+  cache.beta = total.BoostVector();
+  std::vector<fastjet::PseudoJet> inputs;
+  for (auto part : particles) {
+    part.Boost(-cache.beta);
+    if (!finiteP4(part)) return failure(RecoStatus::invalidCOM);
+    inputs.emplace_back(part.Px(), part.Py(), part.Pz(), part.E());
+  }
+  const fastjet::ClusterSequence sequence(inputs, fastjet::JetDefinition(fastjet::cambridge_algorithm, 0.8));
+  // inclusive_jets(10) is a pT threshold in FastJet, despite the source's
+  // adjacent comment describing an energy threshold.
+  const auto jets = fastjet::sorted_by_E(sequence.inclusive_jets(10.));
+  std::vector<reco::LeafCandidate> thrustParticles;
+  for (const auto& jet : jets) {
+    const auto parts = jet.constituents();
+    if (parts.size() < 5) continue;
+    for (const auto& part : parts) {
+      thrustParticles.emplace_back(1, reco::Candidate::LorentzVector(part.px(), part.py(), part.pz(), part.E()));
+      // Preserve the source's explicit old FastJet/ROOT guard, but retain an
+      // invalid-reference event in the ntuple so the MC denominator is intact.
+      if (thrustParticles.size() > 300) return failure(RecoStatus::complexityGuard);
+    }
+  }
+  if (thrustParticles.empty()) return failure(RecoStatus::invalidThrust);
+  const Thrust thrust(thrustParticles.begin(), thrustParticles.end());
+  const TVector3 axis(thrust.axis().X(), thrust.axis().Y(), thrust.axis().Z());
+  if (!finiteVector(axis) || axis.Mag2() <= 0.) return failure(RecoStatus::invalidThrust);
+  std::vector<std::int8_t> labels;
+  for (const auto& jet : jets) {
+    const auto parts = jet.constituents();
+    if (parts.size() < 2) continue;
+    const TLorentzVector p(jet.px(), jet.py(), jet.pz(), jet.E());
+    const double cosine = std::cos(p.Vect().Angle(axis));
+    if (!std::isfinite(cosine)) return failure(RecoStatus::numericalFailure);
+    cache.comJets.push_back(p);
+    labels.push_back(cosine > 0.85 ? 1 : cosine < -0.85 ? 2 : 0);
+    std::vector<TLorentzVector> keptParts;
+    // In the source, 2-4 constituent CA8 jets affect the mass-balancing
+    // assignment, but are excluded from final superjet masses and substructure.
+    if (parts.size() >= 5)
+      for (const auto& part : parts) keptParts.emplace_back(part.px(), part.py(), part.pz(), part.E());
+    cache.comJetConstituents.push_back(std::move(keptParts));
+  }
+  if (cache.comJets.empty()) return failure(RecoStatus::noCAJets);
+  cache.status = RecoStatus::valid;
+  return assignCAJets(cache, labels);
+}
+
 AssignmentResult CompactOptimizationScanNtuplizer::assignCAJets(
     const CAJetCache &caJets, const std::vector<std::int8_t> &labels) const {
   if (caJets.status != RecoStatus::valid) {
@@ -727,7 +944,7 @@ AssignmentResult CompactOptimizationScanNtuplizer::assignCAJets(
   }
 
   const std::size_t nAmbiguous = ambiguous.size();
-  if (nAmbiguous > maxAmbiguousCAJets_) {
+  if (nAmbiguous > (caJets.sourceReference ? 14U : maxAmbiguousCAJets_)) {
     return failure(RecoStatus::complexityGuard, nAmbiguous);
   }
   if (nAmbiguous >= std::numeric_limits<std::uint64_t>::digits) {
@@ -751,8 +968,9 @@ AssignmentResult CompactOptimizationScanNtuplizer::assignCAJets(
   TLorentzVector best0;
   TLorentzVector best1;
   bool found = false;
+  std::uint64_t bestMask = 0;
   const bool removeComplementSymmetry =
-      (nFixed0 == 0 && nFixed1 == 0 && nAmbiguous > 0);
+      (!caJets.sourceReference && nFixed0 == 0 && nFixed1 == 0 && nAmbiguous > 0);
   for (std::uint64_t mask = 0; mask < nMasks; ++mask) {
     if (removeComplementSymmetry && (mask & std::uint64_t{1}) == 0) {
       continue;
@@ -763,14 +981,21 @@ AssignmentResult CompactOptimizationScanNtuplizer::assignCAJets(
     if (nFixed0 + assigned0 == 0 || nFixed1 + assigned1 == 0) {
       continue;
     }
-    const TLorentzVector side0 = fixed0 + subsetSums[mask];
-    const TLorentzVector side1 = fixed1 + (totalAmbiguous - subsetSums[mask]);
+    TLorentzVector side0 = fixed0 + subsetSums[mask];
+    TLorentzVector side1 = fixed1 + (totalAmbiguous - subsetSums[mask]);
+    if (caJets.sourceReference) {
+      // Match sortJets.cc's nested-loop ordering and direct accumulation. Its
+      // first ambiguity is the most significant bit; zero chooses negative SJ.
+      side0 = fixed0; side1 = fixed1;
+      for (std::size_t j=0; j<nAmbiguous; ++j)
+        ((mask >> (nAmbiguous - 1 - j)) & 1U ? side0 : side1) += ambiguous[j];
+    }
     double mass0 = 0.;
     double mass1 = 0.;
     if (!physicalMass(side0, mass0) || !physicalMass(side1, mass1)) {
       continue;
     }
-    const double denominator = mass0 + mass1;
+    const double denominator = caJets.sourceReference ? std::min(mass0, mass1) : mass0 + mass1;
     if (!std::isfinite(denominator) || denominator <= 0.) {
       continue;
     }
@@ -783,10 +1008,21 @@ AssignmentResult CompactOptimizationScanNtuplizer::assignCAJets(
       best0 = side0;
       best1 = side1;
       found = true;
+      bestMask = mask;
     }
   }
   if (!found) {
     return failure(RecoStatus::noValidPartition, nAmbiguous);
+  }
+
+  if (caJets.sourceReference) {
+    best0 = TLorentzVector(); best1 = TLorentzVector();
+    std::size_t j = 0;
+    for (std::size_t i=0; i<labels.size(); ++i) {
+      const int side = labels[i] == 1 ? 0 : labels[i] == 2 ? 1 :
+          ((bestMask >> (nAmbiguous - 1 - j++)) & 1U ? 0 : 1);
+      if (!caJets.comJetConstituents[i].empty()) (side == 0 ? best0 : best1) += caJets.comJets[i];
+    }
   }
 
   double mass0 = 0.;
@@ -820,6 +1056,45 @@ AssignmentResult CompactOptimizationScanNtuplizer::assignCAJets(
     result.leadingPtMass = static_cast<float>(mass1);
     result.subleadingPtMass = static_cast<float>(mass0);
   }
+  if (analysisMode_) {
+    std::vector<fastjet::PseudoJet> sides[2];
+    const TLorentzVector systems[2] = {best0, best1};
+    std::size_t ambiguousIndex = 0;
+    for (std::size_t i=0; i<labels.size(); ++i) {
+      const int side = labels[i]==1 ? 0 : labels[i]==2 ? 1 :
+                       ((bestMask >> (caJets.sourceReference ? nAmbiguous - 1 - ambiguousIndex++ : ambiguousIndex++)) & 1U ? 0 : 1);
+      if (systems[side].M2() <= 0.) return failure(RecoStatus::numericalFailure, nAmbiguous);
+      for (auto part : caJets.comJetConstituents[i]) {
+        part.Boost(-systems[side].BoostVector());
+        if (!finiteP4(part)) return failure(RecoStatus::numericalFailure, nAmbiguous);
+        sides[side].emplace_back(part.Px(), part.Py(), part.Pz(), part.E());
+      }
+    }
+    std::uint16_t counts[2] = {0,0}, counts50[2] = {0,0};
+    float masses100[2] = {0.f, 0.f};
+    for (int side=0; side<2; ++side) {
+      const fastjet::JetDefinition definition(fastjet::cambridge_algorithm, 0.4);
+      const fastjet::ClusterSequence sequence(sides[side], definition);
+      TLorentzVector sum100;
+      for (const auto &jet : sequence.inclusive_jets()) {
+        if (jet.E() > 300.) ++counts[side];
+        if (jet.E() > 50.) ++counts50[side];
+        if (jet.E() > 100.) sum100 += TLorentzVector(jet.px(), jet.py(), jet.pz(), jet.E());
+      }
+      // Empty E>100 collection has invariant mass zero (the anti-tag case).
+      const double mass2 = sum100.M2();
+      if (!finiteP4(sum100) || mass2 < -1.e-9 * std::max(1., sum100.E()*sum100.E()))
+        return failure(RecoStatus::numericalFailure, nAmbiguous);
+      masses100[side] = std::sqrt(std::max(0., mass2));
+    }
+    const bool leadingFirst = lab0.Pt() >= lab1.Pt();
+    result.leadingNCA4E300 = counts[leadingFirst ? 0 : 1];
+    result.subleadingNCA4E300 = counts[leadingFirst ? 1 : 0];
+    result.leadingNCA4E50 = counts50[leadingFirst ? 0 : 1];
+    result.subleadingNCA4E50 = counts50[leadingFirst ? 1 : 0];
+    result.leadingMassE100 = masses100[leadingFirst ? 0 : 1];
+    result.subleadingMassE100 = masses100[leadingFirst ? 1 : 0];
+  }
   return result;
 }
 
@@ -830,6 +1105,8 @@ void CompactOptimizationScanNtuplizer::analyze(const edm::Event &input,
   event_ = input.id().event();
   genWeight_ = 1.f;
   const auto generatorInfo = input.getHandle(generatorInfoToken_);
+  if (analysisMode_ && (!generatorInfo.isValid() || !std::isfinite(generatorInfo->weight())))
+    throw cms::Exception("MissingInput") << "Sensitivity requires finite preselection generator weights";
   if (generatorInfo.isValid() && std::isfinite(generatorInfo->weight())) {
     genWeight_ = static_cast<float>(generatorInfo->weight());
   }
@@ -845,10 +1122,59 @@ void CompactOptimizationScanNtuplizer::analyze(const edm::Event &input,
   sj1Mass_.assign(configId_.size(), kInvalidMass);
   sj2Mass_.assign(configId_.size(), kInvalidMass);
   suuMass_.assign(configId_.size(), kInvalidMass);
+  if (analysisMode_) {
+    const auto info = analysis_->evaluate(input);
+    passesTrigger_ = info.trigger; passesFilters_ = info.filters;
+    passesLeptonVeto_ = info.leptonVeto; passesJetVeto_ = info.jetVeto;
+    passesBaseline_ = info.baseline; analysisHT_ = info.ht;
+    analysisWeight_ = info.weight;
+    analysisBTagWeight_ = info.btagWeight;
+    analysisBTagWeightFallback_ = info.btagWeightFallback;
+    analysisWeightVariations_.assign(info.weightVariations.begin(), info.weightVariations.end());
+    referenceWeight_ = info.referenceWeight;
+    referenceWeightVariations_.assign(info.referenceWeightVariations.begin(), info.referenceWeightVariations.end());
+    btagWeightVariationFallback_ = info.btagWeightVariationFallback;
+    analysisBTagJetPt_ = info.btagJetPt;
+    analysisBTagJetEta_ = info.btagJetEta;
+    analysisBTagJetDiscriminator_ = info.btagJetDiscriminator;
+    analysisNAK4_ = info.nAK4; analysisNAK8_ = info.nAK8;
+    analysisNHeavyAK8_ = info.nHeavyAK8; analysisNBTags_ = info.nBTags;
+    passesSignalRegion_.assign(configId_.size(), 0);
+    passesRecoJetVeto_.assign(configId_.size(), 1);
+    sj1NCA4E300_.assign(configId_.size(), 0);
+    sj2NCA4E300_.assign(configId_.size(), 0);
+    sj1NCA4E50_.assign(configId_.size(), 0);
+    sj2NCA4E50_.assign(configId_.size(), 0);
+    sj1MassE100_.assign(configId_.size(), kInvalidMass);
+    sj2MassE100_.assign(configId_.size(), kInvalidMass);
+    passesControlRegion_.assign(configId_.size(), 0);
+    passesAT0b_.assign(configId_.size(), 0);
+    passesAT1b_.assign(configId_.size(), 0);
+    AssignmentResult reference;
+    try {
+      reference = reconstructReference(info.referenceConstituents);
+    } catch (const fastjet::Error&) {
+      reference = failure(RecoStatus::numericalFailure);
+    }
+    referenceRecoStatus_ = static_cast<std::uint8_t>(reference.status);
+    referenceSJ1Mass_ = reference.leadingPtMass;
+    referenceSJ2Mass_ = reference.subleadingPtMass;
+    referenceSuuMass_ = reference.suuMass;
+    referenceSJ1NCA4E50_ = reference.leadingNCA4E50;
+    referenceSJ2NCA4E50_ = reference.subleadingNCA4E50;
+    referenceSJ1NCA4E300_ = reference.leadingNCA4E300;
+    referenceSJ2NCA4E300_ = reference.subleadingNCA4E300;
+    referenceSJ1MassE100_ = reference.leadingMassE100;
+    referenceSJ2MassE100_ = reference.subleadingMassE100;
+    referenceRegion_ = an2017::region(passesBaseline_, reference.status == RecoStatus::valid,
+        true, analysisNBTags_, reference.leadingNCA4E300, reference.subleadingNCA4E300,
+        reference.leadingNCA4E50, reference.subleadingNCA4E50,
+        reference.leadingMassE100, reference.subleadingMassE100);
+  }
 
   const auto &candidates = input.get(packedPFToken_);
   try {
-    const auto particles = makeWeightedParticles(candidates);
+    auto particles = makeWeightedParticles(candidates);
     const auto akJets = clusterAKJets(particles);
     akJetPt_.reserve(akJets.size());
     for (const auto &jet : akJets) {
@@ -869,6 +1195,8 @@ void CompactOptimizationScanNtuplizer::analyze(const edm::Event &input,
     for (std::size_t iBase = 0; iBase < baseConfigurations_.size(); ++iBase) {
       const auto &base = baseConfigurations_[iBase];
       const std::size_t nSelected = selectedCounts[base.collectionPtIndex];
+      const bool recoJetVeto = std::all_of(akJets.begin(), akJets.begin() + nSelected,
+                                         [](const auto &jet) { return jet.passesVeto; });
       auto selectedIt = selectedSystemCache.find(nSelected);
       if (selectedIt == selectedSystemCache.end()) {
         selectedIt =
@@ -918,6 +1246,23 @@ void CompactOptimizationScanNtuplizer::analyze(const edm::Event &input,
         sj1Mass_[configIndex] = assignment.leadingPtMass;
         sj2Mass_[configIndex] = assignment.subleadingPtMass;
         suuMass_[configIndex] = assignment.suuMass;
+        if (analysisMode_) {
+          sj1NCA4E300_[configIndex] = assignment.leadingNCA4E300;
+          sj2NCA4E300_[configIndex] = assignment.subleadingNCA4E300;
+          sj1NCA4E50_[configIndex] = assignment.leadingNCA4E50;
+          sj2NCA4E50_[configIndex] = assignment.subleadingNCA4E50;
+          sj1MassE100_[configIndex] = assignment.leadingMassE100;
+          sj2MassE100_[configIndex] = assignment.subleadingMassE100;
+          passesRecoJetVeto_[configIndex] = recoJetVeto;
+          const auto region = an2017::region(passesBaseline_, assignment.status == RecoStatus::valid,
+              recoJetVeto, analysisNBTags_, assignment.leadingNCA4E300, assignment.subleadingNCA4E300,
+              assignment.leadingNCA4E50, assignment.subleadingNCA4E50,
+              assignment.leadingMassE100, assignment.subleadingMassE100);
+          passesSignalRegion_[configIndex] = region == an2017::SR;
+          passesControlRegion_[configIndex] = region == an2017::CR;
+          passesAT1b_[configIndex] = region == an2017::AT1b;
+          passesAT0b_[configIndex] = region == an2017::AT0b;
+        }
       }
     }
   } catch (const fastjet::Error &) {
@@ -941,6 +1286,11 @@ void CompactOptimizationScanNtuplizer::fillDescriptions(
                                  edm::InputTag("packedPFCandidates"));
   description.add<edm::InputTag>("generatorInfo", edm::InputTag("generator"));
   description.add<std::string>("sampleName", "unknown");
+  description.add<bool>("analysisMode", false);
+  description.add<std::string>("sampleKind", "signal");
+  edm::ParameterSetDescription analysisDescription;
+  analysisDescription.setAllowAnything();
+  description.add<edm::ParameterSetDescription>("analysis", analysisDescription);
   description.add<double>("akRadius", 0.8);
   description.add<std::vector<double>>(
       "collectionPtCuts", {100., 120., 140., 160., 180., 200., 220., 240., 260.,

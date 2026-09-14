@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "inventory_validation_passed": true,
+  "all_samples_normalized": true,
+  "unresolved_samples": [],
+  "interpolated_samples": [
+    {
+      "name": "HtZt_6000_2000",
+      "cross_section_pb": 0.0008488757072099042,
+      "production_cross_section_fb": 95.96190254068149,
+      "generated_suu_mass_gev": 6200,
+      "generated_chi_mass_gev": 1950
+    }
+  ],
+  "actual_generated_mass_pair_count": 20,
+  "sample_count": 114,
+  "nominal_mass_pair_count": 19,
+  "mode_counts": {
+    "HtHt": 19,
+    "HtZt": 19,
+    "WbHt": 19,
+    "WbWb": 19,
+    "WbZt": 19,
+    "ZtZt": 19
+  },
+  "file_count": 1237,
+  "file_count_range": [
+    1,
+    51
+  ],
+  "mass_grid_gev": {
+    "4000": [
+      1000,
+      1500
+    ],
+    "5000": [
+      1000,
+      1500,
+      2000
+    ],
+    "6000": [
+      1000,
+      1500,
+      2000,
+      2500
+    ],
+    "7000": [
+      1000,
+      1500,
+      2000,
+      2500,
+      3000
+    ],
+    "8000": [
+      1000,
+      1500,
+      2000,
+      2500,
+      3000
+    ]
+  },
+  "source_sha256": "269a27a22496726a5b8e7cae85c8e9a3dc4fa3af83904dc69726907f72901f52",
+  "existing_benchmarks_preserved": [
+    "Suu4_chi1_WBWB",
+    "Suu6_chi2_WBWB",
+    "Suu8_chi3_WBWB"
+  ],
+  "source_function_formula_agreement_relative_tolerance": 2e-14,
+  "duplicate_lfns": 0,
+  "mixed_dataset_lists": 0,
+  "DAS_queries": 0,
+  "event_files_opened": 0
+}

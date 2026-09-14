@@ -1,0 +1,184 @@
+{
+  "source_repository": "https://github.com/emcannaert/SuuToChiChi-analysis-software",
+  "source_commit": "8ef9b506ef4229a2110ec8e662fd5ae93b73420a",
+  "files": [
+    {
+      "file": "Summer19UL17_V5_MC_L1FastJet_AK4PFchs.txt",
+      "source_path": "data/JEC/2017_UL/MC/Summer19UL17_V5_MC.tar.gz",
+      "sha256": "a53cc6e7f61c4c4c903d3bdb9766c03742ba14f1de69e03e03784ce332fb9ce4",
+      "transform": "Extracted archive member Summer19UL17_V5_MC_L1FastJet_AK4PFchs.txt"
+    },
+    {
+      "file": "Summer19UL17_V5_MC_L2Relative_AK4PFchs.txt",
+      "source_path": "data/JEC/2017_UL/MC/Summer19UL17_V5_MC.tar.gz",
+      "sha256": "60adc9a4cb5f66dc1e5208b329804350069c1f74c46b200b4833e43a52434277",
+      "transform": "Extracted archive member Summer19UL17_V5_MC_L2Relative_AK4PFchs.txt"
+    },
+    {
+      "file": "Summer19UL17_V5_MC_L3Absolute_AK4PFchs.txt",
+      "source_path": "data/JEC/2017_UL/MC/Summer19UL17_V5_MC.tar.gz",
+      "sha256": "a63a46a71db8ce3366ee2249f48852040a7a9e2c1a02ec7665e89f792df84a1a",
+      "transform": "Extracted archive member Summer19UL17_V5_MC_L3Absolute_AK4PFchs.txt"
+    },
+    {
+      "file": "Summer19UL17_V5_MC_L2Relative_AK8PFPuppi.txt",
+      "source_path": "data/JEC/2017_UL/MC/Summer19UL17_V5_MC.tar.gz",
+      "sha256": "720729a7084e344563c5c0e7fe27579ae56b76f5f248a348c1765e3426415892",
+      "transform": "Extracted archive member Summer19UL17_V5_MC_L2Relative_AK8PFPuppi.txt"
+    },
+    {
+      "file": "Summer19UL17_V5_MC_L3Absolute_AK8PFPuppi.txt",
+      "source_path": "data/JEC/2017_UL/MC/Summer19UL17_V5_MC.tar.gz",
+      "sha256": "a63a46a71db8ce3366ee2249f48852040a7a9e2c1a02ec7665e89f792df84a1a",
+      "transform": "Extracted archive member Summer19UL17_V5_MC_L3Absolute_AK8PFPuppi.txt"
+    },
+    {
+      "file": "Summer19UL17_V5_MC_L1FastJet_AK4PFPuppi.txt",
+      "source_path": "data/JEC/2017_UL/MC/Summer19UL17_V5_MC.tar.gz",
+      "sha256": "442895854ea8dee84735d12c403c10972fa87ef1e447cd8bb58259743bf62e3b",
+      "transform": "Extracted archive member Summer19UL17_V5_MC_L1FastJet_AK4PFPuppi.txt"
+    },
+    {
+      "file": "Summer19UL17_V5_MC_L2Relative_AK4PFPuppi.txt",
+      "source_path": "data/JEC/2017_UL/MC/Summer19UL17_V5_MC.tar.gz",
+      "sha256": "7484b4b0e2172e998d90e69765ba715a1d99227e133ef59550ef2e66abbd188b",
+      "transform": "Extracted archive member Summer19UL17_V5_MC_L2Relative_AK4PFPuppi.txt"
+    },
+    {
+      "file": "Summer19UL17_V5_MC_L3Absolute_AK4PFPuppi.txt",
+      "source_path": "data/JEC/2017_UL/MC/Summer19UL17_V5_MC.tar.gz",
+      "sha256": "a63a46a71db8ce3366ee2249f48852040a7a9e2c1a02ec7665e89f792df84a1a",
+      "transform": "Extracted archive member Summer19UL17_V5_MC_L3Absolute_AK4PFPuppi.txt"
+    },
+    {
+      "file": "btag_efficiency_map_TTbarMC_combined_2017.root",
+      "source_path": "data/btaggingEffMaps/btag_efficiency_map_TTbarMC_combined_2017.root",
+      "sha256": "30f17db7a707740206ef6256ed376501cf5c77a65f36f7472a0a77e4ccd6d064"
+    },
+    {
+      "file": "btag_efficiency_map_QCDMC_combined_2017.root",
+      "source_path": "data/btaggingEffMaps/btag_efficiency_map_QCDMC_combined_2017.root",
+      "sha256": "9f7ea4de43d2aee763a6b385269d0e6007fbeba6736c26b4397a047cef9f5075"
+    },
+    {
+      "file": "btag_efficiency_map_WJetsMC_combined_2017.root",
+      "source_path": "data/btaggingEffMaps/btag_efficiency_map_WJetsMC_combined_2017.root",
+      "sha256": "b8f954a19c3c1bf89194b2e65c36ebef73bc4086090614bf470513c70d886031"
+    },
+    {
+      "file": "btag_efficiency_map_STMC_combined_2017.root",
+      "source_path": "data/btaggingEffMaps/btag_efficiency_map_STMC_combined_2017.root",
+      "sha256": "189b29578bd0c72f15fd4dfb61f7236a4c22d1bcb702b61d7635fba811f64e9b"
+    },
+    {
+      "file": "btag_efficiency_map_SuuToChiChi_combined_2017.root",
+      "source_path": "data/btaggingEffMaps/btag_efficiency_map_SuuToChiChi_combined_2017.root",
+      "sha256": "b16a5fb61f55d903aaa89e138aeb2eafe5acb890ade9964832c22beb0b501de7"
+    },
+    {
+      "file": "puWeights.json",
+      "source_path": "data/POG/LUM/2017_UL/puWeights.json",
+      "sha256": "304579fe28c0c293f8366b66bc67d9e6634f7acc6ec139848887317f7367b48e"
+    },
+    {
+      "file": "hotjets-UL17_v2.root",
+      "source_path": "data/jetVetoMaps/hotjets-UL17_v2.root",
+      "sha256": "fdf4a78f6c139272df69226b56cb04766ddbd4cce67256278dd53209708e8eae"
+    },
+    {
+      "file": "btagging.json",
+      "source_path": "data/bTaggingSFs/2017_UL/btagging.json",
+      "sha256": "b1d176cfb18c04839624292e267499cc17d06140a3e362be7f702756a8364b8c",
+      "transform": "Preserved schema and exact correction entries deepJet_mujets/deepJet_incl; omitted unused corrections and JSON whitespace. Original SHA256=527008418a02f7c857c8d9be3da7ec2ab59dd91a1faa97d9fe561cb9bf1628a2"
+    },
+    {
+      "file": "Summer19UL17_JRV3_MC_PtResolution_AK4PFchs.txt",
+      "source_repository": "https://github.com/cms-jet/JRDatabase",
+      "source_url": "https://raw.githubusercontent.com/cms-jet/JRDatabase/master/textFiles/Summer19UL17_JRV3_MC/Summer19UL17_JRV3_MC_PtResolution_AK4PFchs.txt",
+      "git_blob_sha": "7b84a1ebfe6b58eb8fa0465775cff34b4e5732bd",
+      "sha256": "a5f49371604b5172afe0019469df5b585c3098ae9d75e87946355839a402a671",
+      "globaltag": "106X_mc2017_realistic_v10",
+      "condition_tag": "JR_Summer19UL17_JRV3_MC_PtResolution_AK4PFchs"
+    },
+    {
+      "file": "Summer19UL17_JRV3_MC_PtResolution_AK8PF.txt",
+      "source_repository": "https://github.com/cms-jet/JRDatabase",
+      "source_url": "https://raw.githubusercontent.com/cms-jet/JRDatabase/master/textFiles/Summer19UL17_JRV3_MC/Summer19UL17_JRV3_MC_PtResolution_AK8PF.txt",
+      "git_blob_sha": "7b84a1ebfe6b58eb8fa0465775cff34b4e5732bd",
+      "sha256": "a5f49371604b5172afe0019469df5b585c3098ae9d75e87946355839a402a671",
+      "globaltag": "106X_mc2017_realistic_v10",
+      "condition_tag": "JR_Summer19UL17_JRV3_MC_PtResolution_AK8PF"
+    },
+    {
+      "file": "Summer19UL17_JRV3_MC_SF_AK4PFchs.txt",
+      "source_repository": "https://github.com/cms-jet/JRDatabase",
+      "source_url": "https://raw.githubusercontent.com/cms-jet/JRDatabase/master/textFiles/Summer19UL17_JRV3_MC/Summer19UL17_JRV3_MC_SF_AK4PFchs.txt",
+      "git_blob_sha": "2b55a1e2588844e65d7b512d8fd844d64f64f1ea",
+      "sha256": "27ba93b7604eceb53c35a577ec0efa194b8b53d8ea56d11738f447976cddffef",
+      "globaltag": "106X_mc2017_realistic_v10",
+      "condition_tag": "JR_Summer19UL17_JRV3_MC_SF_AK4PFchs"
+    },
+    {
+      "file": "Summer19UL17_JRV3_MC_SF_AK8PF.txt",
+      "source_repository": "https://github.com/cms-jet/JRDatabase",
+      "source_url": "https://raw.githubusercontent.com/cms-jet/JRDatabase/master/textFiles/Summer19UL17_JRV3_MC/Summer19UL17_JRV3_MC_SF_AK8PF.txt",
+      "git_blob_sha": "2b55a1e2588844e65d7b512d8fd844d64f64f1ea",
+      "sha256": "27ba93b7604eceb53c35a577ec0efa194b8b53d8ea56d11738f447976cddffef",
+      "globaltag": "106X_mc2017_realistic_v10",
+      "condition_tag": "JR_Summer19UL17_JRV3_MC_SF_AK8PF"
+    },
+    {
+      "file": "globaltag_mapping.txt",
+      "source": "conddb list 106X_mc2017_realistic_v10",
+      "sha256": "252ba1b6425eb7c7ea79786a66a58203b2a132e4313f91e865ffde4ea021076e"
+    },
+    {
+      "file": "Summer19UL17_JRV3_MC_PtResolution_AK4PFPuppi.txt",
+      "source_url": "https://raw.githubusercontent.com/cms-jet/JRDatabase/master/textFiles/Summer19UL17_JRV3_MC/Summer19UL17_JRV3_MC_PtResolution_AK4PFPuppi.txt",
+      "git_blob_sha": "7b84a1ebfe6b58eb8fa0465775cff34b4e5732bd",
+      "sha256": "a5f49371604b5172afe0019469df5b585c3098ae9d75e87946355839a402a671",
+      "transform": "Unmodified official JRV3 AK4 PUPPI payload for the added reconstruction-radius option; separate from AN AK4 CHS baseline."
+    },
+    {
+      "file": "Summer19UL17_JRV3_MC_SF_AK4PFPuppi.txt",
+      "source_url": "https://raw.githubusercontent.com/cms-jet/JRDatabase/master/textFiles/Summer19UL17_JRV3_MC/Summer19UL17_JRV3_MC_SF_AK4PFPuppi.txt",
+      "git_blob_sha": "2b55a1e2588844e65d7b512d8fd844d64f64f1ea",
+      "sha256": "27ba93b7604eceb53c35a577ec0efa194b8b53d8ea56d11738f447976cddffef",
+      "transform": "Unmodified official JRV3 AK4 PUPPI payload for the added reconstruction-radius option; separate from AN AK4 CHS baseline."
+    },
+    {
+      "file": "Summer19UL17_V5_MC_Uncertainty_AK4PFchs.txt",
+      "source_path": "data/JEC/2017_UL/MC/Summer19UL17_V5_MC.tar.gz",
+      "sha256": "2c5377b2ca98ee80e1f5203a3f682d35242bddc3e04a06717e4cdb42de28a1ba",
+      "transform": "Extracted original archive member Summer19UL17_V5_MC_Uncertainty_AK4PFchs.txt; total JEC envelope for representative likelihood (not source-decomposed final AN model)."
+    },
+    {
+      "file": "Summer19UL17_V5_MC_Uncertainty_AK4PFPuppi.txt",
+      "source_path": "data/JEC/2017_UL/MC/Summer19UL17_V5_MC.tar.gz",
+      "sha256": "2c5377b2ca98ee80e1f5203a3f682d35242bddc3e04a06717e4cdb42de28a1ba",
+      "transform": "Extracted original archive member Summer19UL17_V5_MC_Uncertainty_AK4PFPuppi.txt; total JEC envelope for representative likelihood (not source-decomposed final AN model)."
+    },
+    {
+      "file": "Summer19UL17_V5_MC_Uncertainty_AK8PFPuppi.txt",
+      "source_path": "data/JEC/2017_UL/MC/Summer19UL17_V5_MC.tar.gz",
+      "sha256": "2c5377b2ca98ee80e1f5203a3f682d35242bddc3e04a06717e4cdb42de28a1ba",
+      "transform": "Extracted original archive member Summer19UL17_V5_MC_Uncertainty_AK8PFPuppi.txt; total JEC envelope for representative likelihood (not source-decomposed final AN model)."
+    },
+    {
+      "file": "signal_normalization_source.py",
+      "sha256": "269a27a22496726a5b8e7cae85c8e9a3dc4fa3af83904dc69726907f72901f52",
+      "source_path": "postprocess/return_signal_SF/return_signal_SF.py",
+      "transform": "Exact original source bytes, vendored for hash-locked extraction of pure production/branching functions; not a jet calibration payload."
+    },
+    {
+      "file": "signal_normalization_provenance.json",
+      "sha256": "70a6934bd8d5e083fc482fc0834ccb0a0f8ae837258d52f5d73ed3292ea65b9e",
+      "source": "Local normalization provenance for the fixed 2D signal catalog; records upstream source and approved substitute interpolation."
+    },
+    {
+      "file": "signal_grid_inventory_audit.json",
+      "sha256": "8e7dcf43c2c10a17f85d7c2d3f0b87b6d0cf557f04c52bed6062f01de9ae5967",
+      "source": "Generated offline by build_signal_grid_catalog.py from the existing signal lists and hash-locked normalization functions; no DAS availability or full-dataset coverage claim."
+    }
+  ]
+}

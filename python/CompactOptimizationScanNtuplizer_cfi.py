@@ -6,6 +6,9 @@ compactOptimizationScanNtuplizer = cms.EDAnalyzer(
     packedPFCandidates=cms.InputTag("packedPFCandidates"),
     generatorInfo=cms.InputTag("generator"),
     sampleName=cms.string("unknown"),
+    sampleKind=cms.string("signal"),
+    analysisMode=cms.bool(False),
+    analysis=cms.PSet(),
     akRadius=cms.double(0.8),
 
     # T_keep: all uncorrected, custom PUPPI AK jets above this threshold

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "name": "AN-23-067-2017-representative-likelihood-v1",
+  "reference_commit": "8ef9b506ef4229a2110ec8e662fd5ae93b73420a",
+  "reference_sections": ["AN-23-067 section 7", "AN-23-067 section 9.1", "AN-23-067 Table 25"],
+  "minimum_background_effective_events": 32.6530612244898,
+  "gaussian_maximum_sigma": 8,
+  "qcd_blanket_relative_uncertainty": 0.15,
+  "normalization_nuisances": {
+    "lumi_uncorr17": {"signal": 1.02, "QCD": 1.02, "TTbar": 1.02, "ST": 1.02, "WJets": 1.02},
+    "lumi_corr": {"signal": 1.009, "QCD": 1.009, "TTbar": 1.009, "ST": 1.009, "WJets": 1.009},
+    "xs_QCD": {"QCD": 1.3},
+    "xs_TTbar": {"TTbar": 1.5},
+    "xs_ST": {"ST": 1.3},
+    "xs_WJets": {"WJets": 1.3}
+  },
+  "required_shape_nuisances": {
+    "CMS_jec_RelativeBal": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_jec_FlavorQCD": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_jec_Absolute": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_jec_BBEC1": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_jec_BBEC1_year17": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_jec_Absolute_year17": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_jec_RelativeSample_year17": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_jer_2017": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_bTagSF_bc_M_corr": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_bTagSF_bc_M_year17": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_bTagSF_light_M_corr": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_bTagSF_light_M_year17": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_pu": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_L1Prefiring_2017": ["signal", "QCD", "TTbar", "ST", "WJets"],
+    "CMS_pdf_QCD": ["QCD"],
+    "CMS_pdf_shape_sig": ["signal"],
+    "CMS_pdf_TTbar_WJets": ["TTbar", "WJets"],
+    "CMS_scale_QCD": ["QCD"],
+    "CMS_scale_signal": ["signal"],
+    "CMS_scale_TTbar": ["TTbar"],
+    "CMS_scale_WJets": ["WJets"]
+  },
+  "required_additional_normalizations": {
+    "CMS_pdf_ST": ["ST"],
+    "CMS_scale_ST": ["ST"]
+  },
+  "notes": [
+    "The nominal reference MC support target is the AN section 4.5 maximum relative statistical uncertainty of 17.5%, equivalent to at least 1/0.175^2 effective background events per signal-populated bin.",
+    "One 2017 region is fit at a time, matching AN section 7; no invented ABCD transfer factor or simultaneous SR/control constraint.",
+    "Normalization uncertainties and QCD blanket coefficient are copied from the AN. The AN does not specify numerical ST PDF/scale lnN amplitudes; these are deliberately not invented.",
+    "Shape nuisance identifiers define this export interface. Correlations follow the AN; exact spelling for names absent from the note is local, not a claim to have obtained the private cards.",
+    "CMS_jec_Total_2017 is an accepted approximate supplied variation, but never satisfies the seven required source-specific JEC templates.",
+    "Absent audited Beeston-Barlow coefficients, QCD-only finite MC enters beta, while all other process/bin variances remain separate Gaussian nuisance factors.",
+    "No theory normalization uncertainty is applied to the chosen signal cross section; the signal strength r scales that benchmark, so a bound on r converts to a bound on the same cross-section convention."
+  ]
+}
