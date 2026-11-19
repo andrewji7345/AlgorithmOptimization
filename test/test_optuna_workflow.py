@@ -639,6 +639,8 @@ class AdapterValidationTest(unittest.TestCase):
             (package / "result.root").write_text("old result")
             (package / "legacy").mkdir()
             (package / "legacy/unused.py").write_text("legacy")
+            (package / "reports").mkdir()
+            (package / "reports/scan.png").write_bytes(b"curated plot")
             output = Path(raw) / "bundle.tar.gz"
             argv = [sys.executable, str(REPO / "run_scripts/sensitivity/pack_cmssw.py"),
                     "--cmssw-base", str(base), "--output", str(output)]
@@ -647,7 +649,8 @@ class AdapterValidationTest(unittest.TestCase):
                 names = archive.getnames()
             self.assertTrue(any(name.endswith("data/analysis_2017/pu.root") for name in names))
             self.assertTrue(any(name.endswith(".SCRAM/metadata") for name in names))
-            self.assertFalse(any(name.endswith("result.root") or "/legacy" in name for name in names))
+            self.assertFalse(any(name.endswith("result.root") or "/legacy" in name or
+                                 "/reports" in name for name in names))
             self.assertNotEqual(subprocess.run(argv, capture_output=True).returncode, 0)
 
     def test_shell_metacharacters_stay_a_single_literal_argument(self):

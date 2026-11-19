@@ -8,6 +8,7 @@ compactOptimizationScanNtuplizer = cms.EDAnalyzer(
     sampleName=cms.string("unknown"),
     sampleKind=cms.string("signal"),
     analysisMode=cms.bool(False),
+    referenceCosThrustCuts=cms.vdouble(),
     analysis=cms.PSet(),
     akRadius=cms.double(0.8),
 

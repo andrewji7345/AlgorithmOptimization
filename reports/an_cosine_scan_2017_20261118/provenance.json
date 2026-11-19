@@ -1,0 +1,131 @@
+{
+  "completed_at_utc": "2026-11-19T07:08:49Z",
+  "scope": "Nominal UL2017 AN reference cosine scan; representative 10,000-event subsets",
+  "definition": {
+    "additional": "nominal genWeight*referenceWeight ratios with correlated ratio errors in CSV/JSON",
+    "archive_sha256": "e04dc81cd13d4e4ea8fcf8070f634e56cdc208b4643702754a2ed82549c0a153",
+    "auxiliary_custom_scan_grid": {
+      "ca_radii": [
+        0.8
+      ],
+      "collection_pt_cuts": [
+        300
+      ],
+      "cos_thrust_cuts": [
+        0.85
+      ],
+      "gate_counts": [
+        0
+      ],
+      "gate_pt_cuts": [
+        300
+      ]
+    },
+    "denominator": "passesBaseline only; independent of c and reconstruction success; no extra jet gate",
+    "efficiency": "N(signal passes baseline and SR at c) / N(signal passes baseline)",
+    "endpoints": "Strict source cosine inequalities at every c; source guards: >14 ambiguous CA8 jets or >300 thrust particles; failures remain in denominator",
+    "mass_plots": "SR-selected reconstructed mass shapes, unit-area density, dashed nominal resonance mass; no ancestry truth overlay",
+    "max_events": 10000,
+    "numerator": "valid reconstruction, reco jet veto, >=1 medium b-tagged AK4, both SJ N(CA4 E>300 GeV)>=2",
+    "primary": "unweighted event counts with 68.27% Wilson intervals",
+    "radii": [
+      0.8
+    ],
+    "reconstruction": "AN23-067-PATAK8-CA8-Thrust-source-port-v1; corrected selected PAT AK8 daughters; event CA8; SJ-rest CA4",
+    "reference_cos_thrust_cuts": [
+      0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95,
+      1.0
+    ],
+    "scope": "10,000-event representative subset per sample; three WbWb benchmarks; nominal UL2017 MC",
+    "varied_parameter": "Only the cosine threshold in the AN source-port partition; custom reconstruction settings do not enter the referenceScan branches"
+  },
+  "inputs": [
+    {
+      "sample": "WbWb_4000_1000",
+      "input_files": [
+        {
+          "lfn": "/store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/70000/8A20D274-79E8-9744-BF1E-692746267B49.root",
+          "nevents": 18000
+        }
+      ],
+      "max_events": 10000,
+      "output_root_sha256": "6769943f642472b194711f0e94473e97cbc9232a1dd8ab86356a1298def85d96",
+      "processed_events": 10000,
+      "preselected_events": 4422,
+      "event_identity_sha256": "c119db16ab057b402b9200de33a789e5eb8249ea236a19bca500d602126456ec"
+    },
+    {
+      "sample": "WbWb_6000_2000",
+      "input_files": [
+        {
+          "lfn": "/store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root",
+          "nevents": 1000
+        },
+        {
+          "lfn": "/store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/D0EA3E19-64F1-7549-9D17-A0D68E2CCC24.root",
+          "nevents": 9000
+        }
+      ],
+      "max_events": 10000,
+      "output_root_sha256": "e2ed68d0239315f02b1ac9538346d0e954ed262282ecf9b06858273bfad0905c",
+      "processed_events": 10000,
+      "preselected_events": 5996,
+      "event_identity_sha256": "8538cd2a2949fd9ecbdc2018745d4447a5b35153cc308ebf97124319263c065c"
+    },
+    {
+      "sample": "WbWb_8000_3000",
+      "input_files": [
+        {
+          "lfn": "/store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root",
+          "nevents": 1000
+        },
+        {
+          "lfn": "/store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/91429315-C6A2-2B4B-81C3-3EF62A53A03F.root",
+          "nevents": 8000
+        },
+        {
+          "lfn": "/store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/CEC39F73-5ED6-9F4A-AEE9-F06CFA5DECDE.root",
+          "nevents": 1000
+        }
+      ],
+      "max_events": 10000,
+      "output_root_sha256": "8b7999db733b3457a61c8db85978d9068b41164247f03b4bc1c319e0a350c964",
+      "processed_events": 10000,
+      "preselected_events": 5976,
+      "event_identity_sha256": "41a0fa83113c5415b862d1c5add905f64088745db4c9645277fba30f0e23fa5c"
+    }
+  ],
+  "source_sha256": {
+    "source/plot_an_cosine_scan.py": "cbe688928123ed1e89b759b6bfa09efbf0cfdd2ef80c09dad48045f26854ab92",
+    "source/plot_sj_tagging_efficiency.py": "2f26ea97d8e81753bbc6411c55afc02331339aea9b553b79a7a8e86404bae0eb",
+    "source/run_scripts/sensitivity/worker.py": "03474befa9421a0e2219ac200ca3a4d0a04d8cd52a5e4955e1b4424f6702c7ca",
+    "source/run_scripts/sensitivity/worker.sh": "720e41ce2b11e027f382a4340261edfde86c47628396a6cb627b56e5e2af0109",
+    "source/sensitivity_jobs.py": "8ad26db64addf6a740da40d338a3dccceb5fa633e9743227c174e7e64e091c53"
+  },
+  "production_workers": "Original compiled CMSSW bundle; higher-mass recovery workers additionally required exact requested event coverage",
+  "regression": {
+    "status": "PASS",
+    "matched_events": 20,
+    "exact_scalar_comparisons": 200,
+    "description": "Fixed AN 0.85 reconstruction, weights, baseline and SR unchanged from frozen release"
+  }
+}

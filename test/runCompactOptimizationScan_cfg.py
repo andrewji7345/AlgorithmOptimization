@@ -92,6 +92,8 @@ options.register(
 )
 options.register("analysisMode", False, VarParsing.multiplicity.singleton,
                  VarParsing.varType.bool, "Apply the calibrated AN-23-067 UL2017 selection")
+options.register("referenceCosThrustCuts", "", VarParsing.multiplicity.singleton,
+                 VarParsing.varType.string, "Optional cosine scan of the AN PAT-AK8/CA8/SJ-CA4 reference")
 options.register("sampleKind", "signal", VarParsing.multiplicity.singleton,
                  VarParsing.varType.string, "signal or background")
 options.register("analysisSystematic", "nominal", VarParsing.multiplicity.singleton,
@@ -157,6 +159,8 @@ process.compactScan = compactOptimizationScanNtuplizer.clone(
     sampleName=cms.string(sample_name),
     sampleKind=cms.string(options.sampleKind),
     analysisMode=cms.bool(options.analysisMode),
+    referenceCosThrustCuts=cms.vdouble(*(parse_csv(options.referenceCosThrustCuts, float, "referenceCosThrustCuts")
+                                       if options.referenceCosThrustCuts.strip() else [])),
     akRadius=cms.double(options.akRadius),
     collectionPtCuts=cms.vdouble(*collection_pt_cuts),
     caRadii=cms.vdouble(*ca_radii),

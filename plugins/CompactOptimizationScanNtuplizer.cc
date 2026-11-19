@@ -145,7 +145,7 @@ private:
                                 const std::vector<std::int8_t> &) const;
   std::vector<std::int8_t> classificationForCut(const CAJetCache &,
                                                 double) const;
-  AssignmentResult reconstructReference(const std::vector<TLorentzVector>&) const;
+  AssignmentResult reconstructReference(const std::vector<TLorentzVector>&, double = 0.85) const;
 
   static bool findThrustAxis(const std::vector<TLorentzVector> &, TVector3 &);
   static bool physicalMass(const TLorentzVector &, double &);
@@ -158,6 +158,10 @@ private:
   std::vector<double> collectionPtCuts_;
   std::vector<double> caRadii_;
   std::vector<double> cosThrustCuts_;
+  std::vector<double> referenceCosThrustCuts_;
+  std::vector<std::uint8_t> referenceScanRecoStatus_, referenceScanRegion_;
+  std::vector<std::uint16_t> referenceScanNAmbiguous_, referenceScanSJ1NCA4E300_, referenceScanSJ2NCA4E300_;
+  std::vector<float> referenceScanSJ1Mass_, referenceScanSJ2Mass_, referenceScanSuuMass_;
   std::vector<unsigned int> configuredGateJetCounts_;
   std::vector<double> defaultGatePtCuts_;
   unsigned int maxAmbiguousCAJets_;
@@ -268,6 +272,13 @@ CompactOptimizationScanNtuplizer::CompactOptimizationScanNtuplizer(
   usesResource(TFileService::kSharedResource);
   analysisMode_ = config.getParameter<bool>("analysisMode");
   sampleKind_ = config.getParameter<std::string>("sampleKind");
+  referenceCosThrustCuts_ = config.getParameter<std::vector<double>>("referenceCosThrustCuts");
+  sortAndUnique(referenceCosThrustCuts_);
+  if (!referenceCosThrustCuts_.empty() && !analysisMode_)
+    throw cms::Exception("Configuration") << "Reference cosine scan requires analysisMode";
+  for (double cut : referenceCosThrustCuts_)
+    if (!std::isfinite(cut) || cut < 0. || cut > 1.)
+      throw cms::Exception("Configuration") << "referenceCosThrustCuts must lie in [0,1]";
   if (sampleKind_ != "signal" && sampleKind_ != "background")
     throw cms::Exception("Configuration") << "sampleKind must be signal or background";
   if (analysisMode_) {
@@ -485,6 +496,17 @@ void CompactOptimizationScanNtuplizer::beginJob() {
   eventsTree_->Branch("akJetPt", &akJetPt_);
   eventsTree_->Branch("nCAJets", &nCAJets_);
   eventsTree_->Branch("recoStatus", &recoStatus_);
+  if (!referenceCosThrustCuts_.empty()) {
+    metadataTree_->Branch("referenceCosThrustCuts", &referenceCosThrustCuts_);
+    eventsTree_->Branch("referenceScanRecoStatus", &referenceScanRecoStatus_);
+    eventsTree_->Branch("referenceScanRegion", &referenceScanRegion_);
+    eventsTree_->Branch("referenceScanNAmbiguous", &referenceScanNAmbiguous_);
+    eventsTree_->Branch("referenceScanSJ1NCA4E300", &referenceScanSJ1NCA4E300_);
+    eventsTree_->Branch("referenceScanSJ2NCA4E300", &referenceScanSJ2NCA4E300_);
+    eventsTree_->Branch("referenceScanSJ1Mass", &referenceScanSJ1Mass_);
+    eventsTree_->Branch("referenceScanSJ2Mass", &referenceScanSJ2Mass_);
+    eventsTree_->Branch("referenceScanSuuMass", &referenceScanSuuMass_);
+  }
   eventsTree_->Branch("nAmbiguous", &nAmbiguous_);
   eventsTree_->Branch("sj1Mass", &sj1Mass_);
   eventsTree_->Branch("sj2Mass", &sj2Mass_);
@@ -859,7 +881,7 @@ CompactOptimizationScanNtuplizer::failure(RecoStatus status,
 }
 
 AssignmentResult CompactOptimizationScanNtuplizer::reconstructReference(
-    const std::vector<TLorentzVector>& particles) const {
+    const std::vector<TLorentzVector>& particles, double cosCut) const {
   if (particles.empty()) return failure(RecoStatus::noSelectedConstituents);
   TLorentzVector total;
   for (const auto& part : particles) total += part;
@@ -901,7 +923,7 @@ AssignmentResult CompactOptimizationScanNtuplizer::reconstructReference(
     const double cosine = std::cos(p.Vect().Angle(axis));
     if (!std::isfinite(cosine)) return failure(RecoStatus::numericalFailure);
     cache.comJets.push_back(p);
-    labels.push_back(cosine > 0.85 ? 1 : cosine < -0.85 ? 2 : 0);
+    labels.push_back(cosine > cosCut ? 1 : cosine < -cosCut ? 2 : 0);
     std::vector<TLorentzVector> keptParts;
     // In the source, 2-4 constituent CA8 jets affect the mass-balancing
     // assignment, but are excluded from final superjet masses and substructure.
@@ -1170,6 +1192,31 @@ void CompactOptimizationScanNtuplizer::analyze(const edm::Event &input,
         true, analysisNBTags_, reference.leadingNCA4E300, reference.subleadingNCA4E300,
         reference.leadingNCA4E50, reference.subleadingNCA4E50,
         reference.leadingMassE100, reference.subleadingMassE100);
+    // This independent scan varies only the source-port cosine boundary. It
+    // starts from the same selected PAT AK8 daughters as the fixed reference;
+    // none of the custom scan's radii or collection pT cuts enters this path.
+    referenceScanRecoStatus_.clear(); referenceScanRegion_.clear();
+    referenceScanNAmbiguous_.clear();
+    referenceScanSJ1NCA4E300_.clear(); referenceScanSJ2NCA4E300_.clear();
+    referenceScanSJ1Mass_.clear(); referenceScanSJ2Mass_.clear(); referenceScanSuuMass_.clear();
+    for (double cut : referenceCosThrustCuts_) {
+      AssignmentResult result;
+      try {
+        result = cut == 0.85 ? reference : reconstructReference(info.referenceConstituents, cut);
+      } catch (const fastjet::Error&) {
+        result = failure(RecoStatus::numericalFailure);
+      }
+      referenceScanRecoStatus_.push_back(static_cast<std::uint8_t>(result.status));
+      referenceScanNAmbiguous_.push_back(result.nAmbiguous);
+      referenceScanSJ1Mass_.push_back(result.leadingPtMass);
+      referenceScanSJ2Mass_.push_back(result.subleadingPtMass);
+      referenceScanSuuMass_.push_back(result.suuMass);
+      referenceScanSJ1NCA4E300_.push_back(result.leadingNCA4E300);
+      referenceScanSJ2NCA4E300_.push_back(result.subleadingNCA4E300);
+      referenceScanRegion_.push_back(an2017::region(passesBaseline_, result.status == RecoStatus::valid,
+          true, analysisNBTags_, result.leadingNCA4E300, result.subleadingNCA4E300,
+          result.leadingNCA4E50, result.subleadingNCA4E50, result.leadingMassE100, result.subleadingMassE100));
+    }
   }
 
   const auto &candidates = input.get(packedPFToken_);
@@ -1287,6 +1334,7 @@ void CompactOptimizationScanNtuplizer::fillDescriptions(
   description.add<edm::InputTag>("generatorInfo", edm::InputTag("generator"));
   description.add<std::string>("sampleName", "unknown");
   description.add<bool>("analysisMode", false);
+  description.add<std::vector<double>>("referenceCosThrustCuts", {});
   description.add<std::string>("sampleKind", "signal");
   edm::ParameterSetDescription analysisDescription;
   analysisDescription.setAllowAnything();

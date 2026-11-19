@@ -1,0 +1,31 @@
+{
+  "status": "complete",
+  "artifact_scope": "Curated portable report; raw ROOT files and runtime logs remain local",
+  "artifacts": {
+    "README.md": "57768702bc64cc283eff866071e5f1c3a5057fd3e71a0601ee5a6b764a516902",
+    "WbWb_4000_1000_mass_shapes_all_cosines.pdf": "a0c66020df4a5ff71f166488f845e73c0014fef7819d7eb25589780dd4927afe",
+    "WbWb_4000_1000_sj_mass_shapes.pdf": "f0a2d0e55b52a90b3f3929a99f6a13ec7132c09dc56e8e784958781e277156fd",
+    "WbWb_4000_1000_sj_mass_shapes.png": "bc9ca20391cec90008841d369ff39073759f8c8ad5f0d4ee92b9482f0f00912d",
+    "WbWb_4000_1000_suu_mass_shapes.pdf": "6283c78ed5f9319750da8d777dbece428ff1a5f8c7a761108bd4ccea40aa6508",
+    "WbWb_4000_1000_suu_mass_shapes.png": "894e538bc3a8f62c31161833251072f368d785aa9f83a156785a999718fb8a79",
+    "WbWb_6000_2000_mass_shapes_all_cosines.pdf": "edac6179af6fc905aa012d31ea8e3f64af4d8ff37d1740b1c0dbc4d6eb2d4055",
+    "WbWb_6000_2000_sj_mass_shapes.pdf": "442c5c26afb904fae3f5ae5c251906c98e509c09012932b65948ba603482cc6f",
+    "WbWb_6000_2000_sj_mass_shapes.png": "3177c96e7b922b2c5afb04d6d0f1e009316fca5f05c8020b2eb2d70f230af305",
+    "WbWb_6000_2000_suu_mass_shapes.pdf": "b2220a0162ecca4cc1ba312cefeb199a63be249153b69899f136f4476ada3c73",
+    "WbWb_6000_2000_suu_mass_shapes.png": "ed8eeafe17d6e84b5d338c61b9526e5874780d463bc5711a815bccfa42c213b0",
+    "WbWb_8000_3000_mass_shapes_all_cosines.pdf": "10f5d673deeb6846255eb2953613aabfca43cd700aa88bb629d883eabe3c9936",
+    "WbWb_8000_3000_sj_mass_shapes.pdf": "96b483dcfcece81ce52ec7f4db57a9f6ad6256fbc6a64367c006bbd916366786",
+    "WbWb_8000_3000_sj_mass_shapes.png": "5fcf9cee58a1448f86b5058d76407aee26042fb468a4bd5c8280cf5a193c283a",
+    "WbWb_8000_3000_suu_mass_shapes.pdf": "626cd5d43ec03535f54a05919cedee3eb85cb87fca1bc2498da6eca3db8b1e6c",
+    "WbWb_8000_3000_suu_mass_shapes.png": "7e441472733ea9aad30c2cbb2b899c81c2003aa660dbbff32e0ed1d274763296",
+    "efficiency.csv": "ac0d5ce73a4b1dbc91bf86db07f764fdf811869d6f5543a94a3e7034109593e7",
+    "efficiency.json": "19469cb59590dca522b02a2ef61cf37f089c3443b481838384f6f55b008f70c5",
+    "mass_histograms.json": "fe5a618538270a6061d033b465d72b4045495961d5a2317ae29b84a3fc01f6a4",
+    "provenance.json": "fbd1aadaf2053c602f5ca511974ac723fb3ef6c14cdb3a6fe02073c553a89be6",
+    "reconstruction_losses_vs_cosine.pdf": "5898feb231b29da7a0fb853fce347ca455740a94d0ce6eba05e398ea82d568d2",
+    "reconstruction_losses_vs_cosine.png": "421510287affe2a09857e2ec99f366fd313d56035c91bd8afd953fc7a60581ac",
+    "sr_efficiency_vs_cosine.pdf": "06d269bc7ac608593011645d3308caecf1f32bc6d2ea3b67ee16e919a623a0a2",
+    "sr_efficiency_vs_cosine.png": "a9fb7d7b89735aa6be32e1f751165908bd325a33d3449befc542b2e92ed3defb",
+    "validation.json": "1642b0f56950d6c024de2808818025ad0fe391a3b7dc1c28748663b321ccace7"
+  }
+}

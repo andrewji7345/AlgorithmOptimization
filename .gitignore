@@ -13,3 +13,22 @@ run_scripts/condor_scans/logs_*/
 
 # Large CMSSW/Condor packages
 run_scripts/condor_scans/*.tgz
+
+# Archived generated artifacts (source scripts/manifests remain versioned)
+/legacy/results/
+/legacy/run_scripts/condor_scans/logs/
+/legacy/run_scripts/condor_scans/logs_*/
+/legacy/run_scripts/condor_scans/*.tgz
+
+# Local ntuples and ROOT-backed test outputs
+*.root
+
+# Adaptive studies and local production bundles
+/sensitivity_runs/
+/sensitivity_bundles/
+/cosine_scan_runs/
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+# Small immutable calibration histograms are source data, not scan outputs.
+!/data/analysis_2017/*.root

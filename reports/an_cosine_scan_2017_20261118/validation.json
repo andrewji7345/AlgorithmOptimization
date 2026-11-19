@@ -1,0 +1,27 @@
+{
+  "unit_tests": {
+    "run": 254,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "focused_checks": 43,
+  "complete_scan": {
+    "samples": 3,
+    "events_per_sample": 10000,
+    "cosine_points": 21,
+    "efficiency_rows": 63
+  },
+  "regeneration": {
+    "efficiency_csv": "byte-for-byte match",
+    "mass_histograms": "exact numerical match",
+    "efficiency_rows": "exact numerical match"
+  },
+  "cpp_source": "Matches the isolated compiled source used by the completed production",
+  "preparation": "Three-job dry run completed without submission",
+  "original_reference_regression": {
+    "matched_events": 20,
+    "exact_scalar_comparisons": 200,
+    "status": "PASS"
+  }
+}

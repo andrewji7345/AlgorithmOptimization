@@ -28,7 +28,7 @@ def main():
         parser.error("Bundle output must be outside the CMSSW release")
     target.parent.mkdir(parents=True, exist_ok=True)
     temporary = target.with_name(target.name + f".{os.getpid()}.tmp")
-    excluded_names = {".git", ".pytest_cache", "__pycache__", "legacy", "tmp", ".SCRAM"}
+    excluded_names = {".git", ".pytest_cache", "__pycache__", "legacy", "reports", "tmp", ".SCRAM"}
     # .SCRAM is necessary for scram ProjectRename/runtime. Exclude only its
     # transient compiler caches, leaving architecture and project metadata.
     excluded_names.remove(".SCRAM")

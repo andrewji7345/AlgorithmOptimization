@@ -961,6 +961,9 @@ def validate_file(args):
         has_observables = bool((_branch_names(metadata) & OBSERVABLE_METADATA_BRANCHES) or
                                (_branch_names(events) & OBSERVABLE_EVENT_BRANCHES))
         expected_metadata = set(METADATA_BRANCHES)
+        has_reference_scan = bool(metadata.GetBranch("referenceCosThrustCuts"))
+        if has_reference_scan:
+            expected_metadata.add("referenceCosThrustCuts")
         if has_observables:
             expected_metadata |= OBSERVABLE_METADATA_BRANCHES
         if metadata.GetBranch("schemaVersion") and metadata.GetEntry(0) > 0:
@@ -969,6 +972,10 @@ def validate_file(args):
         metadata_complete = _check_branch_set(
             metadata, expected_metadata, args.strict_branches, findings)
         expected_events = set(EVENT_BRANCHES)
+        if has_reference_scan:
+            expected_events |= {"referenceScanRecoStatus", "referenceScanRegion", "referenceScanNAmbiguous",
+                "referenceScanSJ1NCA4E300", "referenceScanSJ2NCA4E300", "referenceScanSJ1Mass",
+                "referenceScanSJ2Mass", "referenceScanSuuMass"}
         if has_observables:
             expected_events |= OBSERVABLE_EVENT_BRANCHES
         if metadata_complete and metadata.GetEntry(0) > 0:

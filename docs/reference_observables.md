@@ -1,5 +1,9 @@
 # Reference reconstruction and likelihood observables
 
+The optional [reference cosine scan](an_cosine_scan.md) adds per-cutoff reference
+vectors while preserving the fixed 0.85 scalar reference. Its configuration,
+schema additions and completed signal report are documented separately.
+
 The additive `analysisObservableVersion=1` contract supplements schema 3. Nominal
 hybrid reconstruction and the correction prescription ending in `btagGuard-v3`
 retain their previous meaning. New likelihood comparisons use the separately

@@ -74,6 +74,26 @@ def scan_grid_arguments(grid):
     return {option: ",".join(map(str, grid[name])) for name, option in options.items()}
 
 
+def validate_event_coverage(output, requested_events):
+    """Require complete requested scan coverage before issuing a success receipt."""
+    import ROOT
+    root = ROOT.TFile.Open(str(output), "READ")
+    if not root or root.IsZombie():
+        raise RuntimeError("Cannot read output for event coverage validation")
+    try:
+        events = root.Get("compactScan/Events")
+        metadata = root.Get("compactScan/Metadata")
+        if not events or not metadata or metadata.GetEntries() != 1:
+            raise RuntimeError("Missing event coverage metadata")
+        metadata.GetEntry(0)
+        actual, recorded = int(events.GetEntries()), int(metadata.processedEvents)
+        if actual != recorded or (requested_events > 0 and actual != requested_events):
+            raise RuntimeError(f"Incomplete requested input coverage: {actual} events, "
+                               f"metadata {recorded}, requested {requested_events}")
+    finally:
+        root.Close()
+
+
 def run(task):
     output = Path("output.root")
     if output.exists():
@@ -97,6 +117,14 @@ def run(task):
         for option, value in scan_grid_arguments(task["scan_grid"]).items():
             arguments = [arg for arg in arguments if not arg.startswith(option + "=")]
             arguments.append(option + "=" + value)
+    if "reference_cos_thrust_cuts" in task:
+        cuts = task["reference_cos_thrust_cuts"]
+        if (not isinstance(cuts, list) or not cuts or len(cuts) > 32 or
+                any(isinstance(c, bool) or not isinstance(c, (int, float)) or
+                    not math.isfinite(c) or not 0 <= c <= 1 for c in cuts) or
+                cuts != sorted(set(cuts))):
+            raise RuntimeError("Invalid reference_cos_thrust_cuts")
+        arguments.append("referenceCosThrustCuts=" + ",".join(map(str, cuts)))
     if "analysis_systematic" in task:
         variation = task["analysis_systematic"]
         if variation not in ("nominal", "JECUp", "JECDown", "JERUp", "JERDown"):
@@ -107,6 +135,11 @@ def run(task):
         raise RuntimeError("cmsRun did not produce a nonempty output.root")
     subprocess.run([sys.executable, str(package / "test/validate_compact_scan.py"),
                     "--strict-branches", str(output)], check=True, timeout=600)
+    if "reference_cos_thrust_cuts" in task:
+        subprocess.run([sys.executable, str(package / "test/validate_reference_cosine_scan.py"),
+                        str(output)], check=True, timeout=600)
+    if task.get("require_full_event_coverage", "reference_cos_thrust_cuts" in task):
+        validate_event_coverage(output, task["max_events"])
     receipt(task, True)
 
 

@@ -1,0 +1,69 @@
+{
+  "description": "Nominal UL2017 AN reference cosine scan; representative 10,000-event subsets",
+  "cmssw_release": "CMSSW_15_0_19",
+  "max_events": 10000,
+  "reference_cos_thrust_cuts": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95,
+    1.0
+  ],
+  "samples": [
+    {
+      "name": "WbWb_4000_1000",
+      "input_files": [
+        {
+          "lfn": "/store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-4000_MChi-1000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v1/70000/8A20D274-79E8-9744-BF1E-692746267B49.root",
+          "nevents": 18000
+        }
+      ]
+    },
+    {
+      "name": "WbWb_6000_2000",
+      "input_files": [
+        {
+          "lfn": "/store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/69429727-2C99-9F4A-85E3-E9AFADD090BE.root",
+          "nevents": 1000
+        },
+        {
+          "lfn": "/store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-6000_MChi-2000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/D0EA3E19-64F1-7549-9D17-A0D68E2CCC24.root",
+          "nevents": 9000
+        }
+      ]
+    },
+    {
+      "name": "WbWb_8000_3000",
+      "input_files": [
+        {
+          "lfn": "/store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/01269B83-6B03-684D-9A0B-E070968EC173.root",
+          "nevents": 1000
+        },
+        {
+          "lfn": "/store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/91429315-C6A2-2B4B-81C3-3EF62A53A03F.root",
+          "nevents": 8000
+        },
+        {
+          "lfn": "/store/mc/RunIISummer20UL17MiniAODv2/SuuToChiChiToWBWBToJets_MSuu-8000_MChi-3000_TuneCP5_13TeV-madgraph-pythia8/MINIAODSIM/106X_mc2017_realistic_v9-v2/2550000/CEC39F73-5ED6-9F4A-AEE9-F06CFA5DECDE.root",
+          "nevents": 1000
+        }
+      ]
+    }
+  ]
+}

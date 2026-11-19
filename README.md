@@ -138,6 +138,14 @@ reuse of the existing folds. It preserves the original four-bin results and
 does not resolve missing-background coverage; see the workflow for the statistical
 assumptions and confirmation requirements.
 
+## 5. Scan the AN reference cosine boundary
+
+The [cosine scan workflow](docs/an_cosine_scan.md) varies only the AN reference
+partition threshold over 21 cutoffs. It includes a reusable producer, exact input
+coverage checks, conditional SR efficiencies, and reconstructed mass shapes.
+The [completed three-benchmark report](reports/an_cosine_scan_2017_20261118/README.md)
+contains 10,000 events per sample, final plots, tables, and input provenance.
+
 ## Repository layout
 
 | Path | Purpose |
@@ -153,6 +161,9 @@ assumptions and confirmation requirements.
 | `produce_reference_ntuples.py`, `evaluate_reference.py` | Independent MC folds, reusable grids, reference reconstruction and systematic templates. |
 | `likelihood_model.py`, `combine_runner.py`, `compare_reference_likelihoods.py` | Representative likelihood, blind inference and proxy comparison. |
 | `evaluate_compact_scan_diagnostics.py` | Detailed selected-configuration mass diagnostics. |
+| `run_an_cosine_scan.py`, `plot_an_cosine_scan.py`, `config/an_cosine_scan_2017.json` | Fixed-reference cosine scan production, validation and plots. |
+| `plot_sj_tagging_efficiency.py` | Custom-grid SR efficiency plots and shared count/weight helpers. |
+| `reports/an_cosine_scan_2017_20261118/` | Curated completed cosine study with plots, numerical exports and provenance. |
 | `test/` | ROOT/schema, objective and orchestration tests. |
 | `docs/` | Analysis reference, schema, objective and operational details. |
 | `legacy/` | Historical physicality/retention evaluators, old scripts and results. |
@@ -161,7 +172,8 @@ The grouped raw ntuplizer and its old Condor scripts remain available for
 reconstruction studies with arbitrary AK radii. See the
 [format and reconstruction guide](docs/compact_optimization_scan.md) and
 [legacy index](legacy/README.md). Existing results remain historical artifacts.
-Generated ntuples, plots, logs, study databases and bundles are ignored by Git;
+Generated ntuples, ordinary results, logs, study databases and bundles are ignored by Git;
+the curated dated report under `reports/` is intentionally versioned, and
 calibration ROOT files under `data/analysis_2017/` are source inputs.
 
 ## Checks
